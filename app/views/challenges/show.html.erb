@@ -1,2 +1,44 @@
-<h1>Challenges#show</h1>
-<p>Find me in app/views/challenges/show.html.erb</p>
+<div class="container">
+  <div class="card">
+    <strong><%= @challenge.name %></strong>
+    <p>
+      <%= @challenge.user.username %>
+    </p>
+    <p>
+      <%= @challenge.artworks.count %> contributors
+    </p>
+    <p>
+      <%= @challenge.description %>
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Creations</h1>
+  <% @artworks.each do |artwork| %>
+    <div class="card" style="width: 18rem;" data-toggle="modal" data-target="#artworkDetails">
+      <%= image_tag asset_path('6.jpeg') %>
+      <div class="card-body">
+        <h5 class="card-title"><%= artwork.title %></h5>
+        <p class="card-text"><%= artwork.description %></p>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <%= image_tag asset_path('6.jpeg') %>
+          <div class="modal-body">
+            <%= artwork.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

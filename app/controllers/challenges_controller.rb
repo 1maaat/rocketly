@@ -11,7 +11,7 @@ class ChallengesController < ApplicationController
     @artworks = @challenge.artworks
   end
 
- def create
+  def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
     authorize @challenge
@@ -33,8 +33,6 @@ class ChallengesController < ApplicationController
     params.require(:challenge)
           .permit(:name, :description, :reward, :status, :start_date, :end_date, :photo)
   end
-
-  private
 
   def set_challenge
     @challenge = Challenge.find(params[:id])
