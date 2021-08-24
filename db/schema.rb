@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_131847) do
+ActiveRecord::Schema.define(version: 2021_08_24_134608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_131847) do
   create_table "artworks", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "selected"
+    t.boolean "selected"
     t.integer "rank"
     t.bigint "challenge_id", null: false
     t.bigint "user_id", null: false

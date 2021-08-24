@@ -9,10 +9,12 @@ class ArtworksController < ApplicationController
 
   def new
     @artwork = Artwork.new
+    authorize @artwork
   end
 
   def create
     @artwork = Artwork.new(artwork_params)
+    authorize @artwork
     @artwork.user = current_user
     @challenge = Challenge.find(params[:challenge_id])
     @artwork.challenge = @challenge
@@ -31,6 +33,6 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params.require(:artwork).permit(:title, :description, :selected, :rank)
+    params.require(:artwork).permit(:title, :description, :selected, :rank, files: [])
   end
 end
