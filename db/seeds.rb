@@ -23,7 +23,6 @@ User.create!(
   username: "Rocketly",
   password: "password",
   description: Faker::TvShows::HowIMetYourMother.quote,
-  activity_field: Activity::ACTIVITY.sample(rand(1..5)),
   country: "France",
   website_url: "rocketly.cool"
 )
@@ -34,11 +33,22 @@ User.create!(
     username: Faker::Name.unique.first_name,
     password: "password",
     description: Faker::TvShows::HowIMetYourMother.quote,
-    activity_field: Activity::ACTIVITY.sample,
     country: Faker::Address.country,
     website_url: Faker::Internet.domain_name
   )
   user.save!
+end
+
+Activity::ACTIVITY.each do |activity|
+  Activity.create!(name: activity)
+end
+
+50.times do
+  user_activity = UserActivity.new(
+    user_id: User.all.sample.id,
+    activity_id: Activity.all.sample.id
+  )
+  user_activity.save!
 end
 
 CHALLENGES = ["Create my new Chatroom Emojis", "Create my new Youtube cover", "Design my new Sneakers", "I need a new Logo", "Next Album cover design", "New graphic design for next stream"]

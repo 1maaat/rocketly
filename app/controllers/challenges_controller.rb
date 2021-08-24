@@ -3,7 +3,8 @@ class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show]
 
   def index
-    @challenges = Challenge.all
+    @challenges = policy_scope(Challenge)
+
   end
 
   def show

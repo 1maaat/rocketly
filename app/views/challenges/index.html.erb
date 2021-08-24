@@ -1,7 +1,13 @@
 <h1>Challenges</h1>
-<p><%= @challenge.name %></p>
-<p><%= @challenge.description %></p>
-<p><%= @challenge.reward %></p>
-<p><%= @challenge.start_date %></p>
-<p><%= @challenge.end_date %></p>
-<p><%= @challenge.status %></p>
+<div class="card mb-3 p-3">
+  <div class="card-body">
+    <% @challenges.each do |challenge| %>
+      <p><%= challenge.name %></p>
+      <p><%= challenge.description %></p>
+      <p><%= challenge.reward %></p>
+      <p><%= challenge.start_date %></p>
+      <p><%= challenge.end_date %></p>
+      <p><%= challenge.status %></p>
+    <% end %>
+  </div>
+</div>

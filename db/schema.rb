@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 2021_08_24_131847) do
     t.string "artstation_url"
     t.string "behance_url"
     t.string "country"
-    t.string "activity_field"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
