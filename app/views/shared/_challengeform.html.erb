@@ -1,0 +1,11 @@
+
+  <%= simple_form_for [ @challenge ] do |f| %>
+    <%= f.input :name, label: "Name of the Challenge" %>
+    <%= f.input :description, label: "Tell us about this challenge" %>
+    <%= f.input :reward, label: "What challengers would win?", hint: "placeholder" %>
+    <%= f.input :start_date, hint: 'placeholder' %>
+    <%= f.input :end_date, label: "placeholder" %>
+    <%= f.input :status, label: "placeholder" %>
+    <%= f.submit "Submit challenge" %>
+    </div>
+  <% end %>
