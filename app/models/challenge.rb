@@ -1,6 +1,6 @@
 class Challenge < ApplicationRecord
   belongs_to :user
-  has_many :artworks
+  has_many :artworks, dependent: :destroy
 
   enum status: {
     draft: 0,

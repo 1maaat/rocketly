@@ -9,6 +9,8 @@ require "faker"
 
 puts "Cleaning database..."
 
+Activity.destroy_all
+UserActivity.destroy_all
 User.destroy_all
 Challenge.destroy_all
 Artwork.destroy_all
@@ -21,7 +23,7 @@ User.create!(
   username: "Rocketly",
   password: "password",
   description: Faker::TvShows::HowIMetYourMother.quote,
-  activity_field: User::ACTIVITY.sample(rand(1..5)),
+  activity_field: Activity::ACTIVITY.sample(rand(1..5)),
   country: "France",
   website_url: "rocketly.cool"
 )
@@ -32,7 +34,7 @@ User.create!(
     username: Faker::Name.unique.first_name,
     password: "password",
     description: Faker::TvShows::HowIMetYourMother.quote,
-    activity_field: User::ACTIVITY.sample,
+    activity_field: Activity::ACTIVITY.sample,
     country: Faker::Address.country,
     website_url: Faker::Internet.domain_name
   )
@@ -66,7 +68,7 @@ puts "Creating 100 Artworks"
     description: Faker::JapaneseMedia::OnePiece.quote,
     selected: false,
     user_id: User.all.sample.id,
-    challenge_id: User.all.sample.id,
+    challenge_id: Challenge.all.sample.id,
   )
   artwork.save!
 end
