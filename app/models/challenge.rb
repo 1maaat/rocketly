@@ -1,6 +1,9 @@
 class Challenge < ApplicationRecord
   belongs_to :user
   has_many :artworks, dependent: :destroy
+  has_one_attached :photo
+
+  STATUS = ["draft", "in progress", "vote", "ended"]
 
   validates :name, presence: true
   validates :description, presence: true

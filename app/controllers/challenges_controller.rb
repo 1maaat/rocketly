@@ -3,7 +3,8 @@ class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show]
 
   def index
-    @challenges = Challenge.all
+    @challenges = policy_scope(Challenge)
+
   end
 
   def show
@@ -30,7 +31,7 @@ class ChallengesController < ApplicationController
 
   def challenge_params
     params.require(:challenge)
-          .permit(:name, :description, :reward, :status)
+          .permit(:name, :description, :reward, :status, :start_date, :end_date, :photo)
   end
 
   private
