@@ -30,7 +30,7 @@ class ChallengesController < ApplicationController
 
   def challenge_params
     params.require(:challenge)
-          .permit(:name, :description, :reward, :status)
+          .permit(:name, :description, :reward, :status, :photo)
   end
 
   private
