@@ -9,6 +9,7 @@ class ChallengesController < ApplicationController
 
   def show
     @artworks = @challenge.artworks
+    @artwork = Artwork.new
   end
 
   def create
