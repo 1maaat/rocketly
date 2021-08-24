@@ -2,10 +2,10 @@
   <%= simple_form_for [ @challenge ] do |f| %>
     <%= f.input :name, label: "Name of the Challenge" %>
     <%= f.input :description, label: "Tell us about this challenge" %>
-    <%= f.input :reward, label: "What challengers would win?", hint: "placeholder" %>
-    <%= f.input :start_date, hint: 'placeholder' %>
-    <%= f.input :end_date, label: "placeholder" %>
-    <%= f.input :status, label: "placeholder" %>
+    <%= f.input :reward, label: "What are the prizes?", hint: "Tell challengers if it's cash or other perks" %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date, hint: "Three weeks is the average challenge duration on Rocketly" %>
+    <%= f.input :status, hint: "We recommend drafting your challenge first and then putting it live the day it starts" %>
     <%= f.submit "Submit challenge" %>
     </div>
   <% end %>
