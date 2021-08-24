@@ -1,4 +1,4 @@
-class ChallengePolicy < ApplicationPolicy
+class ArtworkPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -9,7 +9,7 @@ class ChallengePolicy < ApplicationPolicy
     true
   end
 
-  def show?
-    true
+  def new?
+    create?
   end
 end
