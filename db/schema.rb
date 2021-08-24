@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_152050) do
   create_table "artworks", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "selected"
+    t.boolean "selected"
     t.integer "rank"
     t.bigint "challenge_id", null: false
     t.bigint "user_id", null: false

@@ -3,7 +3,7 @@ class CreateArtworks < ActiveRecord::Migration[6.0]
     create_table :artworks do |t|
       t.string :title
       t.text :description
-      t.string :selected
+      t.boolean :selected
       t.integer :rank
       t.references :challenge, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
