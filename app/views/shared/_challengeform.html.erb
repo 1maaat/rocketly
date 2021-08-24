@@ -5,7 +5,6 @@
     <%= f.input :reward, label: "What are the prizes?", hint: "Tell challengers if it's cash or other perks" %>
     <%= f.input :start_date %>
     <%= f.input :end_date, hint: "Three weeks is the average challenge duration on Rocketly" %>
-    <%= f.input :status, as: :select, collection: Challenge::STATUS, hint: "We recommend drafting your challenge first and then putting it live the day it starts" %>
     <%= f.input :photo, as: :file, label: "Illustrate your challenge", hint: "Be sharp! ⚡️" %>
     <%= f.submit "Submit challenge" %>
     </div>

@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_131847) do
     t.string "reward"
     t.date "start_date"
     t.date "end_date"
-    t.string "status"
+    t.integer "status"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
