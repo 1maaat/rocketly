@@ -8,8 +8,9 @@ class Challenge < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   enum status: {
-    Pending: 0,
-    Accepted: 1,
-    Declined: 2
+    draft: 0,
+    in_progress: 1,
+    vote: 2,
+    ended: 3
   }, _prefix: true
 end

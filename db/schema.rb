@@ -10,15 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_152050) do
+ActiveRecord::Schema.define(version: 2021_08_24_103416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "artworks", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "selected"
+    t.boolean "selected"
     t.integer "rank"
     t.bigint "challenge_id", null: false
     t.bigint "user_id", null: false
@@ -39,6 +45,13 @@ ActiveRecord::Schema.define(version: 2021_08_23_152050) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_challenges_on_user_id"
+  end
+
+  create_table "user_activities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "activity_id", null: false
+    t.index ["activity_id"], name: "index_user_activities_on_activity_id"
+    t.index ["user_id"], name: "index_user_activities_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,4 +82,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_152050) do
   add_foreign_key "artworks", "challenges"
   add_foreign_key "artworks", "users"
   add_foreign_key "challenges", "users"
+  add_foreign_key "user_activities", "activities"
+  add_foreign_key "user_activities", "users"
 end
