@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_131847) do
   create_table "artworks", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "selected"
+    t.boolean "selected"
     t.integer "rank"
     t.bigint "challenge_id", null: false
     t.bigint "user_id", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_131847) do
     t.string "reward"
     t.date "start_date"
     t.date "end_date"
-    t.string "status"
+    t.integer "status"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
