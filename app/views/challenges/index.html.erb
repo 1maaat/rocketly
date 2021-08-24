@@ -1,17 +1,19 @@
 <h1>Challenges</h1>
 <div class="container">
-    <% @challenges.each do |challenge| %>
+  <% @challenges.each do |challenge| %>
     <div class="card">
-      <div class="card-header">
-        <p><%= challenge.name %></p>
+      <%= link_to challenge_path(challenge), style: "text-decoration: none" do %>
+        <div class="card-header">
+          <p><%= challenge.name %></p>
         </div>
-          <div class="card-body">
-            <p><%= challenge.description %></p>
-            <p><%= challenge.reward %></p>
-            <p><%= challenge.start_date %></p>
-            <p><%= challenge.end_date %></p>
-            <p><%= challenge.status %></p>
+        <div class="card-body">
+          <p><%= challenge.description %></p>
+          <p><%= challenge.reward %></p>
+          <p><%= challenge.start_date %></p>
+          <p><%= challenge.end_date %></p>
+          <p><%= challenge.status %></p>
         </div>
+      <% end %>
     </div>
   <% end %>
 </div>
