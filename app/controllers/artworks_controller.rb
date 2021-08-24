@@ -1,10 +1,13 @@
 class ArtworksController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_challenge, only: [:new]
 
   def index
+    @artworks = policy_scope(Artwork)
   end
 
   def show
+    skip_authorization
   end
 
   def new
