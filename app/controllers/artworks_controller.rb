@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-  before_action :set_challenge, only: [:new]
+  before_action :set_challenge, only: [:new, :create]
 
   def index
   end
@@ -16,13 +16,12 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new(artwork_params)
     authorize @artwork
     @artwork.user = current_user
-    @challenge = Challenge.find(params[:challenge_id])
-    @artwork.challenge = @challenge
+    @artwork.challenge = Challenge.find(params[:challenge_id])
     if @artwork.save
-      flash[:notice] = "Artwork created and published to the #{@challenge.name} !"
+      flash[:notice] = "Artwork created and published to the challenge #{@artwork.challenge.name} !"
       redirect_to challenge_path(@challenge)
     else
-      redirect_to challenge_path(@challenge)
+      render :new
     end
   end
 
