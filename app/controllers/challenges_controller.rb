@@ -4,7 +4,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = policy_scope(Challenge)
-
+    # skip_authorization
   end
 
   def show
@@ -15,6 +15,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
     authorize @challenge
+
     if @challenge.save
       redirect_to challenge_path(@challenge)
     else
