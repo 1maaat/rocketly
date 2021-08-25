@@ -1,3 +1,23 @@
+.wrapper-main {
+ display: flex;
+
+}
+
+.fixed-item-left {
+  text-align: left;
+  background-color: black;
+  font-size: 3px;
+  color: white;
+  z-index: 10;
+}
+
+.fixed-item-right {
+  text-align: right;
+  background-color: black;
+  color: white;
+  z-index: 10;
+}
+
 * { box-sizing: border-box; }
 $duration: 20s;
 
@@ -19,36 +39,33 @@ $duration: 20s;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     visibility: visible;
-    z-index: 1;
   }
 
   100% {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
-    z-index: 1;
   }
 }
 
 .ticker-wrap {
 
-  position: fixed;
-  bottom: 0;
   width: 100%;
   overflow: hidden;
   height: 4rem;
   background-color: transparent;
   padding-left: 100%;
   box-sizing: content-box;
-  z-index: 1;
+  z-index: -100;
 
   .ticker {
 // modify padding-right to let blank space after it has unrolled all content
     display: inline-block;
-    height: 4rem;
-    line-height: 4rem;
+    height: 3rem;
+    line-height: 3rem;
     white-space: nowrap;
     padding-right: 1%;
     box-sizing: content-box;
+
 
     -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
@@ -68,11 +85,6 @@ $duration: 20s;
       color: black;
       background-color: #e0dee6;
       border-radius: 20px;
-      padding-top: 3px;
-      padding-bottom: 3px;
-      padding-left: 20px;
-      padding-right: 20px;
-      z-index: 1;
 
     }
 
@@ -81,9 +93,3 @@ $duration: 20s;
 
 body { padding-bottom: 5rem; }
 h1,h2,p {padding: 0 5%;}
-
-.fixed-item {
-  position: fixed;
-  bottom: 0;
-  z-index: 5;
-}
