@@ -5,5 +5,6 @@ class Artwork < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :files, presence: true
+
+  # validates :files, presence: true
 end

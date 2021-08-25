@@ -12,4 +12,8 @@ class ChallengePolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def selected?
+    true
+  end
 end
