@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_challenge, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_challenge, only: %i[new create]
 
   def index
     @artworks = policy_scope(Artwork)
@@ -24,7 +24,7 @@ class ArtworksController < ApplicationController
       flash[:notice] = "Artwork created and published to the challenge #{@artwork.challenge.name} !"
       redirect_to challenge_path(@challenge)
     else
-      render :new
+      redirect_to challenge_path(@challenge)
     end
   end
 

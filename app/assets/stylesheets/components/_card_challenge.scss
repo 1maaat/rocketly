@@ -1,0 +1,123 @@
+
+
+// body{
+//   justify-content: center;
+//   align-items: center;
+//   min-height: 100vh;
+//   background: #131313;
+// }
+
+// .big{
+//   display: flex;
+// }
+
+.big{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 30px;
+  flex-grow: 1;
+}
+
+.big .card{
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background: rgba(35, 35, 35, 1);
+  border-radius: 20px;
+  overflow: hidden;
+  border: transparent;
+}
+
+.big .card:hover{
+  height: 100%;
+}
+
+.big .card:after{
+  position: absolute;
+  top: 30%;
+  left: -20%;
+  font-size: 12em;
+  font-weight: 800;
+  color: rgba(255,255,25,0.05)
+}
+
+.big .card .imgBx{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  width: 100%;
+  height: 220px;
+  transition: 0.7s;
+}
+
+
+.big .card .imgBx img{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.big .card .contentBx{
+  position: absolute;
+  bottom: 0;
+  height: 210px;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 25px;
+  opacity: 0.7;
+}
+
+.big .card:hover .contentBx{
+  height: 200px;
+  background-color: transparent;
+}
+
+.big .card .contentBx h2{
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+  font-size: 25px;
+  margin-bottom: 2px;
+  opacity: 1;
+}
+
+.big .card .contentBx .size, .container .card .contentBx .color {
+  justify-content: center;
+  align-items: center;
+  transition: 0.7s;opacity: 0;
+  visibility: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: white;
+  padding-top: 2px;
+}
+
+.big .card:hover .contentBx .size{
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.4s;
+
+}
+
+.big .card:hover .contentBx .color{
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.4s;
+
+}
+
+.big .card .contentBx .size h3, .container .card .contentBx .color h3{
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
