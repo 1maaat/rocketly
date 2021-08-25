@@ -1,8 +1,34 @@
-<%= simple_form_for [ @challenge, @artwork ] do |f| %>
-  <%= f.input :title, label: "Title of your Artwork" %>
-  <%= f.input :description, label: "Tell us more" %>
-  <div id="div_photo">
-    <%= f.input :files, as: :file, input_html: {multiple: true}, label: "Upload your files" %>
-    <%= f.button :submit, "Submit Artwork", class: "btn_login2" %>
+<!-- multistep form -->
+<form id="msform">
+  <!--fieldsets-->
+  <div class="step step-1 index stepactive">
+    <div class="form-group">
+      <h1>Artwork informations</h1>
+      <%= simple_form_for [ @challenge, @artwork ] do |f| %>
+        <%= f.input :title, placeholder: "Choose a title for your Artwork" %>
+        <%= f.input :description, placeholder: "Tell us more about your Artwork" %>
+        <%= f.button :button, "Next", class: "next-btn" %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+
+  <div class="step step-2 index">
+    <div class="form-group">
+      <h1>Artwork Upload</h1>
+      <%= simple_form_for [ @challenge, @artwork] do |f| %>
+        <div id="div_photo">
+          <%= f.input :files, as: :file, input_html: {class: 'd-none'}, label_html: { class: 'upload-files'}, label: "Upload files" %>
+          <%= f.button :button, "Previous", class: "previous-btn"  %>
+          <%= f.button :submit, "Create Artwork", class: "submit-btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="step step-3 index">
+    <div class="form-group">
+      <h1>Share your Artwork</h1>
+    </div>
+  </div>
+
+</form>
