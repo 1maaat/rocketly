@@ -7,6 +7,10 @@
   backdrop-filter: blur(10px);
   background-color: rgba($color: #2A2638, $alpha: 0.7);
   box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
+  transition: 1s;
+  &:hover {
+    box-shadow: 1px 0 60px rgba($color: $buttonpurple, $alpha: 0.4);
+  }
 }
 #links-description-user {
   height: 400px;
@@ -19,6 +23,10 @@
   background-color: rgba($color: #2A2638, $alpha: 0.7);
   box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
   text-align: left;
+  transition: 1s;
+  &:hover {
+    box-shadow: 1px 0 60px rgba($color: $buttonpurple, $alpha: 0.4);
+  }
 }
 #description-user p{
   font-size: 18px;
