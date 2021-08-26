@@ -11,6 +11,32 @@
 //   display: flex;
 // }
 
+.status-index{
+  border: 1px solid #C3C3C3;
+  border-radius: 25px;
+  padding: 5px 15px;
+  text-align: center;
+  width: fit-content;
+  color: #C3C3C3;
+  font-weight: lighter;
+  transition: 0.1s;
+}
+
+.reward{
+  border: 1px solid #C3C3C3;
+  border-radius: 25px;
+  padding: 5px 15px;
+  text-align: center;
+  width: fit-content;
+  color: #C3C3C3;
+  font-weight: lighter;
+  margin-left: 20px;
+}
+.info-challenge{
+// justify-content: space-evenly;
+}
+
+
 .big{
   position: relative;
   display: grid;
@@ -85,7 +111,7 @@
   letter-spacing: 1px;
   color: #fff;
   margin: 0;
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 2px;
   opacity: 1;
 }
@@ -93,7 +119,7 @@
 .big .card .contentBx .size, .container .card .contentBx .color {
   justify-content: center;
   align-items: center;
-  transition: 0.7s;opacity: 0;
+  transition: 1s;opacity: 0;
   visibility: hidden;
   padding-top: 0;
   padding-bottom: 0;
@@ -104,16 +130,10 @@
 .big .card:hover .contentBx .size{
   opacity: 1;
   visibility: visible;
-  transition-delay: 0.4s;
+  transition-delay: 0.1s;
 
 }
 
-.big .card:hover .contentBx .color{
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0.4s;
-
-}
 
 .big .card .contentBx .size h3, .container .card .contentBx .color h3{
   font-weight: 300;
