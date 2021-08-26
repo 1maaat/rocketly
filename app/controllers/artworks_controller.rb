@@ -23,7 +23,7 @@ class ArtworksController < ApplicationController
 
     if @artwork.save
       flash[:notice] = "Artwork created and published to the challenge #{@artwork.challenge.name} !"
-      redirect_to challenge_path(@challenge)
+      redirect_to challenge_path(@challenge, artwork: 'created')
     else
       flash[:notice] = "Artwork not created... remember to fill in all the fiels !"
       redirect_to challenge_path(@challenge)

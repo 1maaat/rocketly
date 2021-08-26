@@ -19,14 +19,21 @@
               <%= image_tag "", width: 300, class: "hidden", id: "files-preview" %>
             </div>
             <%= f.button :button, "Previous", class: "previous-btn"  %>
-            <%= f.submit "Create Artwork", class: "submit-btn" %>
+            <%= f.submit "Create Artwork", class: "submit-btn", remote: true %>
           </div>
       </div>
     </div>
+    <% if artwork.created_at? %>
+      <div class="step step-3 index">
+        <div class="form-group">
+          <h1>Share your Artwork</h1>
+          <p>Hello</p>
+        </div>
+      </div>
+    <% end %>
+
   <% end %>
 
-  <div class="step step-3 index">
-    <div class="form-group">
-      <h1>Share your Artwork</h1>
-    </div>
-  </div>
+<%# si l'artwork est bien save, alors je redirect to cette page, avec une information spécifique dans l'url %>
+<%# fais un bloc de JS sur cette page, qui se load au rechargement, et si il trouve 'artwork created', alors il pop up la modal step 3 %>
+<% console %>
