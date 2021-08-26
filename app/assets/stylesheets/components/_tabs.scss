@@ -15,21 +15,21 @@
 
 .nav-tabs .nav-link {
     border: none !important;
-    background-color: $buttonpurplelight;
+    background-color: $rocketbutton_hover;
     border-radius: 50px;
     color: $rocketwhite;
     padding: 15px;
     padding-left: 70px;
     padding-right: 70px;
     transition: 0.2s;
-    box-shadow: 1px 0 90px rgba($color: $buttonpurple, $alpha: 0.1);
+    box-shadow: 1px 0 90px rgba($color: $rocketbutton, $alpha: 0.1);
   &:hover {
-    background-color: $buttonpurple;
+    background-color: $rocketbutton;
   }
 }
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
     color: $rocketwhite;
-    background-color: $buttonpurple;
-    box-shadow: 1px 0 90px rgba($color: $buttonpurple, $alpha: 0.4);
+    background-color: $rocketbutton;
+    box-shadow: 1px 0 90px rgba($color: $rocketbutton, $alpha: 0.4);
     // border-color: #dee2e6 #dee2e6 #0A0619;
 }
