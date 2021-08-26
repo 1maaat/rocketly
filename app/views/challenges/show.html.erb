@@ -1,85 +1,90 @@
-<div class="container">
-  <div class="card">
-    <strong><%= @challenge.name %></strong>
-    <p>
+<div class="container d-flex">
+  <div class="card-creator-details">
+    <div class="d-flex justify-content-between" id="user-prez">
+      <% if @challenge.photo.attached? %>
+        <%= cl_image_tag @challenge.photo.key, height:170 %>
+      <% end %>
       <%= @challenge.user.username %>
-    </p>
-    <p>
-      <%= @challenge.artworks.count %> contributors
-    </p>
-    <p>
-      <%= @challenge.description %>
-    </p>
-  </div>
-  <button type="button" data-toggle="modal" data-target="#addArtwork">
-    Add an Artwork
-  </button>
-</div>
-
-<!-- Add Artwork Modal -->
-<div class="modal fade" id="addArtwork" tabindex="-1" aria-labelledby="addArtworkLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addArtworkLabel">💥 Share your artwork 💥 </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <%= @challenge.user.country %>
+    </div>
+    <div class="d-flex" id="user-info">
+      <div class="tags">
+        <% @challenge.user.user_activities.each do |user_activity| %>
+          <a href="#"><%= user_activity.activity.name %></a>
+        <% end %>
       </div>
-      <div class="container">
-        <%= render 'shared/artworkform', artwork: @artwork %>
+      <div id="user-description">
+        <%= @challenge.user.description %>
       </div>
     </div>
+    <div id="social-media">
+      <ul class="list-inline">
+        <%= render 'shared/socialmedia' %>
+      </ul>
+    </div>
   </div>
-</div>
+  <div id="cards-challenge">
+    <div class="card-challenge-details">
+      <%= @challenge.name %>
+      <%= @challenge.description %>
+      <%= @challenge.reward %>
+      <h2><strong><%= @challenge.name %></strong></h2>
+      <p><%= @challenge.description %></p>
+      <p>Reward : <%= @challenge.reward %></p>
+      <p>Status : <%= @challenge.status %></p>
+      <p><%=@artworks.count %> contributors</p>
+      <label for="challenge-progression">Days remaining :</label>
+      <progress id="challenge-progression" max="100" value="70"> 70% </progress>
+    </div>
+    <div class="card-artworks-list">
+      <p>Contributions</p>
+      <section class="card-list">
+        <% @artworks.each do |artwork| %>
+          <article class="card" data-toggle="modal" data-target="#artworkDetails">
+            <header class="card-header">
+              <p>Sep 11th 2020</p>
+              <h2><%= artwork.title %></h2>
+            </header>
+            <%= image_tag asset_path('6.jpeg'), id: "artwork" %>
+            <div class="card-author">
+              <a class="author-avatar" href="#">
+                <%= image_tag asset_path('avatar.png') %>
+              </a>
+              <svg class="half-circle" viewBox="0 0 106 57">
+                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+              </svg>
 
-<div class="container">
-  <h1>Creations</h1>
-    <section class="card-list">
-      <% @artworks.each do |artwork| %>
-        <article class="card" data-toggle="modal" data-target="#artworkDetails">
-          <header class="card-header">
-            <p>Sep 11th 2020</p>
-            <h2><%= artwork.title %></h2>
-          </header>
-          <%= image_tag asset_path('6.jpeg'), id: "artwork" %>
-          <div class="card-author">
-            <a class="author-avatar" href="#">
-              <%= image_tag asset_path('avatar.png') %>
-            </a>
-            <svg class="half-circle" viewBox="0 0 106 57">
-              <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-            </svg>
-
-            <div class="author-name">
-              <div class="author-name-prefix">Author</div>
-              <%= artwork.user.username %>
-              <%= artwork.description %>
-            </div>
-          </div>
-          <div class="tags">
-            <% artwork.user.user_activities.first(3).each do |user_activity| %>
-              <a href="#"><%= user_activity.activity.name %></a>
-            <% end %>
-          </div>
-        </article>
-        <!-- Artwork Details Modal -->
-        <div class="modal fade" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <%= image_tag asset_path('6.jpeg') %>
-              <div class="modal-body">
+              <div class="author-name">
+                <div class="author-name-prefix">Author</div>
+                <%= artwork.user.username %>
                 <%= artwork.description %>
               </div>
             </div>
+            <div class="tags">
+              <% artwork.user.user_activities.first(3).each do |user_activity| %>
+                <a href="#"><%= user_activity.activity.name %></a>
+              <% end %>
+            </div>
+          </article>
+          <!-- Artwork Details Modal -->
+          <div class="modal fade" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <%= image_tag asset_path('6.jpeg') %>
+                <div class="modal-body">
+                  <%= artwork.description %>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </section>
+        <% end %>
+      </section>
+    </div>
+  </div>
 </div>
