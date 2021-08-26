@@ -1,8 +1,38 @@
-<%= simple_form_for [ @challenge, @artwork ] do |f| %>
-  <%= f.input :title, label: "Title of your Artwork" %>
-  <%= f.input :description, label: "Tell us more" %>
-  <div id="div_photo">
-    <%= f.input :files, as: :file, input_html: {multiple: true}, label: "Upload your files" %>
-    <%= f.button :submit, "Submit Artwork", class: "btn_login2" %>
-  </div>
-<% end %>
+<!-- multistep form -->
+  <!--fieldsets-->
+  <%= simple_form_for [ challenge, artwork ] do |f| %>
+    <div class="step step-1 index stepactive">
+      <div class="form-group">
+      <h1>Artwork informations</h1>
+          <%= f.input :title, placeholder: "Choose a title for your Artwork" %>
+          <%= f.input :description, placeholder: "Tell us more about your Artwork" %>
+          <%= f.button :button, "Next", class: "next-btn" %>
+      </div>
+    </div>
+
+    <div class="step step-2 index">
+      <div class="form-group">
+        <h1>Artwork Upload</h1>
+          <div id="div_photo">
+            <%= f.input :files, as: :file, input_html: { class: 'd-none', id: 'files-input'}, label_html: { class: 'upload-files'}, label: "Upload files" %>
+            <div id="photo-preview">
+              <%= image_tag "", width: 300, class: "hidden", id: "files-preview" %>
+            </div>
+            <%= f.button :button, "Previous", class: "previous-btn"  %>
+            <%= f.submit "Create Artwork", class: "submit-btn", remote: true %>
+          </div>
+      </div>
+    </div>
+    <% if artwork.created_at? %>
+      <div class="step step-3 index">
+        <div class="form-group">
+          <h1>Share your Artwork</h1>
+          <p>Hello</p>
+        </div>
+      </div>
+    <% end %>
+
+  <% end %>
+
+<%# si l'artwork est bien save, alors je redirect to cette page, avec une information spécifique dans l'url %>
+<%# fais un bloc de JS sur cette page, qui se load au rechargement, et si il trouve 'artwork created', alors il pop up la modal step 3 %>

@@ -1,0 +1,8 @@
+<h2>My Artworks page</h2>
+
+<div>
+  <% @artworks.each do |artwork| %>
+    <strong><%= artwork.title %></strong>
+    <%= artwork.description %>
+  <% end %>
+</div>

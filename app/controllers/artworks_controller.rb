@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_challenge, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_challenge, only: %i[new create]
 
   def index
     @artworks = policy_scope(Artwork)
@@ -20,11 +20,13 @@ class ArtworksController < ApplicationController
     authorize @artwork
     @artwork.user = current_user
     @artwork.challenge = Challenge.find(params[:challenge_id])
+
     if @artwork.save
       flash[:notice] = "Artwork created and published to the challenge #{@artwork.challenge.name} !"
-      redirect_to challenge_path(@challenge)
+      redirect_to challenge_path(@challenge, artwork: 'created')
     else
-      render :new
+      flash[:notice] = "Artwork not created... remember to fill in all the fiels !"
+      redirect_to challenge_path(@challenge)
     end
   end
 

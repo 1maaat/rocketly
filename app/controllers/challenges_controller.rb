@@ -1,10 +1,14 @@
 class ChallengesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_challenge, only: [:show]
+  before_action :set_challenge, only: [:show, :selected]
 
   def index
     @challenges = policy_scope(Challenge)
+    @challenges = @challenges.sort_by{|c| c.status}
     # skip_authorization
+    if params[:filter]
+      @challenges = @challenges.where(status: params[:filter])
+    end
   end
 
   def show
@@ -29,11 +33,18 @@ class ChallengesController < ApplicationController
     authorize @challenge
   end
 
+  def selected
+    params["artworks"].each do |artwork_id|
+      Artwork.find(artwork_id.to_i).update(selected: true)
+    end
+    redirect_to challenges_path
+  end
+
   private
 
   def challenge_params
     params.require(:challenge)
-          .permit(:name, :description, :reward, :status, :start_date, :end_date, :photo)
+      .permit(:name, :description, :reward, :status, :start_date, :end_date, :photo)
   end
 
   def set_challenge

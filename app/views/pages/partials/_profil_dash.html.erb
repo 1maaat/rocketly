@@ -1,0 +1,36 @@
+
+<div id="avatar-username-user">
+  <h2>My Profil Page</h2>
+  <div id="avatar-user">
+
+  </div>
+
+  <div id="username-user">
+    <%= current_user.username %>
+    <%= current_user.email %>
+    <%= current_user.country %>
+  </div>
+</div>
+
+<div id="links-description-user">
+  <div id="links-user">
+    <div id="links-user-left">
+      <p><strong>Website :</strong> <%= current_user.website_url %></p>
+      <p><strong>Facebook :</strong> <%= current_user.facebook_url %></p>
+      <p><strong>Twitter :</strong> <%= current_user.twitter_url %></p>
+      <p><strong>Instagram :</strong> <%= current_user.instagram_url %></p>
+      <p><strong>Spotify :</strong> <%= current_user.spotify_url %></p>
+    </div>
+    <div id="links-user-right">
+      <p><strong>YouTube :</strong> <%= current_user.youtube_url %></p>
+      <p><strong>Dribble :</strong> <%= current_user.dribbble_url %></p>
+      <p><strong>ArtStation :</strong> <%= current_user.artstation_url %></p>
+      <p><strong>Behance :</strong> <%= current_user.behance_url %></p>
+    </div>
+  </div>
+
+  <div id="description-user">
+    <h1><strong>Description</strong></h1>
+    <p><%= current_user.description %></p>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<h2>My Challenges page</h2>
+
+<div>
+  <% @challenges.each do |challenge| %>
+    <strong><%= challenge.name %></strong>
+    <%= challenge.description %>
+    <%= challenge.reward %>
+  <% end %>
+</div>
