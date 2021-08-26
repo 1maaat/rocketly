@@ -83,3 +83,49 @@
       <% end %>
     </section>
 </div>
+
+<div class="container">
+  <h1>Creations</h1>
+  <%= form_tag selected_challenge_path(@challenge), method: :post do %>
+    <% @artworks.each do |artwork| %>
+       <% if artwork.selected == false %>
+        <div class="card" style="width: 18rem;" data-toggle="modal" data-target="#artworkDetails">
+        <% else %>
+         <div class="card-selected" style="width: 18rem;" data-toggle="modal" data-target="#artworkDetails">
+        <% end %>
+          <%= image_tag asset_path('6.jpeg') %>
+          <div class="card-body">
+            <h5 class="card-title"><%= artwork.title %></h5>
+            <p class="card-text"><%= artwork.description %></p>
+            <p class="card-text"><%= artwork.selected %></p>
+            <% if @challenge.status == "vote" && @challenge.user_id == current_user.id %>
+              <%= check_box_tag "artworks[]", artwork.id %>
+            <% end %>
+          </div>
+        </div>
+      <!-- Artwork Details Modal -->
+      <div class="artwork-detail-modal">
+        <div class="modal fade right" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <%= image_tag asset_path('6.jpeg') %>
+              <div class="modal-body">
+                <%= artwork.description %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+
+
+    <%= submit_tag :submit %>
+  <% end %>
+</div>
