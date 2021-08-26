@@ -30,10 +30,10 @@
   width: fit-content;
   color: #C3C3C3;
   font-weight: lighter;
-  transition: 0.1s;
+  margin-left: 20px;
 }
 .info-challenge{
-justify-content: space-evenly;
+// justify-content: space-evenly;
 }
 
 
@@ -111,7 +111,7 @@ justify-content: space-evenly;
   letter-spacing: 1px;
   color: #fff;
   margin: 0;
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 2px;
   opacity: 1;
 }
@@ -119,7 +119,7 @@ justify-content: space-evenly;
 .big .card .contentBx .size, .container .card .contentBx .color {
   justify-content: center;
   align-items: center;
-  transition: 0.7s;opacity: 0;
+  transition: 1s;opacity: 0;
   visibility: hidden;
   padding-top: 0;
   padding-bottom: 0;
@@ -130,7 +130,7 @@ justify-content: space-evenly;
 .big .card:hover .contentBx .size{
   opacity: 1;
   visibility: visible;
-  transition-delay: 0.4s;
+  transition-delay: 0.1s;
 
 }
 

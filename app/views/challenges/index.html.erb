@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="big">
     <% @challenges.each do |challenge| %>
@@ -8,12 +9,15 @@
             </div>
             <div class="contentBx">
                 <div class="info-challenge d-flex ">
-                  <p class="status-index">Active</p>
+
+                  <p class="status-index"><%= challenge.status%></p>
+
                   <p class="reward">💰 <%= challenge.reward.truncate(10) %></p>
                 </div>
               <h2><%= challenge.name %></h2>
               <div class="size">
                 <h3><%= challenge.description.truncate(30) %></h3>
+
               </div>
             </div>
           <% end %>
