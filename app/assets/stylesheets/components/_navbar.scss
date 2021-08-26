@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: transparent;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,41 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+#button-create {
+  border-radius: 20px;
+  background-color: $rocketbutton;
+  color: $rocketwhite;
+  padding: 10px 20px;
+  margin-right: 15px;
+  &:hover{
+    background-color: $rocketbutton_hover;
+  }
+}
+
+.dropdown-menu {
+  background-color: $rocketgreylight;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.dropdown-item {
+  color: $rocketwhite;
+}
+
+#nav-link-id {
+  color: $rocketwhite;
+}
+
+#rocketly-logo {
+  width: 48px;
+  fill: $rocketwhite;
+}
+
+#profile-user{
+  cursor: pointer;
+  &:hover{
+    opacity: 60%;
+  }
 }

@@ -1,33 +1,32 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%#= image_tag asset_path('rocket-logo.png') %>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 56" id="rocketly-logo">
+      <path d="M27.944 2.444h-.02c-1.412 0-2.58.975-2.859 2.41l-.22 1.109c-.07.35-.145.723-.234 1.155l-3.654 17.696c-.273 1.317-2.179 1.294-2.42-.028l-.815-4.466-2.35-12.99c-.169-.947-.51-1.528-1.102-1.945-1.02-.72-2.25-.778-3.244-.171a2.796 2.796 0 00-1.31 2.922l.208 1.157.138.79c.208 1.203-1.288 1.921-2.113 1.046l-.037-.041c-.79-.909-2.003-1.251-3.076-.883-1.317.452-2.038 1.482-1.961 2.753l.013.194c.034.45.091.888.206 1.617l.17 1.065c.02.123.036.234.052.343l.557 3.987c.057.405.107.775.156 1.13l.145 1.09.092.712.117.935c.13 1.07.24 2.095.402 3.72l.303 3.07c.135 1.399.25 2.625.356 3.815l.126 1.461c.201 2.38.448 4.138.89 5.866.797 3.107 1.97 5.28 3.695 6.896 3.346 3.136 7.154 4.697 11.415 4.697 1.515 0 3.09-.197 4.724-.593 3.033-.736 5.792-2.518 8.454-5.493 2.415-2.699 4.176-5.577 6.723-10.633l.666-1.329.216-.424.572-1.11c1.207-2.356 1.72-3.53 2.115-5.002a2.775 2.775 0 00-.977-2.883l-.064-.048-.07-.05c-1.322-.913-2.915-.678-3.964.592l-.06.075-4.47 8.181c-.633 1.159-2.398.638-2.316-.65l.005-.056c.266-2.57.684-5.25 1.294-8.502l.192-1.012c.157-.818.322-1.661.498-2.54l.284-1.415.306-1.492 1.659-7.928c.35-1.675-.397-3.075-1.866-3.592-.95-.334-2.083-.086-2.877.627l-.068.062c-.83.792-2.195.122-2.082-.996l.042-.325.01-.082c.01-.093.024-.19.04-.293l.04-.26.088-.527c.033-.214.052-.36.063-.505l.003-.043c.012-.177.01-.329-.007-.463-.17-1.356-1.375-2.396-2.799-2.403zM45.458 24.07a5.206 5.206 0 011.965 5.53c-.433 1.613-.966 2.86-2.14 5.167l-.82 1.595-.27.535-.3.602c-2.755 5.504-4.635 8.613-7.3 11.591-2.977 3.328-6.16 5.384-9.713 6.246-1.822.441-3.593.663-5.31.663-4.904 0-9.313-1.808-13.11-5.365-2.091-1.96-3.486-4.542-4.39-8.07-.466-1.823-.728-3.636-.936-6.016l-.11-1.283a453.37 453.37 0 00-.368-3.97l-.174-1.79-.264-2.63c-.124-1.205-.221-2.06-.341-3.021l-.087-.684-.061-.472-.124-.93c-.054-.398-.11-.813-.175-1.274l-.555-3.971a33.624 33.624 0 00-.073-.473l-.165-1.037a18.872 18.872 0 01-.224-1.91C.268 10.721 1.683 8.7 4.029 7.894a5.215 5.215 0 013.101-.085l.077.022-.003-.09a5.229 5.229 0 012.44-4.554l.09-.056c1.85-1.128 4.15-1.02 5.966.262 1.147.809 1.824 1.96 2.1 3.509l1.606 8.89.42 2.31 2.46-11.914.358-1.798c.494-2.542 2.62-4.345 5.18-4.39h.127c2.66.013 4.914 1.96 5.24 4.546.026.214.036.43.032.655l-.002.044.097-.025a5.25 5.25 0 012.897.095l.101.034c2.657.935 4.05 3.547 3.455 6.39l-1.421 6.782c-.31 1.49-.573 2.779-.823 4.032l-.147.74c-.145.731-.282 1.439-.413 2.128l-.065.344c-.095.5-.185.986-.271 1.46l-.078.435 1.228-2.248c.019-.034.04-.067.061-.1l.034-.047c1.845-2.457 5.026-2.99 7.5-1.253l.082.059z" fill-rule="nonzero"/>
+    </svg>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%= link_to "✚ Create a challenge", new_challenge_path, class: "nav-link", id:"button-create" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag asset_path('user-profile.svg'), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, id:"profile-user", 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "👽 My Dashboard", "#", class: "dropdown-item" %>
+            <%= link_to "💌 Mailbox", "#", class: "dropdown-item" %>
+            <%= link_to " 👋 Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link", id: "nav-link-id" %>
         </li>
       <% end %>
     </ul>

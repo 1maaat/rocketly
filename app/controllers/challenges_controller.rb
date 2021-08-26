@@ -4,7 +4,11 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = policy_scope(Challenge)
+    @challenges = @challenges.sort_by{|c| c.status}
     # skip_authorization
+    if params[:filter]
+      @challenges = @challenges.where(status: params[:filter])
+    end
   end
 
   def show
