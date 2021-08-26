@@ -1,20 +1,25 @@
-<div class="container d-flex">
+<div class="container d-flex justify-content-around">
   <div class="card-creator-details">
-    <div class="d-flex justify-content-between" id="user-prez">
+    <div class="d-flex justify-content-between creator-boxes">
       <% if @challenge.photo.attached? %>
         <%= cl_image_tag @challenge.photo.key, height:170 %>
       <% end %>
-      <%= @challenge.user.username %>
-      <%= @challenge.user.country %>
-    </div>
-    <div class="d-flex" id="user-info">
-      <div class="tags">
-        <% @challenge.user.user_activities.each do |user_activity| %>
-          <a href="#"><%= user_activity.activity.name %></a>
-        <% end %>
+      <div>
+        <h3><%= @challenge.user.username %></h3>
+        <p><%= @challenge.user.country %></p>
       </div>
+    </div>
+    <div class="creator-boxes">
       <div id="user-description">
+        <h5>What about me ?</h5>
         <%= @challenge.user.description %>
+      </div>
+      <div class="tags">
+        <ul class="list-inline user-activities-list">
+          <% @challenge.user.user_activities.each do |user_activity| %>
+            <li class="list-inline-item"><%= user_activity.activity.name %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
     <div id="social-media">
@@ -23,18 +28,14 @@
       </ul>
     </div>
   </div>
-  <div id="cards-challenge">
+  <div class="cards-challenge">
     <div class="card-challenge-details">
-      <%= @challenge.name %>
-      <%= @challenge.description %>
-      <%= @challenge.reward %>
       <h2><strong><%= @challenge.name %></strong></h2>
       <p><%= @challenge.description %></p>
-      <p>Reward : <%= @challenge.reward %></p>
+      <p><i class="fas fa-gift"></i> <%= @challenge.reward %></p>
       <p>Status : <%= @challenge.status %></p>
       <p><%=@artworks.count %> contributors</p>
-      <label for="challenge-progression">Days remaining :</label>
-      <progress id="challenge-progression" max="100" value="70"> 70% </progress>
+      <%= render 'shared/progressionbar' %>
     </div>
     <div class="card-artworks-list">
       <p>Contributions</p>

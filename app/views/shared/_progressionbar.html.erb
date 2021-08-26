@@ -1,0 +1,10 @@
+<% total = @challenge.end_date - @challenge.start_date %>
+<% progression = Date.today - @challenge.start_date %>
+<% if @challenge.end_date < Date.today %>
+  <% value = 100 %>
+<% else %>
+  <% value = ((progression/total)*100).round %>
+<% end %>
+
+<label for="challenge-progression"> <%= progression.to_i %> days remaining to submit : </label>
+<progress id="challenge-progression" max="100" value="<%= value %>"> <%= value %> </progress>
