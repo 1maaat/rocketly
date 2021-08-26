@@ -1,0 +1,12 @@
+.artwork-detail-modal {
+  .modal-dialog {
+    margin: unset;
+    display: flex;
+    justify-content: flex-end;
+    max-width: unset !important;
+  }
+  .modal-content {
+    max-width: 500px;
+    height: 100vh;
+  }
+}
