@@ -30,9 +30,11 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initArtworkform } from '../components/init_artworkform.js';
+import { previewImageOnFileSelect } from '../components/files_preview.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initArtworkform()
+  previewImageOnFileSelect()
 });

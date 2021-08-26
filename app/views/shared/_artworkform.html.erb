@@ -1,34 +1,32 @@
 <!-- multistep form -->
-<form id="msform">
   <!--fieldsets-->
-  <div class="step step-1 index stepactive">
-    <div class="form-group">
+  <%= simple_form_for [ challenge, artwork ] do |f| %>
+    <div class="step step-1 index stepactive">
+      <div class="form-group">
       <h1>Artwork informations</h1>
-      <%= simple_form_for [ @challenge, @artwork ] do |f| %>
-        <%= f.input :title, placeholder: "Choose a title for your Artwork" %>
-        <%= f.input :description, placeholder: "Tell us more about your Artwork" %>
-        <%= f.button :button, "Next", class: "next-btn" %>
-      <% end %>
+          <%= f.input :title, placeholder: "Choose a title for your Artwork" %>
+          <%= f.input :description, placeholder: "Tell us more about your Artwork" %>
+          <%= f.button :button, "Next", class: "next-btn" %>
+      </div>
     </div>
-  </div>
 
-  <div class="step step-2 index">
-    <div class="form-group">
-      <h1>Artwork Upload</h1>
-      <%= simple_form_for [ @challenge, @artwork] do |f| %>
-        <div id="div_photo">
-          <%= f.input :files, as: :file, input_html: {class: 'd-none'}, label_html: { class: 'upload-files'}, label: "Upload files" %>
-          <%= f.button :button, "Previous", class: "previous-btn"  %>
-          <%= f.button :submit, "Create Artwork", class: "submit-btn" %>
-        </div>
-      <% end %>
+    <div class="step step-2 index">
+      <div class="form-group">
+        <h1>Artwork Upload</h1>
+          <div id="div_photo">
+            <%= f.input :files, as: :file, input_html: { class: 'd-none', id: 'files-input'}, label_html: { class: 'upload-files'}, label: "Upload files" %>
+            <div id="photo-preview">
+              <%= image_tag "", width: 300, class: "hidden", id: "files-preview" %>
+            </div>
+            <%= f.button :button, "Previous", class: "previous-btn"  %>
+            <%= f.submit "Create Artwork", class: "submit-btn" %>
+          </div>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="step step-3 index">
     <div class="form-group">
       <h1>Share your Artwork</h1>
     </div>
   </div>
-
-</form>
