@@ -1,0 +1,28 @@
+<div id="profil">
+  <div id="profil-dash">
+    <%= render 'pages/partials/profil_dash' %>
+  </div>
+</div>
+
+<div id="art-cha-dash">
+  <div id="container-art-cha-dash" class="content-wrapper">
+    <ul id="tabs-nav-first" class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="tabs-btn-first" class="nav-item" role="presentation">
+        <a  class="nav-link active" id="myartworks-tab" data-toggle="tab" href="#myartworks" role="tab" aria-controls="myartworks" aria-selected="true">My Artworks</a>
+      </li>
+      <li class="tabs-btn-first" class="nav-item" role="presentation">
+        <a class="nav-link" id="mychallenges-tab" data-toggle="tab" href="#mychallenges" role="tab" aria-controls="mychallenges" aria-selected="false">My Challenges</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="myartworks" role="tabpanel" aria-labelledby="myartworks-tab">
+        <%= render 'pages/partials/myartworks' %>
+      </div>
+
+      <div class="tab-pane fade" id="mychallenges" role="tabpanel" aria-labelledby="mychallenges-tab">
+        <%= render 'pages/partials/mychallenges' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @artworks = current_user.artworks
+    @challenges = current_user.challenges
+  end
 end

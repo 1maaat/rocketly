@@ -1,0 +1,52 @@
+#avatar-username-user {
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+  margin-block: auto;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  background-color: rgba($color: #2A2638, $alpha: 0.7);
+  box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
+  transition: 1s;
+  &:hover {
+    box-shadow: 1px 0 60px rgba($color: $buttonpurple, $alpha: 0.4);
+  }
+}
+#links-description-user {
+  height: 400px;
+  width: 770px;
+  border-radius: 20px;
+  margin-block: auto;
+  margin-left: 23px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  background-color: rgba($color: #2A2638, $alpha: 0.7);
+  box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
+  text-align: left;
+  transition: 1s;
+  &:hover {
+    box-shadow: 1px 0 60px rgba($color: $buttonpurple, $alpha: 0.4);
+  }
+}
+#description-user p{
+  font-size: 18px;
+}
+#links-user {
+  display: flex;
+  justify-content: center;
+}
+
+#links-user-left {
+  margin-left: 23px;
+  margin-right: 23px;
+  width: 50%;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+#links-user-right {
+  margin-left: 23px;
+  margin-right: 23px;
+  width: 50%;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
