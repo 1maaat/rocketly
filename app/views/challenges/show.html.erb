@@ -74,21 +74,32 @@
             <div class="author-name">
               <div class="author-name-prefix"><%= artwork.user.username %></div>
             </div>
-          </div>
-        </article>
-        <!-- Artwork Details Modal -->
-        <div class="modal fade" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <%= image_tag asset_path('6.jpeg') %>
-              <div class="modal-body">
-                <%= artwork.description %>
+          </article>
+          
+          <!-- Artwork Details Modal -->
+            <div class="artwork-detail-modal">
+              <div class="modal fade right" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                        <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
+                        <div class="info-modal">
+                          <a class="author-avatar" href="#">
+                            <%= image_tag asset_path('avatar.png') %>
+                          </a>
+                          <div class="author-name">
+                            <%= artwork.user.username %>
+                          </div>
+                        </div>
+                        <%= image_tag asset_path('6.jpeg') %>
+                      <div class="modal-body">
+                        <%= artwork.description %>
+                      </div>
+                </div>
               </div>
             </div>
           </div>

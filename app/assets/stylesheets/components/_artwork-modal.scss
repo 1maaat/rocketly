@@ -8,5 +8,44 @@
   .modal-content {
     max-width: 500px;
     height: 100vh;
+    background-color: #2B2536;
+  }
+
+  .close{
+    color: white;
+    font-weight: 50;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .modal-header{
+    border: none;
+  }
+  img {
+    vertical-align: middle;
+    border-style: none;
+    border-radius: 25px;
+    margin: 35px;
+  }
+
+  .modal-title {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .modal-body {
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  .info-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-modal img{
+    margin-top: 10px;
   }
 }
