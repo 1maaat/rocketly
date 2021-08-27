@@ -66,7 +66,8 @@
   width: 600px;
   height: 600px;
 }
-.step.step-1 {
+.step.step-1,
+.step.step-2 {
   width: 90%;
   height: 90%;
   margin: auto;
@@ -80,6 +81,22 @@
     text-align: center;
   }
 }
+#second-page-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  h1 {
+    text-align: center;
+  }
+}
+#div_photo {
+  margin: auto;
+  text-align: center;
+}
+#photo-preview {
+  height: 350px;
+}
 #artwork_title,
 #artwork_description {
   color: $rocketwhite;
@@ -91,10 +108,48 @@
 #artwork_description {
     height: 362px;
 }
-.next-btn {
-  background-color: $rocketbutton;
+.next-btn,
+.previous-btn {
+  background-color: $rocketbutton_hover;
   border-radius: 50px;
   color: $rocketwhite;
   transition: 0.2s;
   box-shadow: 1px 0 90px rgba($color: $rocketbutton_hover, $alpha: 0.1);
+  padding-left: 50px;
+  padding-right: 50px;
+  &:hover {
+    background-color: $rocketwhite;
+    color: $rocketbutton_hover;
+  }
+}
+#next-btn-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  width: 511.19px;
+}
+// .previous-btn {
+//   padding-left: 50px;
+//   text-align: center;
+// }
+.submit-btn {
+  border: none;
+  background-color: $rocketpurplelight;
+  border-radius: 50px;
+  color: $rocketwhite;
+  transition: 0.2s;
+  box-shadow: 1px 0 90px rgba($color: $rocketpurplelight, $alpha: 0.4);
+  padding-left: 50px;
+  padding-right: 50px;
+  &:hover {
+    background-color: $rocketwhite;
+    color: $rocketpurplelight;
+    box-shadow: 1px 0 90px rgba($color: $rocketwhite, $alpha: 0.4);
+  }
+}
+#prev-sub-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 511.19px;
 }
