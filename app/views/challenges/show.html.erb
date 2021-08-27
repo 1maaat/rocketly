@@ -51,7 +51,7 @@
     <div class="big">
       <% @artworks.each do |artwork| %>
         <div>
-          <div class="card-index" data-toggle="modal" data-target="#artworkDetails">
+          <div class="card-index" data-toggle="modal" data-target="#artworkDetails<%= artwork.id%>">
             <div class="imgBx">
               <% if artwork.files.attached? %>
                 <%= cl_image_tag artwork.files.key %>
@@ -77,7 +77,7 @@
           </div>
           <!-- Artwork Details Modal -->
           <div class="artwork-detail-modal">
-            <div class="modal fade right" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
+            <div class="modal fade right" id="artworkDetails<%= artwork.id%>" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -111,9 +111,9 @@
 <!-- Add Artwork Modal -->
   <div class="modal fade" id="addArtwork" tabindex="-1" aria-labelledby="addArtworkLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" id="artwork-show">
         <div class="modal-header">
-          <h5 class="modal-title" id="addArtworkLabel">💥 Share your artwork 💥 </h5>
+          <h5 class="modal-title" id="addArtworkLabel">Add your Artwork</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

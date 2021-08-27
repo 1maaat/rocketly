@@ -151,3 +151,14 @@
   font-weight: bold;
   opacity: 0.7;
 }
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav.nav-tabs {
+  justify-content: left;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
