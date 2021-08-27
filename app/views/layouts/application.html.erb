@@ -15,8 +15,11 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
-    <div class="content-wrapper">
+    <%if request.env['PATH_INFO'] == '/' %>
+      <div class="content-wrapper" style="display: grid;">
+    <% else %>
+      <div class="content-wrapper">
+    <% end %>
       <%= yield %>
     </div>
 
