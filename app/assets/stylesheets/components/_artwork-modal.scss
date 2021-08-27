@@ -49,3 +49,11 @@
     margin-top: 10px;
   }
 }
+#artwork-show {
+  background-color: rgba($color: #ffffff, $alpha: 0.07);
+  box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  width: 600px;
+  height: 600px;
+}
