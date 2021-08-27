@@ -1,8 +1,8 @@
 body {
   width: 100%;
   height: 100vh;
-  background: url('background-test.png');
-  background-size: 300% 300%;
+  background: $rocketpurple url('background-test.png') no-repeat;
+  background-size: 500% 500%;
   position: relative;
   animation: change 30s ease-in-out infinite;
 }
