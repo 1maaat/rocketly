@@ -1,3 +1,17 @@
+.wrapper-challenge-page {
+  height: 100%;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent
+  }
+}
 // Style for User Details
 
 .card-creator-details {
@@ -108,63 +122,63 @@ progress {
 
 // Style for Artwork List
 
-.card-artworks-list {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding-bottom: 50px;
-  width: 100%;
-}
+// .card-artworks-list {
+//   margin-top: 1rem;
+//   margin-bottom: 1rem;
+//   padding-bottom: 50px;
+//   width: 100%;
+// }
 
-.card-list {
-  display: flex;
-  padding: 3rem;
-  overflow-x: scroll;
-  &::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-  &::-webkit-scrollbar-track {
-    background: transparent
-  }
-}
+// .card-list {
+//   display: flex;
+//   padding: 3rem;
+//   overflow-x: scroll;
+//   &::-webkit-scrollbar {
+//     width: 0px;
+//     height: 0px;
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     background: transparent;
+//   }
+//   &::-webkit-scrollbar-track {
+//     background: transparent
+//   }
+// }
 
-.card-artwork {
-  width: 500px;
-  height: 100%;
-  min-width: 300px;
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: $rocketblackalpha;
-  box-shadow: -1rem 0 1rem $rocketblackalpha;
-  backdrop-filter: blur(5px);
-  display: flex;
-  flex-direction: column;
-  transition: .2s;
-  margin: 0;
-  scroll-snap-align: start;
-  clear: both;
-  overflow-x: scroll visible;
-  position: relative;
-  &:hover {
-    transform: translateY(-1rem);
-    width: 500px;
-    height: 100%;
-  }
-  &:hover #artwork img {
-    height: 100%;
-    border: rgba(255,255,255, 0.5) groove 3px;
-  }
-  &:not(:first-child) {
-    margin-left: -130px;
-  }
-}
+// .card-artwork {
+//   width: 500px;
+//   height: 100%;
+//   min-width: 300px;
+//   padding: 1.5rem;
+//   border-radius: 16px;
+//   background: $rocketblackalpha;
+//   box-shadow: -1rem 0 1rem $rocketblackalpha;
+//   backdrop-filter: blur(5px);
+//   display: flex;
+//   flex-direction: column;
+//   transition: .2s;
+//   margin: 0;
+//   scroll-snap-align: start;
+//   clear: both;
+//   overflow-x: scroll visible;
+//   position: relative;
+//   &:hover {
+//     transform: translateY(-1rem);
+//     width: 500px;
+//     height: 100%;
+//   }
+//   &:hover #artwork img {
+//     height: 100%;
+//     border: rgba(255,255,255, 0.5) groove 3px;
+//   }
+//   &:not(:first-child) {
+//     margin-left: -130px;
+//   }
+// }
 
-.card-artwork:focus-within~.card-artwork, .card-artwork:hover~.card-artwork {
-  transform: translateX(130px);
-}
+// .card-artwork:focus-within~.card-artwork, .card-artwork:hover~.card-artwork {
+//   transform: translateX(130px);
+// }
 
 #artwork {
   display: block;
