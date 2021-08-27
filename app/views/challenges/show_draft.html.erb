@@ -129,3 +129,88 @@
     <%= submit_tag :submit %>
   <% end %>
 </div>
+
+<section class="card-list" id="artwork-list">
+  <%= form_tag selected_challenge_path(@challenge), method: :post do %>
+    <% @artworks.each do |artwork| %>
+      <% if artwork.selected == false %>
+        <article class="card-artwork" data-toggle="modal" data-target="#artworkDetails">
+      <% else %>
+        <article class="card-artwork" data-toggle="modal" data-target="#artworkDetails">
+      <% end %>
+          <header class="card-header">
+            <p><%= artwork.created_at.strftime("%e %b %Y") %></p>
+            <h2><%= artwork.title %></h2>
+          </header>
+          <div id="artwork">
+            <% if artwork.files.attached? %>
+              <%= cl_image_tag artwork.files.key %>
+            <% else %>
+              <%= image_tag '6' %>
+            <% end %>
+          </div>
+          <div class="card-author">
+            <a class="author-avatar" href="#">
+              <% if @challenge.user.photo.attached? %>
+                <%= cl_image_tag @challenge.user.photo.key %>
+              <% else %>
+                <%= image_tag 'avatar' %>
+              <% end %>
+            </a>
+            <svg class="half-circle" viewBox="0 0 106 57">
+              <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+            </svg>
+
+            <div class="author-name">
+              <div class="author-name-prefix"><%= artwork.user.username %></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Artwork Details Modal -->
+        <div class="artwork-detail-modal">
+          <div class="modal fade right" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
+                <div class="info-modal">
+                  <a class="author-avatar" href="#">
+                    <%= image_tag asset_path('avatar.png') %>
+                  </a>
+                  <div class="author-name">
+                    <%= artwork.user.username %>
+                  </div>
+                </div>
+                <%= image_tag asset_path('6.jpeg') %>
+                <div class="modal-body">
+                  <%= artwork.description %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <%= submit_tag :submit %>
+  <% end %>
+  <!-- Add Artwork Modal -->
+  <div class="modal fade" id="addArtwork" tabindex="-1" aria-labelledby="addArtworkLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addArtworkLabel">💥 Share your artwork 💥 </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="container">
+          <%= render 'shared/artworkform', artwork: @artwork, challenge: @challenge %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
