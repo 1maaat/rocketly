@@ -2,24 +2,28 @@
   <!--fieldsets-->
   <%= simple_form_for [ challenge, artwork ] do |f| %>
     <div class="step step-1 index stepactive">
-      <div class="form-group">
-      <h1>Artwork informations</h1>
-          <%= f.input :title, placeholder: "Choose a title for your Artwork" %>
-          <%= f.input :description, placeholder: "Tell us more about your Artwork" %>
-          <%= f.button :button, "Next", class: "next-btn" %>
+      <div class="form-group" id="first-page-form">
+      <h1>Artwork Details</h1>
+          <%= f.input :title, placeholder: "Choose a title for your Artwork...", label: false %>
+          <%= f.input :description, placeholder: "Tell us more about your Artwork...", label: false %>
+          <div id="next-btn-div">
+            <%= f.button :button, "Next", class: "next-btn" %>
+          </div>
       </div>
     </div>
 
     <div class="step step-2 index">
-      <div class="form-group">
+      <div class="form-group" id="second-page-form">
         <h1>Artwork Upload</h1>
           <div id="div_photo">
             <%= f.input :files, as: :file, input_html: { class: 'd-none', id: 'files-input'}, label_html: { class: 'upload-files'}, label: "Upload files" %>
             <div id="photo-preview">
               <%= image_tag "", width: 300, class: "hidden", id: "files-preview" %>
             </div>
-            <%= f.button :button, "Previous", class: "previous-btn"  %>
-            <%= f.submit "Create Artwork", class: "submit-btn", remote: true %>
+            <div id="prev-sub-btn">
+              <%= f.button :button, "Previous", class: "previous-btn"  %>
+              <%= f.submit "Create Artwork", class: "submit-btn", remote: true %>
+            </div>
           </div>
       </div>
     </div>

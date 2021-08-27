@@ -1,16 +1,17 @@
+.content-wrapper {
+  min-height: calc(100vh - 70px - 150px);
+}
+
 .base-line {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   overflow: hidden;
-  height: 1.6rem;
+  height: 1.3rem;
   text-align: center;
 }
 
-
 /// All the ticket setup
 * { box-sizing: border-box; }
-$duration: 20s;
+$duration: 60s;
 
 @-webkit-keyframes ticker {
   0% {
@@ -39,11 +40,9 @@ $duration: 20s;
 }
 
 .ticker-wrap {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   overflow: hidden;
-  height: 5rem;
+  height: 4rem;
   background-color: transparent;
   padding-left: 100%;
   box-sizing: content-box;
