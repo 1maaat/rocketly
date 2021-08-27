@@ -54,7 +54,7 @@
           <div class="card-index" data-toggle="modal" data-target="#artworkDetails<%= artwork.id%>">
             <div class="imgBx">
               <% if artwork.files.attached? %>
-                <%= cl_image_tag artwork.files.key %>
+                <%= cl_image_tag artwork.files.first.key %>
               <% else %>
                 <%= image_tag 'https://source.unsplash.com/random/1200x900' %>
               <% end %>
