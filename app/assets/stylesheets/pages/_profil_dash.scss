@@ -1,11 +1,11 @@
 #avatar-username-user {
   border-radius: 20px;
   width: 400px;
-  height: 400px;
+  height: 440px;
   margin-block: auto;
   padding: 15px;
-  backdrop-filter: blur(10px);
-  background-color: rgba($color: #2A2638, $alpha: 0.7);
+  backdrop-filter: blur(5px);
+  background-color: rgba($color: #ffffff, $alpha: 0.07);
   box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
   transition: 1s;
   &:hover {
@@ -13,14 +13,14 @@
   }
 }
 #links-description-user {
-  height: 400px;
+  height: 440px;
   width: 770px;
   border-radius: 20px;
   margin-block: auto;
   margin-left: 23px;
   padding: 15px;
-  backdrop-filter: blur(10px);
-  background-color: rgba($color: #2A2638, $alpha: 0.7);
+  backdrop-filter: blur(5px);
+  background-color: rgba($color: #ffffff, $alpha: 0.07);
   box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
   text-align: left;
   transition: 1s;
