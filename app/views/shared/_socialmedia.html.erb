@@ -1,27 +1,27 @@
 <% if @challenge.user.website_url != nil %>
-  <li><i class="fas fa-globe"></i></li>
+  <li><a href="<%= @challenge.user.website_url %>"><i class="fas fa-globe"></i></a></li>
 <% end %>
 <% if @challenge.user.facebook_url != nil %>
-  <li><i class="fab fa-youtube"></i></li>
+  <li><a href="<%= @challenge.user.facebook_url %>"><i class="fab fa-facebook"></i></a></li>
 <% end %>
 <% if @challenge.user.twitter_url != nil %>
-  <li><i class="fab fa-twitter"></i></li>
+  <li><a href="<%= @challenge.user.twitter_url %>"><i class="fab fa-twitter"></i></a></li>
 <% end %>
 <% if @challenge.user.instagram_url != nil %>
-  <li><i class="fab fa-instagram"></i></li>
+  <li><a href="<%= @challenge.user.instagram_url %>"><i class="fab fa-instagram"></i></a></li>
 <% end %>
 <% if @challenge.user.spotify_url != nil %>
-  <li><i class="fab fa-spotify"></i></li>
+  <li><a href="<%= @challenge.user.spotify_url %>"><i class="fab fa-spotify"></i></a></li>
 <% end %>
 <% if @challenge.user.youtube_url != nil %>
-  <li><i class="fab fa-youtube"></i></li>
+  <li><a href="<%= @challenge.user.youtube_url %>"><i class="fab fa-youtube"></i></a></li>
 <% end %>
 <% if @challenge.user.dribbble_url != nil %>
-  <li><i class="fab fa-dribbble"></i></li>
+  <li><a href="<%= @challenge.user.dribbble_url %>"><i class="fab fa-dribbble"></i></a></li>
 <% end %>
 <% if @challenge.user.artstation_url != nil %>
-  <li><i class="fab fa-artstation"></i></li>
+  <li><a href="<%= @challenge.user.artstation_url %>"><i class="fab fa-artstation"></i></a></li>
 <% end %>
 <% if @challenge.user.behance_url != nil %>
-  <li><i class="fab fa-behance"></i></li>
+  <li><a href="<%= @challenge.user.behance_url %>"><i class="fab fa-behance"></i></a></li>
 <% end %>
