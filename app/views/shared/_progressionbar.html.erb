@@ -5,6 +5,15 @@
 <% else %>
   <% value = ((progression/total)*100).round %>
 <% end %>
-
-<label for="challenge-progression"> <%= progression.to_i %> days remaining to submit : </label>
-<progress id="challenge-progression" max="100" value="<%= value %>"> <%= value %> </progress>
+<div>
+  <% if @challenge.end_date < Date.today %>
+    <p>Submission Closed</p>
+  <% else %>
+    <% if progression.to_i == 1 %>
+      <p><strong>Last day to submit</strong></p>
+    <% else %>
+      <p><%= progression.to_i %> days left</p>
+    <% end %>
+  <% end %>
+  <progress max="100" value="<%= value %>"> <%= value %> </progress>
+</div>
