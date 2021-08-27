@@ -47,7 +47,7 @@
   <div class="card-artworks-list">
     <section class="card-list" id="artwork-list">
       <% @artworks.each do |artwork| %>
-        <article class="card-artwork" data-toggle="modal" data-target="#artworkDetails">
+        <article class="card-artwork" data-toggle="modal" data-target="#artworkDetails<%= artwork.id%>">
           <header class="card-header">
             <p><%= artwork.created_at.strftime("%e %b %Y") %></p>
             <h2><%= artwork.title %></h2>
@@ -75,10 +75,10 @@
               <div class="author-name-prefix"><%= artwork.user.username %></div>
             </div>
           </article>
-          
+
           <!-- Artwork Details Modal -->
             <div class="artwork-detail-modal">
-              <div class="modal fade right" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
+              <div class="modal fade right" id="artworkDetails<%= artwork.id%>" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                       <div class="modal-header">

@@ -1,5 +1,10 @@
 
 <div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <h4><%= link_to "Active", params[:filter].present? ? challenges_path : challenges_path(filter: 1) %></h4>
+    </li>
+  </ul>
   <div class="big">
     <% @challenges.each do |challenge| %>
       <div class="card-index">
@@ -7,19 +12,18 @@
           <%= link_to challenge_path(challenge), style: "text-decoration: none" do %>
             <%=image_tag("6.jpeg")%>
             </div>
-            <div class="contentBx">
-                <div class="info-challenge d-flex ">
+              <div class="contentBx">
+                  <div class="info-challenge d-flex ">
 
-                  <p class="status-index"><%= challenge.status%></p>
+                    <p class="status-index"><%= challenge.status%></p>
 
-                  <p class="reward">💰 <%= challenge.reward.truncate(10) %></p>
+                    <p class="reward">💰 <%= challenge.reward.truncate(10) %></p>
+                  </div>
+                <h2><%= challenge.name %></h2>
+                <div class="size">
+                  <h3><%= challenge.description.truncate(50) %></h3>
                 </div>
-              <h2><%= challenge.name %></h2>
-              <div class="size">
-                <h3><%= challenge.description.truncate(50) %></h3>
-
               </div>
-            </div>
           <% end %>
       </div>
     <% end %>

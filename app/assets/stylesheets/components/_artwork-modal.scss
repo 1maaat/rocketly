@@ -6,9 +6,9 @@
     max-width: unset !important;
   }
   .modal-content {
-    max-width: 500px;
+    max-width: 700px;
     height: 100vh;
-    background-color: #2B2536;
+    background-color: rgba(10, 6, 25, 0.8);
   }
 
   .close{
@@ -21,22 +21,31 @@
   .modal-header{
     border: none;
   }
+
   img {
     vertical-align: middle;
     border-style: none;
     border-radius: 25px;
-    margin: 35px;
+    margin: 90px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .modal-title {
     margin-bottom: 10px;
     line-height: 1.5;
     text-align: center;
+    font-size: 30px;
   }
 
   .modal-body {
     text-align: center;
-    margin-top: 25px;
+    margin-left: 85px;
+    margin-right: 85px;
+    background-color: #4A3C54;
+    border-radius: 25px;
+    flex: none;
+    margin-top: 20px;
   }
 
   .info-modal{
