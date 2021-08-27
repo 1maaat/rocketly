@@ -1,0 +1,95 @@
+.card-creator-details {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+  width: 30vw;
+  height: 100%px;
+  position: sticky;
+  top: 10px;
+  border-radius: 16px;
+  background: rgba(105, 85, 143, 0.5);
+  box-shadow: -1rem 0 2rem #000;
+}
+
+.creator-boxes {
+  width: 100%;
+}
+
+.user-activities-list {
+  list-style-type: none;
+  padding: 1rem;
+}
+
+#user-description {
+  padding: 1rem;
+}
+
+#social-media {
+  padding: 1rem;
+  text-align: center;
+}
+
+.cards-challenge {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 40vw;
+  height: 60vh;
+}
+
+.card-challenge-details {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: rgba(105, 85, 143, 0.5);
+  box-shadow: -1rem 0 2rem #000;
+}
+
+.card-artworks-list {
+  margin-top: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.card-list {
+    display: flex;
+    padding: 3rem;
+    overflow-x: scroll;
+}
+
+.card-list::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+.card-list::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.card-list::-webkit-scrollbar-track {
+    background: transparent
+}
+
+.tags li {
+    font-style: normal;
+    font-weight: 700;
+    font-size: .5rem;
+    color: #7a7a8c;
+    text-transform: uppercase;
+    font-size: .66rem;
+    border: 3px solid #28242f;
+    border-radius: 2rem;
+    padding: .2rem .85rem .25rem;
+    text-align: center;
+    position: relative;
+    margin-bottom: 0.2rem;
+    &:hover {
+        background: linear-gradient(90deg,#523CF0,#826DFE);
+        text-shadow: none;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        background-clip: text;
+        border-color: white;
+    }
+}
