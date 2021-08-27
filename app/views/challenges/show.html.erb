@@ -46,15 +46,16 @@
         </button>
       </div>
     </div>
+  </div>
     <h2 class="mt-3" style="text-align:center">Contributions</h2>
     <div class="card-artworks-list">
       <section class="card" id="artwork-list">
         <%= form_tag selected_challenge_path(@challenge), method: :post do %>
           <% @artworks.each do |artwork| %>
             <% if artwork.selected == false %>
-              <article class="card-artwork" data-toggle="modal" data-target="#artworkDetails">
+              <article class="card-artwork" data-toggle="modal" data-target="#artworkDetails<%= artwork.id%>">
             <% else %>
-              <article class="card-artwork-selected" data-toggle="modal" data-target="#artworkDetails">
+              <article class="card-artwork-selected" data-toggle="modal" data-target="#artworkDetails<%= artwork.id%>">
             <% end %>
               <header class="card-header">
                 <p><%= artwork.created_at.strftime("%e %b %Y") %></p>
@@ -78,7 +79,6 @@
                 <svg class="half-circle" viewBox="0 0 106 57">
                   <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
                 </svg>
-
                 <div class="author-name">
                   <div class="author-name-prefix"><%= artwork.user.username %></div>
                 </div>
@@ -86,7 +86,7 @@
 
               <!-- Artwork Details Modal -->
                 <div class="artwork-detail-modal">
-                  <div class="modal fade right" id="artworkDetails" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
+                  <div class="modal fade right" id="artworkDetails<%= artwork.id%>" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                           <div class="modal-header">

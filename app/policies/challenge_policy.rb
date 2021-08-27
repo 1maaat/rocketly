@@ -1,7 +1,7 @@
 class ChallengePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(status: 'in_progress' || 'vote' || 'ended')
     end
   end
 

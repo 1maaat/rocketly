@@ -56,7 +56,7 @@
   position: relative;
   width: 320px;
   height: 450px;
-  background:#2B2536;
+  background:rgba(10, 6, 25, 0.5);
   border-radius: 20px;
   overflow: hidden;
   border: transparent;
@@ -150,4 +150,15 @@
   margin-top: 5px;
   font-weight: bold;
   opacity: 0.7;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav.nav-tabs {
+  justify-content: left;
+  margin-bottom: 40px;
+  padding-left: 30px;
 }
