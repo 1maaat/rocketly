@@ -20,6 +20,7 @@
 
   .modal-header{
     border: none;
+    text-align: center;
   }
   img {
     vertical-align: middle;
@@ -49,11 +50,51 @@
     margin-top: 10px;
   }
 }
+
+.modal-header .close {
+  color: $rocketwhite;
+}
+.modal-content .modal-header {
+  border-bottom: 1px solid rgba($color: $rocketwhite, $alpha: 0.1) !important;
+}
+
 #artwork-show {
   background-color: rgba($color: #ffffff, $alpha: 0.07);
   box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   width: 600px;
   height: 600px;
+}
+.step.step-1 {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+#first-page-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  h1 {
+    text-align: center;
+  }
+}
+#artwork_title,
+#artwork_description {
+  color: $rocketwhite;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  background-color: rgba($color: #ffffff, $alpha: 0.07);
+  box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
+}
+#artwork_description {
+    height: 362px;
+}
+.next-btn {
+  background-color: $rocketbutton;
+  border-radius: 50px;
+  color: $rocketwhite;
+  transition: 0.2s;
+  box-shadow: 1px 0 90px rgba($color: $rocketbutton_hover, $alpha: 0.1);
 }

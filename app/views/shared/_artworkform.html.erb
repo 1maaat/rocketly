@@ -2,10 +2,10 @@
   <!--fieldsets-->
   <%= simple_form_for [ challenge, artwork ] do |f| %>
     <div class="step step-1 index stepactive">
-      <div class="form-group">
-      <h1>Artwork informations</h1>
-          <%= f.input :title, placeholder: "Choose a title for your Artwork" %>
-          <%= f.input :description, placeholder: "Tell us more about your Artwork" %>
+      <div class="form-group" id="first-page-form">
+      <h1>Artwork Details</h1>
+          <%= f.input :title, placeholder: "Choose a title for your Artwork...", label: false %>
+          <%= f.input :description, placeholder: "Tell us more about your Artwork...", label: false %>
           <%= f.button :button, "Next", class: "next-btn" %>
       </div>
     </div>
