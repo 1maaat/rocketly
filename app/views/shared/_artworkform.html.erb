@@ -16,7 +16,7 @@
       <div class="form-group" id="second-page-form">
         <h1>Artwork Upload</h1>
           <div id="div_photo">
-            <%= f.input :files, as: :file, input_html: { class: 'd-none', id: 'files-input'}, label_html: { class: 'upload-files'}, label: "Upload files" %>
+            <%= f.input :files, as: :file, input_html: { class: 'd-none', id: 'files-input', multiple: true }, label_html: { class: 'upload-files'}, label: "Upload files" %>
             <div id="photo-preview">
               <%= image_tag "", width: 300, class: "hidden", id: "files-preview" %>
             </div>
