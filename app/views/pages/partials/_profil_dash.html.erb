@@ -1,15 +1,21 @@
 
 <div id="avatar-username-user">
-  <h2>My Profil Page</h2>
+  <%# <h2>My Profil Page</h2> %>
   <div id="avatar-user">
-
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, height:170 %>
+    <% else %>
+      <%= image_tag 'avatar', class: 'avatar-large' %>
+    <% end %>
+    <div class="align-items-center" id="username-user">
+      <h3><%= current_user.username %></h3>
+      <p><%= current_user.email %></p>
+      <p><%= current_user.country %></p>
+    </div>
   </div>
+</div>
 
-  <div id="username-user">
-    <%= current_user.username %>
-    <%= current_user.email %>
-    <%= current_user.country %>
-  </div>
+<div id="space-midle-div">
 </div>
 
 <div id="links-description-user">
@@ -30,7 +36,7 @@
   </div>
 
   <div id="description-user">
-    <h1><strong>Description</strong></h1>
+    <h1><strong>What about me ?</strong></h1>
     <p><%= current_user.description %></p>
   </div>
 </div>

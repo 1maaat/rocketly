@@ -1,8 +1,7 @@
 .nav-tabs {
   border-bottom: none !important;
 }
-
-.nav {
+#tabs-nav-first {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
@@ -31,5 +30,4 @@
     color: $rocketwhite;
     background-color: $rocketbutton_hover;
     box-shadow: 1px 0 90px rgba($color: $rocketbutton_hover, $alpha: 0.4);
-    // border-color: #dee2e6 #dee2e6 #0A0619;
 }

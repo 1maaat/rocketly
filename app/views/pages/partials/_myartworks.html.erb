@@ -2,7 +2,10 @@
 
 <div>
   <% @artworks.each do |artwork| %>
+ <div class="dash-card">
     <strong><%= artwork.title %></strong>
     <%= artwork.description %>
+    <%= link_to "Go to artworks", challenge_artwork_path(artwork.challenge, artwork) %>
+  </div>
   <% end %>
 </div>
