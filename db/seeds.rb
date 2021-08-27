@@ -27,6 +27,48 @@ User.create!(
   website_url: "rocketly.cool"
 )
 
+puts "Create Jul - sneaker challenge"
+
+jul = User.create!(
+  email: "jul@jul.fr",
+  username: "jul",
+  password: "password",
+  description: Faker::TvShows::HowIMetYourMother.quote,
+  country: "Marseille",
+  website_url: "jul.cool"
+)
+
+Challenge.create!(
+  name: "👽👟🚀",
+  description: "Create the next sneakers that Jul will first wear and then sell to his fans",
+  reward: "#{rand(100..10_000)}$",
+  start_date: Faker::Date.between(from: 3.days.ago, to: 1.day.from_now),
+  end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
+  status: 1,
+  user: jul
+)
+
+puts "Create Tam - jacket challenge"
+
+tam = User.create!(
+  email: "tam@rocketly.cool",
+  username: "tam",
+  password: "password",
+  description: Faker::TvShows::HowIMetYourMother.quote,
+  country: "LOLand",
+  website_url: "tam.cool"
+)
+
+Challenge.create!(
+  name: "🧚‍♀️🦺🚀",
+  description: "Please dress me with a brand new jacket!",
+  reward: "#{rand(100..10_000)}$",
+  start_date: Faker::Date.between(from: 3.days.ago, to: 1.day.from_now),
+  end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
+  status: 1,
+  user: tam
+)
+
 10.times do
   user = User.new(
     email: Faker::Internet.unique.email,
