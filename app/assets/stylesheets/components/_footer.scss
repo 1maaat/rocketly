@@ -1,5 +1,17 @@
 .content-wrapper {
   min-height: calc(100vh - 70px - 150px);
+  height: 100%;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent
+  }
 }
 
 .base-line {
@@ -44,7 +56,7 @@ $duration: 60s;
   overflow: hidden;
   height: 4rem;
   background-color: transparent;
-  padding-left: 100%;
+  // padding-left: 100%;
   box-sizing: content-box;
   z-index: -100;
 
@@ -82,5 +94,4 @@ $duration: 60s;
   }
 }
 
-body { padding-bottom: 5rem; }
 h1,h2,p {padding: 0 5%;}

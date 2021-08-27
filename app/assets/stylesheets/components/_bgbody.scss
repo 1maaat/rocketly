@@ -5,6 +5,9 @@ body {
   background-size: 500% 500%;
   position: relative;
   animation: change 30s ease-in-out infinite;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .bg {
