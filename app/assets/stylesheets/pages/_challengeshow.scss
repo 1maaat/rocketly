@@ -1,18 +1,23 @@
+// Style for User Details
+
 .card-creator-details {
   margin-top: 1rem;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
   padding: 1rem;
-  width: 30vw;
-  height: 100%px;
+  width: 25vw;
+  height: 100%;
   position: sticky;
   top: 10px;
   border-radius: 16px;
-  background: rgba(105, 85, 143, 0.5);
-  box-shadow: -1rem 0 2rem #000;
+  background: $rocketblackalpha;
+  box-shadow: -1rem 0 2rem $rocketblackalpha;
+  backdrop-filter: blur(5px);
 }
 
 .creator-boxes {
   width: 100%;
+  min-width: fit-content;
+  padding: 0rem 1rem 0rem 1rem;
 }
 
 .user-activities-list {
@@ -20,76 +25,213 @@
   padding: 1rem;
 }
 
-#user-description {
-  padding: 1rem;
+.tags li {
+  font-style: normal;
+  font-weight: 700;
+  font-size: .5rem;
+  color: #7a7a8c;
+  text-transform: uppercase;
+  font-size: .66rem;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: .2rem .85rem .25rem;
+  text-align: center;
+  position: relative;
+  margin-bottom: 0.2rem;
+  &:hover {
+    background: linear-gradient(90deg,#523CF0,#826DFE);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    background-clip: text;
+    border-color: white;
+  }
 }
 
 #social-media {
   padding: 1rem;
   text-align: center;
+  ul a {
+    text-decoration: none;
+    color: $rocketwhite;
+  }
+  ul i {
+    font-size: x-large;
+  }
 }
+// Style for Challenge Details
 
 .cards-challenge {
   margin-top: 1rem;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
   width: 40vw;
   height: 60vh;
+  z-index: 1;
 }
 
 .card-challenge-details {
   padding: 1rem;
   width: 100%;
-  height: 100%;
   border-radius: 16px;
-  background: rgba(105, 85, 143, 0.5);
-  box-shadow: -1rem 0 2rem #000;
+  background: $rocketblackalpha;
+  box-shadow: -1rem 0 2rem $rocketblackalpha;
+  backdrop-filter: blur(5px);
+  z-index: 0;
 }
+
+progress {
+  -webkit-appearance: none;
+  padding: 0 5% 5% 5%;
+  width: 100%;
+  &::-webkit-progress-value {
+    animation: load 3s normal forwards;
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 100px;
+    background: #fff;
+    height: 30px;
+    width: 0;
+  }
+  &::-webkit-progress-bar {
+    background: rgba(255,255,255,0.1);
+    justify-content: flex-start;
+    border-radius: 100px;
+    align-items: center;
+    position: relative;
+    padding: 0 5px;
+    display: flex;
+    height: 40px;
+    width: 100%;
+  }
+}
+
+// Style for Artwork List
 
 .card-artworks-list {
   margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 50px;
   width: 100%;
-  height: 100%;
 }
 
 .card-list {
-    display: flex;
-    padding: 3rem;
-    overflow-x: scroll;
-}
-
-.card-list::-webkit-scrollbar {
+  display: flex;
+  padding: 3rem;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
     width: 0px;
     height: 0px;
-}
-.card-list::-webkit-scrollbar-thumb {
+  }
+  &::-webkit-scrollbar-thumb {
     background: transparent;
-}
-
-.card-list::-webkit-scrollbar-track {
+  }
+  &::-webkit-scrollbar-track {
     background: transparent
+  }
 }
 
-.tags li {
+.card-artwork {
+  width: 500px;
+  height: 100%;
+  min-width: 300px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: $rocketblackalpha;
+  box-shadow: -1rem 0 1rem $rocketblackalpha;
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  transition: .2s;
+  margin: 0;
+  scroll-snap-align: start;
+  clear: both;
+  overflow-x: scroll visible;
+  position: relative;
+  &:hover {
+    transform: translateY(-1rem);
+    width: 500px;
+    height: 100%;
+  }
+  &:hover #artwork img {
+    height: 100%;
+    border: rgba(255,255,255, 0.5) groove 3px;
+  }
+  &:not(:first-child) {
+    margin-left: -130px;
+  }
+}
+
+.card-artwork:focus-within~.card-artwork, .card-artwork:hover~.card-artwork {
+  transform: translateX(130px);
+}
+
+#artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  img {
+    width: 100%;
+    height: 0px;
+    border-radius: 10px;
+  }
+}
+
+.card-header {
+  margin-bottom: auto;
+  padding: 0rem 0rem 0.5rem 0rem;
+  background: transparent;
+  p {
+      font-size: 14px;
+      margin: 0 0 0.5rem;
+      color: #7a7a8c;
+  }
+  h2 {
+      font-size: 20px;
+      margin: .25rem 0 auto;
+      text-decoration: none;
+      color: inherit;
+      border: 0;
+      display: inline-block;
+      cursor: pointer;
+  }
+  h2:hover {
+      background: linear-gradient(90deg,#523CF0,#826DFE);
+      text-shadow: none;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+  }
+}
+
+.card-author {
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    align-items: center;
+    position: relative;
+}
+
+.author-name {
+    grid-area: auto;
+    box-sizing: border-box;
+}
+
+.author-name-prefix {
     font-style: normal;
     font-weight: 700;
-    font-size: .5rem;
     color: #7a7a8c;
-    text-transform: uppercase;
-    font-size: .66rem;
-    border: 3px solid #28242f;
-    border-radius: 2rem;
-    padding: .2rem .85rem .25rem;
-    text-align: center;
-    position: relative;
-    margin-bottom: 0.2rem;
-    &:hover {
-        background: linear-gradient(90deg,#523CF0,#826DFE);
-        text-shadow: none;
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
-        background-clip: text;
-        border-color: white;
-    }
+}
+
+.half-circle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 48px;
+    fill: none;
+    stroke: $rocketpurplelight;
+    stroke-width: 8;
+    stroke-linecap: round;
+    pointer-events: none;
 }

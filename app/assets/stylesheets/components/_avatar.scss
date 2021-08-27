@@ -1,19 +1,43 @@
 .avatar {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 .avatar-large {
-  width: 56px;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: white 1px solid;
+  margin: 0rem 1rem 1rem 0rem;
 }
+
+.author-avatar {
+    grid-area: auto;
+    align-self: start;
+    position: relative;
+    box-sizing: border-box;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      filter: grayscale(100%);
+      display: block;
+      overflow: hidden;
+      margin: 16px 10px;
+  }
+}
+
 .avatar-bordered {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
 .avatar-square {
   width: 40px;
+  height: 40px;
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
