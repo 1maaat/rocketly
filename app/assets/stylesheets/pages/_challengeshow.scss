@@ -53,8 +53,14 @@
 #social-media {
   padding: 1rem;
   text-align: center;
+  ul a {
+    text-decoration: none;
+    color: $rocketwhite;
+  }
+  ul i {
+    font-size: x-large;
+  }
 }
-
 // Style for Challenge Details
 
 .cards-challenge {
