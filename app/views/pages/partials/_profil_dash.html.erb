@@ -5,7 +5,7 @@
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, height:170 %>
     <% else %>
-      <%= cl_image_tag("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630073580/rocketly_content/avatar_b9iusa.png", crop: :fill) %>
+      <%= cl_image_tag("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630073580/rocketly_content/avatar_b9iusa.png")%>
     <% end %>
     <div class="align-items-center" id="username-user">
       <h3><%= current_user.username %></h3>
