@@ -94,7 +94,11 @@
                       <%= artwork.user.username %>
                     </div>
                   </div>
-                  <%= image_tag 'https://source.unsplash.com/random/1200x900' %>
+                  <% if artwork.files.attached? %>
+                    <%= cl_image_tag artwork.files.key %>
+                  <% else %>
+                    <%= image_tag 'https://source.unsplash.com/random/1200x900' %>
+                  <% end %>
                   <div class="modal-body">
                     <%= artwork.description %>
                   </div>
