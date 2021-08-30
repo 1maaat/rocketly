@@ -31,10 +31,11 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initArtworkform } from '../components/init_artworkform.js';
 import { previewImageOnFileSelect } from '../components/files_preview.js';
-
+import { editAvatar } from '../components/profile_page.js';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initArtworkform()
   previewImageOnFileSelect()
+  editAvatar()
 });

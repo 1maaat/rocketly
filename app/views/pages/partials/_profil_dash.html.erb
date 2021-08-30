@@ -1,42 +1,46 @@
-
-<div id="avatar-username-user">
-  <%# <h2>My Profil Page</h2> %>
-  <div id="avatar-user">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, height:170 %>
-    <% else %>
-      <%= cl_image_tag("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630073580/rocketly_content/avatar_b9iusa.png")%>
-    <% end %>
-    <div class="align-items-center" id="username-user">
-      <h3><%= current_user.username %></h3>
-      <p><%= current_user.email %></p>
-      <p><%= current_user.country %></p>
+<div class="container">
+  <div class="d-flex justify-content-around">
+    <div id="avatar-username-user">
+      <div class="avatar-user">
+          <label class="-label" for="file">
+            <%# <span class="glyphicon glyphicon-camera"></span> %>
+            <span>Change Image</span>
+          </label>
+            <%= simple_form_for(current_user, as: User, url: registration_path(current_user), html: { id: "user-pic-form", method: :put }) do |f| %>
+          <div id="input-user-pic">
+            <%= f.input :photo, as: :file %>
+          </div>
+            <% end %>
+        <%= cl_image_tag current_user.avatar_if_present, height:170, id:"output" %>
+        <div><button id="fake-input">📷</button></div>
+        <div><button id="fake-update">Save</button></div>
+      </div>
+      <div id="user-details">
+        <h3><%= current_user.username %></h3>
+        <p><%= current_user.email %></p>
+        <p><%= current_user.country %></p>
+      </div>
     </div>
-  </div>
-</div>
-
-<div id="space-midle-div">
-</div>
-
-<div id="links-description-user">
-  <div id="links-user">
-    <div id="links-user-left">
-      <p><strong>Website :</strong> <%= current_user.website_url %></p>
-      <p><strong>Facebook :</strong> <%= current_user.facebook_url %></p>
-      <p><strong>Twitter :</strong> <%= current_user.twitter_url %></p>
-      <p><strong>Instagram :</strong> <%= current_user.instagram_url %></p>
-      <p><strong>Spotify :</strong> <%= current_user.spotify_url %></p>
+    <div id="links-description-user">
+      <div class="links-user d-flex">
+        <div id="links-user-left">
+          <p><strong>Website :</strong> <%= current_user.website_url %></p>
+          <p><strong>Facebook :</strong> <%= current_user.facebook_url %></p>
+          <p><strong>Twitter :</strong> <%= current_user.twitter_url %></p>
+          <p><strong>Instagram :</strong> <%= current_user.instagram_url %></p>
+          <p><strong>Spotify :</strong> <%= current_user.spotify_url %></p>
+        </div>
+        <div id="links-user-right">
+          <p><strong>YouTube :</strong> <%= current_user.youtube_url %></p>
+          <p><strong>Dribble :</strong> <%= current_user.dribbble_url %></p>
+          <p><strong>ArtStation :</strong> <%= current_user.artstation_url %></p>
+          <p><strong>Behance :</strong> <%= current_user.behance_url %></p>
+        </div>
+      </div>
+      <div>
+        <h1><strong>What about me ?</strong></h1>
+        <p><%= current_user.description %></p>
+      </div>
     </div>
-    <div id="links-user-right">
-      <p><strong>YouTube :</strong> <%= current_user.youtube_url %></p>
-      <p><strong>Dribble :</strong> <%= current_user.dribbble_url %></p>
-      <p><strong>ArtStation :</strong> <%= current_user.artstation_url %></p>
-      <p><strong>Behance :</strong> <%= current_user.behance_url %></p>
-    </div>
-  </div>
-
-  <div id="description-user">
-    <h1><strong>What about me ?</strong></h1>
-    <p><%= current_user.description %></p>
   </div>
 </div>
