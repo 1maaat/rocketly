@@ -22,7 +22,7 @@ function initArtworkform() {
   });
 
   // submitBtn.addEventListener("click", (e) => {
-  //   e.preventDefault();
+  //   // e.preventDefault();
   //   changeStep("submit");
   // });
 

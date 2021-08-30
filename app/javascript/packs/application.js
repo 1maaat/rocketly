@@ -29,14 +29,15 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import 'controllers'
 import { initArtworkform } from '../components/init_artworkform.js';
 import { previewImageOnFileSelect } from '../components/files_preview.js';
-import { customAlert } from '../components/custom_alert.js'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initArtworkform()
   previewImageOnFileSelect()
-  customAlert()
 });
+
+import "controllers"
