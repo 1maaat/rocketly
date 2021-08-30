@@ -24,6 +24,8 @@ function initArtworkform() {
       changeStep("submit");
     });
   });
+
+
   // form.addEventListener("submit-btn", (e) => {
   //   e.preventDefault();
   //   const inputs = [];
@@ -38,14 +40,17 @@ function initArtworkform() {
   function changeStep(button) {
     let index = 0;
     const active = document.querySelector(".stepactive");
+    const inputDescription = document.getElementById("artwork_description");
+    const inputTitle = document.getElementById("artwork_title");
+    const inputFile = document.getElementById("files-input");
     index = steps.indexOf(active);
     steps[index].classList.remove("stepactive");
-    if (button === "next") {
+    if (button === "next" && inputTitle.value != "" && inputDescription.value != "") {
       index ++;
     } else if (button === "prev") {
       index --;
-    // } else if (button === "submit" && window.location.href.includes('created') === true) {
-    //   index ++;
+    } else if (button === "submit" && inputFile.files != null) {
+      index++;
     }
     steps[index].classList.add("stepactive");
   }
