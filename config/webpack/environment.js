@@ -1,4 +1,6 @@
 const { environment } = require('@rails/webpacker')
+const erb = require('./loaders/erb')
+const coffee =  require('./loaders/coffee')
 
 const webpack = require('webpack');
 // Preventing Babel from transpiling NodeModules packages
@@ -11,4 +13,6 @@ environment.plugins.prepend('Provide',
     Popper: ['popper.js', 'default']
   })
 );
+environment.loaders.prepend('coffee', coffee)
+environment.loaders.prepend('erb', erb)
 module.exports = environment
