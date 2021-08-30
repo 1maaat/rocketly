@@ -1,4 +1,4 @@
 <div>
 <h1>Hello</h1>
-<p><%= social_share_button_tag(@artwork.title) %></p>
+<p><%= social_share_button_tag(@artwork.title, title: "This item is great!", :allow_sites => %w(reddit)) %></p>
 </div>
