@@ -2,20 +2,20 @@
   <div class="wrapper-challenge d-flex justify-content-around">
     <div class="card-creator-details">
       <div class="d-flex align-items-center creator-boxes">
-        <% if @challenge.photo.attached? %>
-          <%= cl_image_tag @challenge.photo.key, height:170 %>
+        <% if @challenge.user.photo.attached? %>
+          <%= cl_image_tag @challenge.user.photo.key, class: "avatar-large" %>
         <% else %>
           <%= image_tag 'avatar.png', class: 'avatar-large' %>
         <% end %>
         <div class="align-items-center">
           <h3><%= @challenge.user.username %></h3>
-          <p><%= @challenge.user.country %></p>
+          <p class="fas fa-map-marker"><%= @challenge.user.country %></p>
         </div>
       </div>
       <div class="creator-boxes">
-        <div>
-          <h5>What about me ?</h5>
-          <p><%= @challenge.user.description %></p>
+        <div class="mt-4">
+          <h5>About</h5>
+          <p class="mt-3"><%= @challenge.user.description %></p>
         </div>
         <div class="tags">
           <ul class="list-inline user-activities-list">
@@ -32,14 +32,14 @@
       </div>
     </div>
     <div class="cards-challenge">
-      <h1 class="mb-3">Discover your Challenge</h1>
+      <h1 class="mb-3">Discover <%= @challenge.user.username.capitalize %>'s challenge </h1>
       <div class="card-challenge-details">
         <h2><%= @challenge.name %></h2>
         <p><%= @challenge.description %></p>
-        <p><i class="fas fa-gift"></i> <%= @challenge.reward %></p>
-        <p>Status : <%= @challenge.status.capitalize %></p>
-        <p><%=@artworks.count %> contributors</p>
-        <%= render 'shared/progressionbar' %>
+        <p>🏆</i> <%= @challenge.reward %></p>
+        <p>📶<%= @challenge.status.capitalize %></p>
+        <p>🧑‍🎨<%=@artworks.count %> contributors</p>
+        <%#= render 'shared/progressionbar' %>
       </div>
       <button id="buttonaddartwork" type="button" data-toggle="modal" data-target="#addArtwork">
         Add an Artwork
@@ -61,9 +61,9 @@
             </div>
             <div class="contentBx">
               <div class="info-challenge d-flex ">
-                <a class="author-avatar" href="#">
-                  <% if @challenge.user.photo.attached? %>
-                    <%= cl_image_tag @challenge.user.photo.key %>
+                <a class="author-avatar">
+                  <% if artwork.user.photo.attached? %>
+                    <%= cl_image_tag artwork.user.photo.key %>
                   <% else %>
                     <%= image_tag 'avatar.png' %>
                   <% end %>
@@ -87,14 +87,22 @@
                   </div>
                   <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
                   <div class="info-modal">
-                    <a class="author-avatar" href="#">
-                      <%= image_tag asset_path('avatar.png') %>
+                    <a class="author-avatar">
+                      <% if artwork.user.photo.attached? %>
+                       <%= cl_image_tag artwork.user.photo.key %>
+                      <% else %>
+                       <%= image_tag 'avatar.png' %>
+                      <% end %>
                     </a>
                     <div class="author-name">
                       <%= artwork.user.username %>
                     </div>
                   </div>
-                  <%= image_tag 'https://source.unsplash.com/random/1200x900' %>
+                    <% if artwork.files.attached? %>
+                      <%= cl_image_tag artwork.files.first.key %>
+                    <% else %>
+                      <%= image_tag 'avatar.png' %>
+                    <% end %>
                   <div class="modal-body">
                     <%= artwork.description %>
                   </div>

@@ -50,6 +50,7 @@
   grid-gap: 16px;
   padding: 30px;
   flex-grow: 1;
+  cursor: pointer;
 }
 
 .big .card-index{
@@ -93,6 +94,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  max-width: 100%;
+  max-height: 100%
 }
 
 .big .card-index .contentBx{

@@ -10,7 +10,11 @@
       <div class="card-index">
             <div class="imgBx">
           <%= link_to challenge_path(challenge), style: "text-decoration: none" do %>
-            <%= image_tag 'https://source.unsplash.com/random/1200x900' %>
+          <% if challenge.photo.attached? %>
+            <%= cl_image_tag challenge.photo.key %>
+          <% else %>
+            <%= image_tag "avatar" %>
+          <% end %>
             </div>
               <div class="contentBx">
                   <div class="info-challenge d-flex ">
