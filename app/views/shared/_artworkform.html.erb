@@ -22,11 +22,14 @@
             </div>
             <div id="prev-sub-btn">
               <%= f.button :button, "Previous", class: "previous-btn"  %>
-              <%= f.submit "Create Artwork", class: "submit-btn", remote: true %>
+              <%= f.submit "Create Artwork", id: "submit-alert", class: "submit-btn", remote: true, disabled: true %>
             </div>
           </div>
       </div>
     </div>
+
+    <script src="sweetalert2.all.min.js"></script>
+
     <% if artwork.created_at? %>
       <div class="step step-3 index">
         <div class="form-group">

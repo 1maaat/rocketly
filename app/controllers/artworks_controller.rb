@@ -20,10 +20,9 @@ class ArtworksController < ApplicationController
     authorize @artwork
     @artwork.user = current_user
     @artwork.challenge = Challenge.find(params[:challenge_id])
-
     if @artwork.save
       flash[:notice] = "Artwork created and published to the challenge #{@artwork.challenge.name} !"
-      redirect_to challenge_path(@challenge, artwork: 'created')
+      redirect_to challenge_path(@challenge)
     else
       flash[:notice] = "Artwork not created... remember to fill in all the fiels !"
       redirect_to challenge_path(@challenge)
