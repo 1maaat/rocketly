@@ -141,7 +141,7 @@ artwork_5 = Artwork.create!(
   user_id: fan_3.id,
   challenge_id: jul_challenge.id
 )
-sneaker_5 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630075702/rocketly_content/ppeqjwa4izomphlzfqj9k6320s0a.gif')
+sneaker_5 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630426941/rocketly_content/sneaker5_p4ebly.gif')
 artwork_5.files.attach(io: sneaker_5, filename: 'sneaker_5', content_type: 'image/gif')
 
 artwork_6 = Artwork.create!(
