@@ -135,6 +135,22 @@
     color: $rocketbutton_hover;
   }
 }
+.next-btn:disabled {
+  &:disabled {
+    border: none;
+    background-color: transparent;
+    border-radius: 50px;
+    color: $rocketgreylight;
+    padding-left: 50px;
+    padding-right: 50px;
+    box-shadow: none;
+    border: 1px solid $rocketgreylight;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
 #next-btn-div {
   display: flex;
   justify-content: flex-end;

@@ -1,11 +1,14 @@
 <h2>My Challenges page</h2>
 
-<div>
-  <% @challenges.each do |challenge| %>
- <div class="dash-card">
-    <strong><%= challenge.name %></strong>
-    <%= challenge.description %>
-    <%= link_to "Go to challenges", challenge_path(challenge) %>
+<% @challenges.each do |challenge| %>
+  <div class="card-product">
+        <div>
+          <% if challenge.photo.attached? %>
+            <%= cl_image_tag challenge.photo.key %>
+          <% end %>
+        </div>
+          <strong><%= challenge.name %></strong>
+          <%= challenge.description %>
+        <%= link_to "Go to challenges", challenge_path(challenge) %>
   </div>
-  <% end %>
-</div>
+<% end %>
