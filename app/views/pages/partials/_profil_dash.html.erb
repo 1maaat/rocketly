@@ -11,8 +11,10 @@
             <%= f.input :photo, as: :file %>
           </div>
             <% end %>
-        <%= cl_image_tag current_user.avatar_if_present, height:170, id:"output" %>
-        <div><button id="fake-input">📷</button></div>
+          <div>
+            <%= cl_image_tag current_user.avatar_if_present, height:170, id:"output" %>
+            <button id="fake-input">📷</button>
+          </div>
         <div><button id="fake-update">Save</button></div>
       </div>
       <div id="user-details">
