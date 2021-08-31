@@ -6,25 +6,27 @@ function initArtworkform() {
   const textsInput = document.querySelector(".texts-input")
   const submitBtn = document.querySelector("form .submit-btn");
 
-  nextBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    changeStep("next");
-  });
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      changeStep("next");
+    });
 
-  prevBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    changeStep("prev");
-  });
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      changeStep("prev");
+    });
 
-  filesInput.addEventListener('change', () => {
-    submitBtn.disabled = false
-  });
+    filesInput.addEventListener('change', () => {
+      submitBtn.disabled = false
+    });
 
-  textsInput.addEventListener('change', () => {
-    if (textsInput != "") {
-      nextBtn.disabled = false
-    }
-  });
+    textsInput.addEventListener('change', () => {
+      if (textsInput != "") {
+        nextBtn.disabled = false
+      }
+    });
+  }
 
   function changeStep(button) {
     let index = 0;
