@@ -13,13 +13,13 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%if request.env['PATH_INFO'] == '/' %>
       <div class="content-wrapper" style="display: grid;">
     <% else %>
       <div class="content-wrapper">
     <% end %>
+    <%= render 'shared/navbar' %>
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>
