@@ -1,0 +1,27 @@
+$size: 50px;
+
+.social-share-button {
+  display: flex;
+  justify-content: space-around;
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+    border-radius: 15px;
+  }
+  .ssb-icon.ssb-reddit:hover {
+    box-shadow: 1px 0px 10px #FF4304;
+  }
+  .ssb-icon.ssb-pinterest:hover {
+    box-shadow: 1px 0px 10px #D60119;
+  }
+  .ssb-icon.ssb-tumblr:hover {
+    box-shadow: 1px 0px 10px #2F486C;
+  }
+  .ssb-icon.ssb-facebook:hover {
+    box-shadow: 1px 0px 10px #2661D7;
+  }
+  .ssb-icon.ssb-twitter:hover {
+    box-shadow: 1px 0px 10px #1FA2F1;
+  }
+}

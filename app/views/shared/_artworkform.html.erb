@@ -4,10 +4,18 @@
     <div class="step step-1 index stepactive" data-artwork-modal-target="slide">
       <div class="form-group" id="first-page-form">
       <h1>Artwork Details</h1>
-          <%= f.input :title, placeholder: "Choose a title for your Artwork...", label: false %>
-          <%= f.input :description, placeholder: "Tell us more about your Artwork...", label: false %>
+          <%= f.input :title,
+            input_html: { class: 'texts-input' },
+            placeholder: "Choose a title for your Artwork...",
+            label: false %>
+          <%= f.input :description,
+            input_html: { class: 'texts-input' },
+            placeholder: "Tell us more about your Artwork...",
+            label: false %>
           <div id="next-btn-div">
-            <%= f.button :button, "Next", class: "next-btn" %>
+            <%= f.button :button, "Next",
+              class: "next-btn",
+              disabled: true %>
           </div>
       </div>
     </div>
@@ -16,7 +24,10 @@
       <div class="form-group" id="second-page-form">
         <h1>Artwork Upload</h1>
           <div id="div_photo">
-            <%= f.input :files, as: :file, input_html: { class: 'd-none', id: 'files-input'}, label_html: { class: 'upload-files'}, label: "Upload file" %>
+            <%= f.input :files, as: :file,
+              input_html: { class: 'd-none', id: 'files-input'},
+              label_html: { class: 'upload-files'},
+              label: "Upload file" %>
             <div id="photo-preview">
               <%= image_tag "", width: 300, class: "hidden", id: "files-preview" %>
             </div>

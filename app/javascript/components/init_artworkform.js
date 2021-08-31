@@ -1,33 +1,29 @@
 function initArtworkform() {
   const steps = Array.from(document.querySelectorAll(".step"));
-  const nextBtn = document.querySelectorAll("form .next-btn");
-  const prevBtn = document.querySelectorAll("form .previous-btn");
+  const nextBtn = document.querySelector("form .next-btn");
+  const prevBtn = document.querySelector("form .previous-btn");
   const filesInput = document.querySelector("#files-input");
+  const textsInput = document.querySelector(".texts-input")
   const submitBtn = document.querySelector("form .submit-btn");
 
-  // const form = document.querySelector('form');
-
-  nextBtn.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      changeStep("next");
-    });
+  nextBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    changeStep("next");
   });
 
-  prevBtn.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      changeStep("prev");
-    });
+  prevBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    changeStep("prev");
   });
-
-  // submitBtn.addEventListener("click", (e) => {
-  //   // e.preventDefault();
-  //   changeStep("submit");
-  // });
 
   filesInput.addEventListener('change', () => {
     submitBtn.disabled = false
+  });
+
+  textsInput.addEventListener('change', () => {
+    if (textsInput != "") {
+      nextBtn.disabled = false
+    }
   });
 
   function changeStep(button) {
@@ -41,6 +37,8 @@ function initArtworkform() {
       index ++;
     } else if (button === "prev") {
       index --;
+    } else if (button === "next") {
+      alert("Fill in all the fiels !")
     }
     steps[index].classList.add("stepactive");
   }
