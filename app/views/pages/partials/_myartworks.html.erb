@@ -1,14 +1,14 @@
-<h2>My Artworks page</h2>
-
 <% @artworks.each do |artwork| %>
-  <div class="card-product">
-        <div>
-          <% if artwork.files.attached? %>
-            <%= cl_image_tag artwork.files.first.key %>
-          <% end %>
-        </div>
-          <strong><%= artwork.title %></strong>
-          <%= artwork.description %>
-        <%= link_to "Go to artworks", challenge_artwork_path(artwork.challenge, artwork) %>
-  </div>
+  <%= link_to challenge_artwork_path(artwork.challenge, artwork) do %>
+    <div class="card-product">
+      <div>
+        <% if artwork.files.attached? %>
+          <%= cl_image_tag artwork.files.first.key %>
+        <% end %>
+      </div>
+      <div class="card-product-infos">
+        <p><%= artwork.title.upcase %></p>
+      </div>
+    </div>
+  <% end %>
 <% end %>

@@ -1,14 +1,12 @@
 #avatar-username-user {
   border-radius: 20px;
-  // width: 400px;
-  // height: 440px;
-  // margin-block: auto;
   padding: 15px;
   backdrop-filter: blur(5px);
   background: rgba(10, 6, 25, 0.5);
   box-shadow: -1rem 0 2rem rgb(10, 6, 25 / 50%);
   transition: 1s;
   z-index: 0;
+  height: 440px;
   &:hover {
     box-shadow: 1px 0 60px rgba($color: $rocketbutton_hover, $alpha: 0.4);
   }
@@ -74,8 +72,6 @@
   height: 440px;
   width: 770px;
   border-radius: 20px;
-  margin-block: auto;
-  margin-left: 23px;
   padding: 15px;
   backdrop-filter: blur(5px);
   background: rgba(10, 6, 25, 0.5);
