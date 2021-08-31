@@ -4,7 +4,7 @@ body {
   background: $rocketpurple asset-url('background-test.png') no-repeat;
   background-size: 500% 500%;
   position: relative;
-  animation: change 30s ease-in-out infinite;
+  animation: change 100s ease-in-out infinite;
   overflow: hidden;
   display: flex;
   flex-direction: column;
