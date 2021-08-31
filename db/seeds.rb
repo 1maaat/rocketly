@@ -18,6 +18,16 @@ puts "All record Destroyed"
 puts "____________________________"
 puts "Creating 1 admin (Rocketly/password)"
 
+
+def safe_open(url, array)
+  URI.open(url)
+rescue # put a specific error class here ideally
+  array << url
+  URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630332367/rocketly_content/OEnHwq0m_400x400_kooadn.jpg")
+end
+
+unloaded_urls = []
+
 User.create!(
   email: "admin@rocketly.cool",
   username: "Rocketly",
@@ -40,7 +50,7 @@ jul = User.create!(
   instagram_url: "https://www.instagram.com/juldetp/?hl=en",
   twitter_url: "https://twitter.com/jul"
 )
-photo_jul = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630332367/rocketly_content/OEnHwq0m_400x400_kooadn.jpg")
+photo_jul = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630332367/rocketly_content/OEnHwq0m_400x400_kooadn.jpg", unloaded_urls)
 jul.photo.attach(io: photo_jul, filename: 'profile_jul', content_type: 'image/jpg')
 
 jul_challenge = Challenge.create!(
@@ -52,7 +62,7 @@ jul_challenge = Challenge.create!(
   status: 1,
   user: jul
 )
-photo_challenge_jul = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630329342/rocketly_content/drawing_sneaker_xr8pqc.jpg")
+photo_challenge_jul = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630329342/rocketly_content/drawing_sneaker_xr8pqc.jpg", unloaded_urls)
 jul_challenge.photo.attach(io: photo_challenge_jul, filename: 'photo_challenge_jul', content_type: 'image/jpg')
 
 fan_1 = User.create!(
@@ -65,7 +75,7 @@ fan_1 = User.create!(
   twitter_url: "https://twitter.com/lightningboltz",
   dribbble_url: "https://dribbble.com/DouglassDesignStudio"
 )
-photo_fan_1 = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_9_qeqanu.jpg")
+photo_fan_1 = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_9_qeqanu.jpg", unloaded_urls)
 fan_1.photo.attach(io: photo_fan_1, filename: 'profile_9', content_type: 'image/jpg')
 
 artwork_1 = Artwork.create!(
@@ -75,7 +85,7 @@ artwork_1 = Artwork.create!(
   user_id: fan_1.id,
   challenge_id: jul_challenge.id
 )
-sneaker_1 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070195/rocketly_content/sneaker1_elz43m.gif')
+sneaker_1 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070195/rocketly_content/sneaker1_elz43m.gif', unloaded_urls)
 artwork_1.files.attach(io: sneaker_1, filename: 'sneaker_1', content_type: 'image/gif')
 
 artwork_2 = Artwork.create!(
@@ -85,7 +95,7 @@ artwork_2 = Artwork.create!(
   user_id: fan_1.id,
   challenge_id: jul_challenge.id
 )
-sneaker_2 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070202/rocketly_content/sneaker2_wcjuvo.gif')
+sneaker_2 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070202/rocketly_content/sneaker2_wcjuvo.gif', unloaded_urls)
 artwork_2.files.attach(io: sneaker_2, filename: 'sneaker_2', content_type: 'image/gif')
 
 fan_2 = User.create!(
@@ -98,7 +108,7 @@ fan_2 = User.create!(
   twitter_url: "https://twitter.com/light",
   instagram_url: "https://www.instagram.com/dahotboyz/?hl=en"
 )
-photo_fan_2 = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_3_bzhgn7.jpg")
+photo_fan_2 = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_3_bzhgn7.jpg", unloaded_urls)
 fan_2.photo.attach(io: photo_fan_2, filename: 'profile_3', content_type: 'image/jpg')
 
 artwork_3 = Artwork.create!(
@@ -108,7 +118,7 @@ artwork_3 = Artwork.create!(
   user_id: fan_2.id,
   challenge_id: jul_challenge.id
 )
-sneaker_3 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070207/rocketly_content/sneaker3_qewqex.gif')
+sneaker_3 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070207/rocketly_content/sneaker3_qewqex.gif', unloaded_urls)
 artwork_3.files.attach(io: sneaker_3, filename: 'sneaker_3', content_type: 'image/gif')
 
 artwork_4 = Artwork.create!(
@@ -118,7 +128,7 @@ artwork_4 = Artwork.create!(
   user_id: fan_2.id,
   challenge_id: jul_challenge.id
 )
-sneaker_4 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070201/rocketly_content/sneaker4_kc35jd.gif')
+sneaker_4 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070201/rocketly_content/sneaker4_kc35jd.gif', unloaded_urls)
 artwork_4.files.attach(io: sneaker_4, filename: 'sneaker_2', content_type: 'image/gif')
 
 fan_3 = User.create!(
@@ -131,7 +141,7 @@ fan_3 = User.create!(
   twitter_url: "https://twitter.com/tamaralt",
   artstation_url: "https://www.artstation.com/lizchief"
 )
-photo_fan_3 = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_2_abnd1e.jpg")
+photo_fan_3 = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_2_abnd1e.jpg", unloaded_urls)
 fan_3.photo.attach(io: photo_fan_3, filename: 'profile_2', content_type: 'image/jpg')
 
 artwork_5 = Artwork.create!(
@@ -141,7 +151,7 @@ artwork_5 = Artwork.create!(
   user_id: fan_3.id,
   challenge_id: jul_challenge.id
 )
-sneaker_5 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630426941/rocketly_content/sneaker5_p4ebly.gif')
+sneaker_5 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630426941/rocketly_content/sneaker5_p4ebly.gif', unloaded_urls)
 artwork_5.files.attach(io: sneaker_5, filename: 'sneaker_5', content_type: 'image/gif')
 
 artwork_6 = Artwork.create!(
@@ -151,7 +161,7 @@ artwork_6 = Artwork.create!(
   user_id: fan_3.id,
   challenge_id: jul_challenge.id
 )
-sneaker_6 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630075737/rocketly_content/i9r5jzv4wcm27xowwma5bk2kzhsq.gif')
+sneaker_6 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630075737/rocketly_content/i9r5jzv4wcm27xowwma5bk2kzhsq.gif', unloaded_urls)
 artwork_6.files.attach(io: sneaker_6, filename: 'sneaker_6', content_type: 'image/gif')
 
 puts "Created!"
@@ -171,7 +181,7 @@ mat = User.create!(
   twitter_url: "https://twitter.com/1maaaat",
   youtube_url: "randomurl"
 )
-photo_mat = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630337016/rocketly_content/Capture_d_e%CC%81cran_2021-08-30_a%CC%80_17.23.22_kyxyam.png")
+photo_mat = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630337016/rocketly_content/Capture_d_e%CC%81cran_2021-08-30_a%CC%80_17.23.22_kyxyam.png", unloaded_urls)
 mat.photo.attach(io: photo_mat, filename: 'profile_mat', content_type: 'image/png')
 
 mat_challenge = Challenge.create!(
@@ -183,7 +193,7 @@ mat_challenge = Challenge.create!(
   status: 1,
   user: mat
 )
-photo_challenge_mat = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630336193/rocketly_content/Capture_d_e%CC%81cran_2021-08-30_a%CC%80_17.09.40_kv5xum.png")
+photo_challenge_mat = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630336193/rocketly_content/Capture_d_e%CC%81cran_2021-08-30_a%CC%80_17.09.40_kv5xum.png", unloaded_urls)
 mat_challenge.photo.attach(io: photo_challenge_mat, filename: 'photo_challenge_mat', content_type: 'image/png')
 
 mat_artwork_1 = Artwork.create!(
@@ -193,7 +203,7 @@ mat_artwork_1 = Artwork.create!(
   user_id: fan_1.id,
   challenge_id: mat_challenge.id
 )
-toy_1 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070249/rocketly_content/1_vx82ih.gif')
+toy_1 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070249/rocketly_content/1_vx82ih.gif', unloaded_urls)
 mat_artwork_1.files.attach(io: toy_1, filename: 'toy_1', content_type: 'image/gif')
 
 mat_artwork_2 = Artwork.create!(
@@ -203,7 +213,7 @@ mat_artwork_2 = Artwork.create!(
   user_id: fan_1.id,
   challenge_id: mat_challenge.id
 )
-toy_2 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070251/rocketly_content/2_xhkoln.gif')
+toy_2 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070251/rocketly_content/2_xhkoln.gif', unloaded_urls)
 mat_artwork_2.files.attach(io: toy_2, filename: 'toy_2', content_type: 'image/gif')
 
 mat_artwork_3 = Artwork.create!(
@@ -213,7 +223,7 @@ mat_artwork_3 = Artwork.create!(
   user_id: fan_1.id,
   challenge_id: mat_challenge.id
 )
-toy_3 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070253/rocketly_content/3_lzjq3o.gif')
+toy_3 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070253/rocketly_content/3_lzjq3o.gif', unloaded_urls)
 mat_artwork_3.files.attach(io: toy_3, filename: 'toy_2', content_type: 'image/gif')
 
 mat_artwork_4 = Artwork.create!(
@@ -223,7 +233,7 @@ mat_artwork_4 = Artwork.create!(
   user_id: fan_2.id,
   challenge_id: mat_challenge.id
 )
-toy_4 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340522/rocketly_content/9_tjovzj.gif')
+toy_4 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340522/rocketly_content/9_tjovzj.gif', unloaded_urls)
 mat_artwork_4.files.attach(io: toy_4, filename: 'toy_4', content_type: 'image/gif')
 
 mat_artwork_5 = Artwork.create!(
@@ -233,7 +243,7 @@ mat_artwork_5 = Artwork.create!(
   user_id: fan_3.id,
   challenge_id: mat_challenge.id
 )
-toy_5 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340526/rocketly_content/7_hgmihu.gif')
+toy_5 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340526/rocketly_content/7_hgmihu.gif', unloaded_urls)
 mat_artwork_5.files.attach(io: toy_5, filename: 'toy_5', content_type: 'image/gif')
 
 mat_artwork_6 = Artwork.create!(
@@ -243,7 +253,7 @@ mat_artwork_6 = Artwork.create!(
   user_id: fan_2.id,
   challenge_id: mat_challenge.id
 )
-toy_6 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340532/rocketly_content/8_w3ki5c.gif')
+toy_6 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340532/rocketly_content/8_w3ki5c.gif', unloaded_urls)
 mat_artwork_6.files.attach(io: toy_6, filename: 'toy_6', content_type: 'image/gif')
 
 mat_artwork_7 = Artwork.create!(
@@ -253,7 +263,7 @@ mat_artwork_7 = Artwork.create!(
   user_id: jul.id,
   challenge_id: mat_challenge.id
 )
-toy_7 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340533/rocketly_content/10_nwvs5q.gif')
+toy_7 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340533/rocketly_content/10_nwvs5q.gif', unloaded_urls)
 mat_artwork_7.files.attach(io: toy_7, filename: 'toy_6', content_type: 'image/gif')
 
 puts "Created!"
@@ -280,7 +290,7 @@ PHOTOS = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketl
     country: Faker::Address.country,
     website_url: Faker::Internet.domain_name
   )
-  photo = URI.open(PHOTOS[index])
+  photo = safe_open(PHOTOS[index], unloaded_urls)
   user.photo.attach(io: photo, filename: user.username, content_type: 'image/jpg')
   user.save!
 end
@@ -319,7 +329,7 @@ PHOTOS_CHALLENGES = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400
     status: [0, 1, 2, 3].sample,
     user_id: User.all.sample.id
   )
-  photo_ch = URI.open(PHOTOS_CHALLENGES[index])
+  photo_ch = safe_open(PHOTOS_CHALLENGES[index], unloaded_urls)
   challenge.photo.attach(io: photo_ch, filename: challenge.name, content_type: 'image/jpg')
   challenge.save!
 end
@@ -343,3 +353,4 @@ puts "6 Challenges created!"
 # puts "100 Artworks created!"
 
 puts "Finished!"
+puts "😱 #{unloaded_urls}"
