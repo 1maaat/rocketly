@@ -33,12 +33,15 @@ import "bootstrap";
 import 'controllers'
 import { initArtworkform } from '../components/init_artworkform.js';
 import { previewImageOnFileSelect } from '../components/files_preview.js';
-
+import { editAvatar } from '../components/profile_page.js';
+import { initUpdateNavbarOnScroll } from '../components/navbar.js';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initArtworkform()
-  previewImageOnFileSelect()
+  initArtworkform();
+  previewImageOnFileSelect();
+  editAvatar();
+  initUpdateNavbarOnScroll();
 });
 
 import "controllers"
