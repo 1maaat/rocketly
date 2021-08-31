@@ -1,0 +1,15 @@
+<div class="modal-step-3">
+  <h1>Share your Artwork</h1>
+
+  <div class="modal-step-3 artwork-infos">
+    <%= cl_image_tag artwork.files.first.key, height:140 %>
+    <p><strong>Artwork title</strong></p>
+    <h5><%= artwork.title %></h5>
+    <p><strong>Artwork informations</strong></p>
+    <h5><%= artwork.description %></h5>
+  </div>
+
+  <div class="modal-step-3 artwork-share">
+    <p><%= social_share_button_tag(artwork.title, :'data-type' => 'photo', :image => "https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630402129/rocketly_content/#{artwork.files.first.key}.#{artwork.files.first.content_type.scan(/(gif|jpg|jpeg|png)/)[0][0]}", desc: "#{artwork.title}", title: "#{artwork.description}") %></p>
+  </div>
+</div>

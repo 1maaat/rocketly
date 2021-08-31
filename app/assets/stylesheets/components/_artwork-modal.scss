@@ -106,6 +106,9 @@
 }
 #photo-preview {
   height: 350px;
+  img {
+    border-radius: 15px;
+  }
 }
 #artwork_title,
 #artwork_description {
@@ -155,6 +158,19 @@
     background-color: $rocketwhite;
     color: $rocketpurplelight;
     box-shadow: 1px 0 90px rgba($color: $rocketwhite, $alpha: 0.4);
+  }
+  &:disabled {
+    border: none;
+    background-color: transparent;
+    border-radius: 50px;
+    color: $rocketgreylight;
+    padding-left: 50px;
+    padding-right: 50px;
+    box-shadow: none;
+    border: 1px solid $rocketgreylight;
+    &:hover {
+      box-shadow: none;
+    }
   }
 }
 #prev-sub-btn {

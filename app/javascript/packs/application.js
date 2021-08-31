@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('packs/social-share-button.js.erb')
 
 
 
@@ -29,6 +30,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import 'controllers'
 import { initArtworkform } from '../components/init_artworkform.js';
 import { previewImageOnFileSelect } from '../components/files_preview.js';
 import { editAvatar } from '../components/profile_page.js';
@@ -41,3 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   editAvatar();
   initUpdateNavbarOnScroll();
 });
+
+import "controllers"

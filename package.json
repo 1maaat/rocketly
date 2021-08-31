@@ -7,8 +7,13 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "bootstrap": "4.6",
+    "coffee-loader": "1.0.1",
+    "coffeescript": "1.12.7",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
+    "rails-erb-loader": "^5.5.2",
+    "stimulus": "^2.0.0",
+    "sweetalert2": "^11.1.4",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

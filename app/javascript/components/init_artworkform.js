@@ -1,51 +1,44 @@
 function initArtworkform() {
   const steps = Array.from(document.querySelectorAll(".step"));
-  const nextBtn = document.querySelectorAll("form .next-btn");
-  const prevBtn = document.querySelectorAll("form .previous-btn");
-  const submitBtn = document.querySelectorAll("form .submit-btn");
+  const nextBtn = document.querySelector("form .next-btn");
+  const prevBtn = document.querySelector("form .previous-btn");
+  const filesInput = document.querySelector("#files-input");
+  const textsInput = document.querySelector(".texts-input")
+  const submitBtn = document.querySelector("form .submit-btn");
 
-  // const form = document.querySelector('form');
+  nextBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    changeStep("next");
+  });
 
-  nextBtn.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      changeStep("next");
-    });
+  prevBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    changeStep("prev");
   });
-  prevBtn.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      changeStep("prev");
-    });
+
+  filesInput.addEventListener('change', () => {
+    submitBtn.disabled = false
   });
-  submitBtn.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      // e.preventDefault();
-      changeStep("submit");
-    });
+
+  textsInput.addEventListener('change', () => {
+    if (textsInput != "") {
+      nextBtn.disabled = false
+    }
   });
-  // form.addEventListener("submit-btn", (e) => {
-  //   e.preventDefault();
-  //   const inputs = [];
-  //   form.querySelectorAll("input").forEach((input) => {
-  //     const { name, value } = input;
-  //     inputs.push({ name, value });
-  //   });
-  //   console.log(inputs);
-  //   form.reset();
-  // });
 
   function changeStep(button) {
     let index = 0;
     const active = document.querySelector(".stepactive");
+    const inputDescription = document.getElementById("artwork_description");
+    const inputTitle = document.getElementById("artwork_title");
     index = steps.indexOf(active);
     steps[index].classList.remove("stepactive");
-    if (button === "next") {
+    if (button === "next" && inputTitle.value != "" && inputDescription.value != "") {
       index ++;
     } else if (button === "prev") {
       index --;
-    // } else if (button === "submit" && window.location.href.includes('created') === true) {
-    //   index ++;
+    } else if (button === "next") {
+      alert("Fill in all the fiels !")
     }
     steps[index].classList.add("stepactive");
   }
