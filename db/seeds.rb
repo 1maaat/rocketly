@@ -1,11 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-require "faker"
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
+# require "faker"
 
 puts "Cleaning database..."
 
@@ -47,7 +47,7 @@ jul_challenge = Challenge.create!(
   name: "👽👟🚀",
   description: "Create the next edition of the Jul's sneakers. The winning pair of sneakers will be produced in very limited editions for luckiest fans.",
   reward: "10 000$",
-  start_date: Faker::Date.between(from: 3.days.ago, to: 1.day.from_now),
+  start_date: Faker::Date.between(from: 3.days.ago, to: Date.today),
   end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
   status: 1,
   user: jul
@@ -167,8 +167,7 @@ mat = User.create!(
   country: "France 🇫🇷",
   website_url: "mat.pizza",
   twitter_url: "https://twitter.com/1maaaat",
-  youtube_url: "randomurl",
-  twitter_url: "randomurl"
+  youtube_url: "randomurl"
 )
 photo_mat = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630337016/rocketly_content/Capture_d_e%CC%81cran_2021-08-30_a%CC%80_17.23.22_kyxyam.png")
 mat.photo.attach(io: photo_mat, filename: 'profile_mat', content_type: 'image/png')
@@ -177,7 +176,7 @@ mat_challenge = Challenge.create!(
   name: "🧸🎨🚀",
   description: "I'd like to have a fresh and 3D (mandatory) figurine of myself. Know that I love video games and I have a very high acceptance when it comes to laugh after myself. So please by crazy when it comes to design a toy that I would recreate in 3D if you guys are interested and happy with the final result 🔥",
   reward: "150$",
-  start_date: Faker::Date.between(from: 3.days.ago, to: 1.day.from_now),
+  start_date: Faker::Date.between(from: 3.days.ago, to: Date.today),
   end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
   status: 1,
   user: mat
@@ -255,20 +254,34 @@ mat_artwork_7 = Artwork.create!(
 toy_7 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340533/rocketly_content/10_nwvs5q.gif')
 mat_artwork_7.files.attach(io: toy_7, filename: 'toy_6', content_type: 'image/gif')
 
+puts "Creating 10 random users"
 
-# puts "Creating 10 random users"
+PHOTOS = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_10_zwkn6k.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_5_sliazq.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400036/rocketly_content/profile_4_lynilg.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_8_medpdd.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327801/rocketly_content/profile_7_ixxlfx.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327800/rocketly_content/profile_4_vzgesx.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327800/rocketly_content/profile_6_uhkkpb.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_9_qeqanu.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630399950/rocketly_content/profile_2_ephr8i.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630399949/rocketly_content/profile_3_yqgbvy.jpg']
 
-# 10.times do
-#   user = User.new(
-#     email: Faker::Internet.unique.email,
-#     username: Faker::Name.unique.first_name,
-#     password: "password",
-#     description: Faker::TvShows::HowIMetYourMother.quote,
-#     country: Faker::Address.country,
-#     website_url: Faker::Internet.domain_name
-#   )
-#   user.save!
-# end
+10.times do |index|
+  user = User.new(
+    email: Faker::Internet.unique.email,
+    username: Faker::Name.unique.first_name,
+    password: "password",
+    description: Faker::TvShows::HowIMetYourMother.quote,
+    country: Faker::Address.country,
+    website_url: Faker::Internet.domain_name
+  )
+  photo = URI.open(PHOTOS[index])
+  user.photo.attach(io: photo, filename: user.username, content_type: 'image/jpg')
+  user.save!
+end
+
+puts "10 Users created!"
 
 # Activity::ACTIVITY.each do |activity|
 #   Activity.create!(name: activity)
@@ -282,24 +295,34 @@ mat_artwork_7.files.attach(io: toy_7, filename: 'toy_6', content_type: 'image/gi
 #   user_activity.save!
 # end
 
-# CHALLENGES = ["Create my new Chatroom Emojis", "Create my new Youtube cover", "Design my new Sneakers", "I need a new Logo", "Next Album cover design", "New graphic design for next stream"]
+puts "Creating 6 random Challenges"
 
-# puts "10 Users created!"
+CHALLENGES_NAME = [" 🧩⚡️👽 - Create a fake boardgame", " 🍿🎞🖥 - Create my new Youtube cover", "👾👑🏆 - Create my new Twitch emotes", "🖼⚜️💟 - Redesign my streaming setup", "💿〽️🎧 - Design my next album cover", "🕹🦸‍♂️💎 - Create my Fortnite skin"]
+PHOTOS_CHALLENGES = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400643/rocketly_content/355x310-gamebox_bb58kg.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400914/rocketly_content/Capture_d_e%CC%81cran_2021-08-31_a%CC%80_11.05.27_qsbmwk.png',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630403083/rocketly_content/Capture_d_e%CC%81cran_2021-08-31_a%CC%80_11.43.13_jhjpiz.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630403406/rocketly_content/E6QFy5GXoAALR5Z_ktihsv.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630404705/rocketly_content/cd-disc-mixtape-album-cover-art-template-design-c4b0541e40b0cfc080268933bcadb67a_screen_un3sfa.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630404704/rocketly_content/skin-fortnite_stqzjg.jpg']
 
-# puts "Creating 30 random Challenges"
+6.times do |index|
+  challenge = Challenge.create!(
+    name: CHALLENGES_NAME[index],
+    description: Faker::Movies::BackToTheFuture.quote,
+    reward: "#{rand(100..10_000)}$",
+    start_date: Faker::Date.between(from: 3.days.ago, to: Date.today),
+    end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
+    status: [0, 1, 2, 3].sample,
+    user_id: User.all.sample.id
+  )
+  photo_ch = URI.open(PHOTOS_CHALLENGES[index])
+  challenge.photo.attach(io: photo_ch, filename: challenge.name, content_type: 'image/jpg')
+  challenge.save!
+end
 
-# 30.times do
-#   Challenge.create!(
-#     name: CHALLENGES.sample,
-#     description: Faker::Movies::BackToTheFuture.quote,
-#     reward: "#{rand(100..10_000)}$" + User::REWARDS.sample,
-#     start_date: Faker::Date.between(from: 3.days.ago, to: 1.day.from_now),
-#     end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
-#     status: [0, 1, 2, 3].sample,
-#     user_id: User.all.sample.id
-#   )
-# end
-# puts "30 Challenges created!"
+puts "6 Challenges created!"
+
+#No need to create artworks for the demo = we'll only show 2 pre-made challenges but we need to populate the challenge#index with many original challenges
 
 # puts "Creating 100 Artworks"
 
