@@ -18,13 +18,8 @@
   height: 200px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  // position: absolute;
+  object-fit: cover;
 }
-
-// #output {
-//   position: relative;
-
-// }
 
 #fake-input{
   background-color: transparent;
