@@ -18,11 +18,12 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
         this.slideTargets.forEach((slide) => {
           slide.classList.remove("stepactive")
         });
         this.finalSlideTarget.classList.add("stepactive");
+        console.log()
+        this.finalSlideTarget.innerHTML = data.sharehtml;
       });
   };
 }

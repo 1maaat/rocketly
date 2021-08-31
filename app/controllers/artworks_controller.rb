@@ -50,6 +50,6 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params.require(:artwork).permit(:title, :description, :selected, :rank, files: [])
+    params.require(:artwork).permit(:title, :description, :selected, :rank, :files)
   end
 end

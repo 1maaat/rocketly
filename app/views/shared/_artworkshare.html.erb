@@ -1,4 +1,10 @@
 <div>
 <h1>Hello</h1>
-<p><%= social_share_button_tag(@artwork.title, title: "This item is great!", :allow_sites => %w(reddit)) %></p>
+  <%= artwork.title %>
+  <% if artwork.files.attached? %>
+    <%= cl_image_tag artwork.files.first.key, height:100 %>
+  <% else %>
+    <p>Not files...</p>
+  <% end %>
+  <%# <p><%= social_share_button_tag(artwork.title, desc: "#{artwork.description}", title: "#{artwork.title}", :allow_sites => %w(twitter facebook pinterest reddit)) %></p> %>
 </div>
