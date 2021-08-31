@@ -1,8 +1,6 @@
 // Style for User Details
 
 .card-creator-details {
-  margin-top: 1rem;
-  margin-right: 1.5rem;
   padding: 1rem;
   width: 25vw;
   height: 100%;
@@ -12,6 +10,13 @@
   background: $rocketblackalpha;
   box-shadow: -1rem 0 2rem $rocketblackalpha;
   backdrop-filter: blur(5px);
+  min-height: 585px;
+  max-height: 585px;
+  min-width: 320px;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .creator-boxes {
@@ -64,21 +69,30 @@
 // Style for Challenge Details
 
 .cards-challenge {
-  margin-top: 1rem;
-  margin-left: 1.5rem;
-  width: 40vw;
-  height: 60vh;
   z-index: 0;
 }
 
 .card-challenge-details {
-  padding: 1rem;
-  width: 100%;
+  padding: 3rem;
+  margin-right: 15px;
   border-radius: 16px;
   background: $rocketblackalpha;
   box-shadow: -1rem 0 2rem $rocketblackalpha;
   backdrop-filter: blur(5px);
   z-index: 0;
+  min-width: 840px;
+  min-height: 585px;
+  max-height: 585px;
+    h1, h2, p {
+      padding-bottom: 15px;
+  }
+  h2 {
+    font-size: 35px;
+  }
+    p {
+      font-size: 22px;
+      margin-bottom: 0.8rem;
+    }
 }
 
 progress {
@@ -109,10 +123,7 @@ progress {
 // Style for Artwork List
 
 .card-artworks-list {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding-bottom: 50px;
-  width: 100%;
+  min-width: 1175px;
 }
 
 .card-list {
@@ -236,13 +247,19 @@ progress {
     pointer-events: none;
 }
 
+.div-button-add {
+  display: flex;
+  justify-content: center;
+  margin: 35px 0px;
+}
+
 #buttonaddartwork {
-  margin: 5% 25%;
   background-color: $rocketbutton;
+  font-size: 30px;
   border-radius: 50px;
   border-style: none;
   color: $rocketwhite;
-  padding: 10px;
+  padding: 15px;
   padding-left: 50px;
   padding-right: 50px;
   transition: 0.2s;

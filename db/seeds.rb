@@ -44,7 +44,7 @@ photo_jul = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630332
 jul.photo.attach(io: photo_jul, filename: 'profile_jul', content_type: 'image/jpg')
 
 jul_challenge = Challenge.create!(
-  name: "👽👟🚀",
+  name: "👽👟🚀 - Design my new sneakers",
   description: "Create the next edition of the Jul's sneakers. The winning pair of sneakers will be produced in very limited editions for luckiest fans.",
   reward: "10 000$",
   start_date: Faker::Date.between(from: 3.days.ago, to: Date.today),
@@ -154,6 +154,8 @@ artwork_6 = Artwork.create!(
 sneaker_6 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630075737/rocketly_content/i9r5jzv4wcm27xowwma5bk2kzhsq.gif')
 artwork_6.files.attach(io: sneaker_6, filename: 'sneaker_6', content_type: 'image/gif')
 
+puts "Created!"
+
 # End Jul challenge creation + profile + fans' profiles + artworks
 # Start Mat challenge creation + profile + fans' profiles + artworks
 
@@ -173,7 +175,7 @@ photo_mat = URI.open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630337
 mat.photo.attach(io: photo_mat, filename: 'profile_mat', content_type: 'image/png')
 
 mat_challenge = Challenge.create!(
-  name: "🧸🎨🚀",
+  name: "🧸🎨🚀 - Create a funny 3D version of myself",
   description: "I'd like to have a fresh and 3D (mandatory) figurine of myself. Know that I love video games and I have a very high acceptance when it comes to laugh after myself. So please by crazy when it comes to design a toy that I would recreate in 3D if you guys are interested and happy with the final result 🔥",
   reward: "150$",
   start_date: Faker::Date.between(from: 3.days.ago, to: Date.today),
@@ -253,6 +255,8 @@ mat_artwork_7 = Artwork.create!(
 )
 toy_7 = URI.open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630340533/rocketly_content/10_nwvs5q.gif')
 mat_artwork_7.files.attach(io: toy_7, filename: 'toy_6', content_type: 'image/gif')
+
+puts "Created!"
 
 puts "Creating 10 random users"
 
