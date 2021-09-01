@@ -1,0 +1,32 @@
+#artwork-share {
+  background-color: rgba(10, 6, 25, 0.8);
+  box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  margin-top: 10vh;
+  width: auto;
+}
+
+#showArtwork {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  padding: 30px 0;
+  grid-auto-columns: minmax(290px, 1fr);
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent
+  }
+}
+
+#shareArtwork .modal-dialog {
+    justify-content: center;
+    max-width: 965px !important;
+}
