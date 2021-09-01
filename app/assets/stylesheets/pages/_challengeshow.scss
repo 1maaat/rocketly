@@ -10,8 +10,8 @@
   background: $rocketblackalpha;
   box-shadow: -1rem 0 2rem $rocketblackalpha;
   backdrop-filter: blur(5px);
-  min-height: 585px;
-  max-height: 585px;
+  min-height: 550px;
+  max-height: 550px;
   min-width: 320px;
   display: flex;
   align-content: space-around;
@@ -73,7 +73,7 @@
 }
 
 .card-challenge-details {
-  padding: 3rem;
+  padding: 2rem;
   margin-right: 15px;
   border-radius: 16px;
   background: $rocketblackalpha;
@@ -81,9 +81,12 @@
   backdrop-filter: blur(5px);
   z-index: 0;
   min-width: 840px;
-  min-height: 585px;
-  max-height: 585px;
-    h1, h2, p {
+  min-height: 550px;
+  max-height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+    h1, h2 {
       padding-bottom: 15px;
   }
   h2 {
@@ -93,6 +96,30 @@
       font-size: 22px;
       margin-bottom: 0.8rem;
     }
+}
+
+.details-tag {
+  background-color: #4A3C54;
+    border-radius: 25px;
+    padding: 5px 15px;
+    text-align: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    color: white;
+    font-weight: bold;
+    transition: 0.1s;
+    letter-spacing: 1px;
+}
+
+.div-tag {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+  justify-content: space-around;
 }
 
 progress {
@@ -267,4 +294,8 @@ progress {
   &:hover {
     background-color: $rocketbutton_hover;
   }
+}
+
+.progress-text {
+  text-align: center;
 }
