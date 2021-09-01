@@ -91,7 +91,6 @@
               </div>
               <div class="card-index-action">
                 <% if @challenge.status == "vote" && @challenge.user_id == current_user.id %>
-                  <%#= check_box_tag "artworks[]", artwork.id %>
                   <input <%= "checked" if artwork.selected == true %> type="checkbox" name="artworks[]" class="artworks-input" id="artworks_<%= artwork.id %>" value="<%= artwork.id %>" data-artwork-target="input">
                   <%= label_tag "artworks_#{artwork.id}", "Select this Artwork", data: { action: 'click->artwork#select', artwork_id: artwork.id } %>
                 <% end %>
