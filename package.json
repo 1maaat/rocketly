@@ -13,12 +13,12 @@
     "popper.js": "^1.16.1",
     "rails-erb-loader": "^5.5.2",
     "stimulus": "^2.0.0",
-    "sweetalert2": "^11.1.4",
+    "sweetalert2": "^9.10.11",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
     "@webpack-cli/serve": "^1.5.2",
-    "webpack-dev-server": "^4.0.0"
+    "webpack-dev-server": "3.7.1"
   }
 }

@@ -27,6 +27,7 @@ require('packs/social-share-button.js.erb')
 
 // External imports
 import "bootstrap";
+import "../components/sweet-alert-confirm";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
