@@ -8,4 +8,6 @@ class PagesController < ApplicationController
     @artworks = current_user.artworks
     @challenges = current_user.challenges
   end
+
+
 end

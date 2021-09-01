@@ -1,14 +1,13 @@
 #avatar-username-user {
   border-radius: 20px;
-  // width: 400px;
-  // height: 440px;
-  // margin-block: auto;
+  height: 440px;
   padding: 15px;
   backdrop-filter: blur(5px);
   background: rgba(10, 6, 25, 0.5);
   box-shadow: -1rem 0 2rem rgb(10, 6, 25 / 50%);
   transition: 1s;
   z-index: 0;
+  height: 440px;
   &:hover {
     box-shadow: 1px 0 60px rgba($color: $rocketbutton_hover, $alpha: 0.4);
   }
@@ -18,13 +17,8 @@
   height: 200px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  // position: absolute;
+  object-fit: cover;
 }
-
-// #output {
-//   position: relative;
-
-// }
 
 #fake-input{
   background-color: transparent;
@@ -79,8 +73,6 @@
   height: 440px;
   width: 770px;
   border-radius: 20px;
-  margin-block: auto;
-  margin-left: 23px;
   padding: 15px;
   backdrop-filter: blur(5px);
   background: rgba(10, 6, 25, 0.5);
@@ -88,6 +80,10 @@
   text-align: left;
   transition: 1s;
   z-index: 0;
+  max-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   &:hover {
     box-shadow: 1px 0 60px rgba($color: $rocketbutton_hover, $alpha: 0.4);
   }
@@ -98,6 +94,21 @@
 #links-user {
   display: flex;
   justify-content: center;
+}
+
+#user-descr {
+  padding: 10px;
+}
+
+#user-descr p {
+  margin-top: 20px;
+}
+
+#user-info-dash {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 20px;
+  text-align: justify;
 }
 
 #links-user-left {
@@ -117,4 +128,15 @@
 
 .content-wrapper{
   padding-top: 111px;
+}
+
+#social-media-dash {
+  text-align: center;
+  ul a {
+    text-decoration: none;
+    color: $rocketwhite;
+  }
+  ul i {
+    font-size: x-large;
+  }
 }

@@ -37,6 +37,7 @@ import { editAvatar } from '../components/profile_page.js';
 import { initUpdateNavbarOnScroll } from '../components/navbar.js';
 import { shareArtwork } from '../components/generate_stories';
 import { Tooltip } from "bootstrap"
+// import "../components/sweet-alert-confirm";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
