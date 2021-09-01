@@ -75,6 +75,17 @@
   }
 }
 
+#new-button-create {
+  border-radius: 20px;
+  border: none;
+  background-color: $rocketbutton;
+  color: $rocketwhite;
+  padding: 10px 20px;
+  &:hover{
+    background-color: $rocketbutton_hover;
+  }
+}
+
 .dropdown-menu {
   background-color: $rocketgreylight;
   border-radius: 10px;
@@ -92,6 +103,10 @@
 #rocketly-logo {
   width: 70px;
   fill: $rocketwhite;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: -13px;
+  margin-left: 5px;
 }
 
 #profile-user{
@@ -108,4 +123,25 @@
   padding: 10px 20px;
   margin-right: 15px;
   margin-left: 15px;
+  opacity: 0.75;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+#new-disable-challenge {
+  color: white;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  opacity: 0.75;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+
+.navbar-content-left {
+  display: flex;
+  align-items: center;
 }
