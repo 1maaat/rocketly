@@ -81,6 +81,9 @@
   transition: 1s;
   z-index: 0;
   max-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   &:hover {
     box-shadow: 1px 0 60px rgba($color: $rocketbutton_hover, $alpha: 0.4);
   }
@@ -99,6 +102,13 @@
 
 #user-descr p {
   margin-top: 20px;
+}
+
+#user-info-dash {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 20px;
+  text-align: justify;
 }
 
 #links-user-left {
@@ -121,10 +131,7 @@
 }
 
 #social-media-dash {
-  padding: 1rem;
   text-align: center;
-  position: relative;
-  top: 210px;
   ul a {
     text-decoration: none;
     color: $rocketwhite;

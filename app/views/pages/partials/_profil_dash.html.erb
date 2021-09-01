@@ -24,14 +24,16 @@
       </div>
     </div>
     <div id="links-description-user">
-      <div id="user-descr">
-        <h1><strong>What about me ?</strong></h1>
-        <p><%= current_user.description %></p>
-      </div>
-      <div id="social-media-dash">
-          <ul class="list-inline d-flex justify-content-around">
-            <%= render 'shared/socialmedia-dash' %>
-          </ul>
+        <div id="user-descr">
+          <h1><strong>What about me ?</strong></h1>
+        </div>
+        <div id="user-info-dash">
+          <p><%= current_user.description %></p>
+        </div>
+        <div id="social-media-dash">
+            <ul class="list-inline d-flex justify-content-around">
+              <%= render 'shared/socialmedia-dash' %>
+            </ul>
         </div>
     </div>
   </div>
