@@ -3,7 +3,7 @@
     <div class="cards-challenge">
       <div class="d-flex justify-content-center">
       <% if @challenge.user == current_user %>
-        <h1>Edit my challenge</h1>
+        <h1>🖌 Edit my challenge</h1>
       <% else %>
         <h1 class="mb-3">Discover <%= @challenge.user.username.capitalize %>'s challenge </h1>
       <% end %>
