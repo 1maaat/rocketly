@@ -119,9 +119,9 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                      </button>
+                      <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close"> %>
+                      <%# <span aria-hidden="true">&times;</span> %>
+                      <%# </button> %>
                     </div>
                     <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
                     <div class="info-modal">
@@ -162,10 +162,10 @@
   <div class="modal-dialog">
     <div class="modal-content" id="artwork-show">
       <div class="modal-header">
-        <h5 class="modal-title" id="addArtworkLabel">Add your Artwork</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="addArtworkLabel">Contribute to the challenge</h5>
+        <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> %>
       </div>
       <div class="container">
         <%= render 'shared/artworkform', artwork: @artwork, challenge: @challenge %>
@@ -180,9 +180,9 @@
     <div class="modal-content" id="artwork-share">
       <div class="modal-header">
         <h5 class="modal-title" id="shareArtworkLabel">Share on Instagram</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> %>
       </div>
       <div class="container" id="showArtwork">
       </div>
