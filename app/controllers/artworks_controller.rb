@@ -43,6 +43,21 @@ class ArtworksController < ApplicationController
     end
   end
 
+  def update_status
+    skip_authorization
+    if Artwork.find(params[:id]).selected == false
+      Artwork.find(params[:id]).update(selected: true)
+      respond_to do |format|
+        format.json { render json: { status: 'selected' } }
+      end
+    else
+      Artwork.find(params[:id]).update(selected: false)
+      respond_to do |format|
+        format.json { render json: { status: 'unselected' } }
+      end
+    end
+  end
+
   private
 
   def set_challenge

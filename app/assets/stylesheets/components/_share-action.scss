@@ -1,0 +1,18 @@
+.share-action-bar {
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transform: translateY(100%);
+  transition: transform 0.3 ease-in-out;
+  &.active {
+    transform: translateY(0%);
+  }
+}
