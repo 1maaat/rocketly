@@ -3,14 +3,14 @@
   <%= simple_form_for([ challenge, artwork ], data: { artwork_modal_target: 'form', action: 'submit->artwork-modal#send' }) do |f| %>
     <div class="step step-1 index stepactive" data-artwork-modal-target="slide">
       <div class="form-group" id="first-page-form">
-      <h1>Artwork Details</h1>
+      <h1 class="mt-3 mb-3">Detail your contribution</h1>
           <%= f.input :title,
             input_html: { class: 'texts-input' },
-            placeholder: "Choose a title for your Artwork...",
+            placeholder: "Give a title to your masterpiece",
             label: false %>
           <%= f.input :description,
             input_html: { class: 'texts-input' },
-            placeholder: "Tell us more about your Artwork...",
+            placeholder: "Tell us more about your work",
             label: false %>
           <div id="next-btn-div">
             <%= f.button :button, "Next",
@@ -22,7 +22,6 @@
 
     <div class="step step-2 index" data-artwork-modal-target="slide">
       <div class="form-group" id="second-page-form">
-        <h1>Artwork Upload</h1>
           <div id="div_photo">
             <%= f.input :files, as: :file,
               input_html: { class: 'd-none', id: 'files-input'},
