@@ -58,7 +58,7 @@ jul_challenge = Challenge.create!(
   description: "Create the next edition of the Jul's sneakers. The winning pair of sneakers will be produced in very limited editions for luckiest fans.",
   reward: "10 000$",
   start_date: Faker::Date.between(from: 3.days.ago, to: Date.today),
-  end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
+  end_date: Faker::Date.between(from: 2.days.from_now, to: 6.days.from_now),
   status: 1,
   user: jul
 )
@@ -161,7 +161,7 @@ artwork_6 = Artwork.create!(
   user_id: fan_3.id,
   challenge_id: jul_challenge.id
 )
-sneaker_6 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630075737/rocketly_content/i9r5jzv4wcm27xowwma5bk2kzhsq.gif', unloaded_urls)
+sneaker_6 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630070198/rocketly_content/sneaker6_i0mbtw.gif', unloaded_urls)
 artwork_6.files.attach(io: sneaker_6, filename: 'sneaker_6', content_type: 'image/gif')
 
 puts "Created!"
