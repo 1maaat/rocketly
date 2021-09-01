@@ -15,8 +15,22 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Go to challenges", challenges_path, class: "nav-link", id:"button-create" %>
-          <%# <%= link_to "✚ Create a challenge", new_challenge_path, class: "nav-link", id:"button-create" %>
+          <% if params[:controller] == "challenges" && params[:action] == "show"%>
+            <div class="d-flex">
+              <button id="button-create" type="button" data-toggle="modal" data-target="#addArtwork">
+                Contribute
+              </button>
+              <%= link_to  "Go to challenges", challenges_path, class: "nav-link", id: "disable-challenge" %>
+            </div>
+          <% elsif params[:action] == "home" && user_signed_in? %>
+          <%= link_to  "My Dashboard", dashboard_path, class: "nav-link", id:"button-create"%>
+          <% elsif params[:action] == "dashboard"%>
+          <%= link_to  "Go to challenges", challenges_path, class: "nav-link", id:"button-create" %>
+          <% elsif params[:controller] == "challenges" && params[:action] == "index" %>
+          <%= link_to  "My Dashboard", dashboard_path, class: "nav-link", id:"button-create" %>
+          <% else %>
+           <%end %>
+
         </li>
         <li class="nav-item dropdown">
           <%= image_tag asset_path('user-profile.svg'), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, id:"profile-user", 'aria-expanded': false %>
@@ -32,6 +46,9 @@
         </li>
       <% end %>
     </ul>
-    <div id="button-challenges"><%= link_to "✚", new_challenge_path %></div>
+    <% if user_signed_in?%>
+      <div id="button-challenges"><%= link_to "✚", new_challenge_path %></div>
+    <% else %>
+    <% end %>
   </div>
 </div>

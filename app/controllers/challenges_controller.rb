@@ -14,6 +14,7 @@ class ChallengesController < ApplicationController
 
   def show
     @artworks = @challenge.artworks
+    @users = @artworks.select(:user_id).distinct
     @artwork = Artwork.new
   end
 

@@ -2,16 +2,26 @@
   <div class="wrapper-challenge d-flex justify-content-around">
     <div class="cards-challenge">
       <div class="d-flex justify-content-center">
+      <% if @challenge.user = current_user %>
+        <h1>Edit my challenge</h1>
+      <% else %>
         <h1 class="mb-3">Discover <%= @challenge.user.username.capitalize %>'s challenge </h1>
+      <% end %>
       </div>
       <div class="d-flex">
         <div class="card-challenge-details">
-          <h2><%= @challenge.name %></h2>
-          <p><%= @challenge.description %></p>
-          <p>🏆 </i> <%= @challenge.reward %></p>
-          <p>📶 <%= @challenge.status.capitalize %></p>
-          <p>🧑‍🎨 <%=@artworks.count %> contributors</p>
-          <%= render 'shared/progressionbar' %>
+          <div class="div-details">
+            <h2><%= @challenge.name %></h2>
+            <p><%= @challenge.description %></p>
+          </div>
+          <div class="div-tag">
+            <p class="details-tag">🏆 </i> <%= @challenge.reward %></p>
+            <p class="details-tag">📶 <%= @challenge.status.capitalize.gsub("_", " ") %></p>
+            <p class="details-tag">🧑‍🎨 <%= pluralize(@users.count, "contributor") %></p>
+          </div>
+          <div class="div-progress">
+            <%= render 'shared/progressionbar' %>
+          </div>
         </div>
       <div class="card-creator-details">
         <div class="d-flex align-items-center creator-boxes">
@@ -22,7 +32,7 @@
           <% end %>
           <div class="align-items-center">
             <h3><%= @challenge.user.username %></h3>
-            <p class="fas fa-map-marker"> <%= @challenge.user.country %></p>
+            <p class="fas fa-map-marker"></p>  <%= @challenge.user.country %>
           </div>
         </div>
         <div class="creator-boxes">
@@ -45,14 +55,10 @@
         </div>
       </div>
     </div>
-    <div class="div-button-add">
-      <button id="buttonaddartwork" type="button" data-toggle="modal" data-target="#addArtwork">
-        Add an Artwork
-      </button>
-     </div>
     </div>
   </div>
-  <h2 class="mt-3" style="text-align:center">Contributions</h2>
+  <% count = @challenge.artworks.count %>
+  <h2 class="mt-3" style="text-align:center"><%= pluralize(count, "contribution")%></h2>
   <div class="card-artworks-list">
     <div class="big">
       <% @artworks.each do |artwork| %>
@@ -86,11 +92,6 @@
             <div class="modal fade right" id="artworkDetails<%= artwork.id%>" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
                   <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
                   <div class="info-modal">
                     <a class="author-avatar">

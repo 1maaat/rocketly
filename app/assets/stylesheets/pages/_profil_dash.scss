@@ -1,5 +1,6 @@
 #avatar-username-user {
   border-radius: 20px;
+  height: 440px;
   padding: 15px;
   backdrop-filter: blur(5px);
   background: rgba(10, 6, 25, 0.5);
@@ -79,6 +80,7 @@
   text-align: left;
   transition: 1s;
   z-index: 0;
+  max-height: 440px;
   &:hover {
     box-shadow: 1px 0 60px rgba($color: $rocketbutton_hover, $alpha: 0.4);
   }
@@ -89,6 +91,14 @@
 #links-user {
   display: flex;
   justify-content: center;
+}
+
+#user-descr {
+  padding: 10px;
+}
+
+#user-descr p {
+  margin-top: 20px;
 }
 
 #links-user-left {
@@ -108,4 +118,18 @@
 
 .content-wrapper{
   padding-top: 111px;
+}
+
+#social-media-dash {
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  top: 210px;
+  ul a {
+    text-decoration: none;
+    color: $rocketwhite;
+  }
+  ul i {
+    font-size: x-large;
+  }
 }
