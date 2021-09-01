@@ -26,6 +26,23 @@ function initArtworkform() {
         nextBtn.disabled = false
       }
     });
+
+    // submitBtn.addEventListener("click", (e) => {
+    //   e.preventDefault();
+      // console.log("You have click on create an artwork")
+      // Swal.fire({
+      //   title: 'Custom width, padding, background.',
+      //   width: 600,
+      //   padding: '3em',
+      //   background: '#fff url(/images/trees.png)',
+      //   backdrop: `
+      //                     rgba(0,0,123,0.4)
+      //                     url("/images/nyan-cat.gif")
+      //                     left top
+      //                     no-repeat
+      //                   `
+      // });
+    // });
   }
 
   function changeStep(button) {
