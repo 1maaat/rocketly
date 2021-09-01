@@ -38,9 +38,12 @@
   margin-left: 20px;
   letter-spacing: 1px;
 }
-// .info-challenge{
-// justify-content: space-evenly;
-// }
+.info-challenge{
+  align-items: center;
+  p {
+    margin-bottom: 0px;
+  }
+}
 
 
 .big{

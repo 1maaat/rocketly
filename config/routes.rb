@@ -9,6 +9,12 @@ Rails.application.routes.draw do
     resources :artworks, only: [:index, :show, :new, :create]
   end
 
+  resources :artworks do
+    member do
+      patch '/update_status', to: 'artworks#update_status'
+    end
+  end
+
   get 'dashboard', to: 'pages#dashboard'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -326,13 +326,18 @@ progress {
 .contrib .card-index{
   position: relative;
   width: 320px;
-  height: 450px;
+  height: 500px;
   background: $rocketblackalpha;
   border-radius: 20px;
   overflow: hidden;
   border: transparent;
   transition: 0.85s;
   margin-bottom: 16px;
+}
+
+.card-index-selected{
+  background: $rocketpurplelight !important;
+
 }
 
 .contrib .card-index:hover{
@@ -351,18 +356,16 @@ progress {
   max-width: 100%;
   max-height: 237px;
   min-height: 237px;
-
+  object-fit: cover;
 }
 
 .contrib .card-index .contentBx{
-  position: absolute;
   bottom: 0;
   height: 210px;
   text-align: center;
   // transition: 1s;
   z-index: 10;
   text-align: left;
-  margin-bottom: 10px;
   padding: 25px;
   opacity: 0.7;
 }
@@ -421,9 +424,8 @@ progress {
   background-color: #ECEAFF;
   color: $rocketdarkblue;
   border: 1px solid $rocketdarkblue;
-  margin-left: 20%;
+  margin-left: 25%;
   margin-bottom: 0.4rem;
-  margin-top: 0.4rem;
 }
 
 .artworks-input:checked + label {

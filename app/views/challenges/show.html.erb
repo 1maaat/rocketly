@@ -55,29 +55,17 @@
         </div>
       </div>
     </div>
-    <div class="div-button-add">
-    <% if @challenge.status == "in_progress" %>
-      <button id="buttonaddartwork" type="button" data-toggle="modal" data-target="#addArtwork">
-        Add an Artwork
-      </button>
-    <% end %>
-    <% if @challenge.status == "vote" && @challenge.user_id == current_user.id %>
-      <button id="buttonshareartwork" type="button" data-toggle="modal" data-target="#shareArtwork">
-        Share Artwork
-      </button>
-    <% end %>
-     </div>
     </div>
   </div>
   <% count = @challenge.artworks.count %>
   <h2 class="mt-3" style="text-align:center"><%= pluralize(count, "contribution")%></h2>
-  <div class="card-artworks-list">
+  <div class="card-artworks-list" data-controller="artwork">
       <%= form_tag selected_challenge_path(@challenge), class: "contrib", method: :post do %>
         <% @artworks.each do |artwork| %>
           <div>
-            <div class="card-index" data-toggle="modal" data-target="#artworkDetails<%= artwork.id %>" data-selected="<%= artwork.selected %>" >
-              <div class="card-index-content">
-                <div class="imgBx">
+            <div class="card-index <%= "card-index-selected" if artwork.selected == true %>" data-artwork-target="card">
+              <div class="card-index-content" data-toggle="modal" data-target="#artworkDetails<%= artwork.id %>" data-selected="<%= artwork.selected %>">
+                <div class="imgBx" >
                   <% if artwork.files.attached? %>
                     <%= cl_image_tag artwork.files.first.key %>
                   <% else %>
@@ -85,7 +73,7 @@
                   <% end %>
                 </div>
                 <div class="contentBx">
-                  <div class="info-challenge d-flex ">
+                  <div class="info-challenge d-flex">
                     <a class="author-avatar">
                       <% if artwork.user.photo.attached? %>
                         <%= cl_image_tag artwork.user.photo.key %>
@@ -95,24 +83,21 @@
                     </a>
                     <p><%= artwork.user.username %></p>
                   </div>
-                  <% if artwork.selected == true %>
                     <h2><%= artwork.title %> <i class="fas fa-check-circle"></i></h2>
-                  <% else %>
-                    <h2><%= artwork.title %></h2>
-                  <% end %>
                   <div class="size">
                     <h3><%= artwork.description.truncate(50) %></h3>
                   </div>
                 </div>
               </div>
+              <div class="card-index-action">
+                <% if @challenge.status == "vote" && @challenge.user_id == current_user.id %>
+                  <input <%= "checked" if artwork.selected == true %> type="checkbox" name="artworks[]" class="artworks-input" id="artworks_<%= artwork.id %>" value="<%= artwork.id %>" data-artwork-target="input">
+                  <%= label_tag "artworks_#{artwork.id}", "Select this Artwork", data: { action: 'click->artwork#select', artwork_id: artwork.id } %>
+                <% end %>
+              </div>
             </div>
-            <div class="card-index-action">
-              <% if @challenge.status == "vote" && @challenge.user_id == current_user.id %>
-                <%#= check_box_tag "artworks[]", artwork.id %>
-                <input type="checkbox" name="artworks[]" class="artworks-input" id="artworks_<%= artwork.id %>" value="<%= artwork.id %>">
-                <%= label_tag "artworks_#{artwork.id}", "Select this Artwork" %>
-              <% end %>
-            </div>
+
+
             <!-- Artwork Details Modal -->
             <div class="artwork-detail-modal">
               <div class="modal fade right" id="artworkDetails<%= artwork.id%>" tabindex="-1" aria-labelledby="artworkDetailsLabel" aria-hidden="true">
@@ -150,10 +135,13 @@
             </div>
           </div>
         <% end %>
-        <% if @challenge.status == "vote" && @challenge.user_id == current_user.id %>
-          <%= submit_tag :submit, id: "buttonshareartwork" %>
-        <% end %>
       <% end %>
+    <div class="share-action-bar" data-artwork-target="actionBar">
+      <p>You've selected <span><%=  @artworks.where(selected: true).count %></span> artworks</p>
+      <button id="buttonshareartwork" type="button" data-toggle="modal" data-target="#shareArtwork">
+        Share Artwork
+      </button>
+    </div>
   </div>
 </div>
 
