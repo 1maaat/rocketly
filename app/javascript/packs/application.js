@@ -35,6 +35,9 @@ import { initArtworkform } from '../components/init_artworkform.js';
 import { previewImageOnFileSelect } from '../components/files_preview.js';
 import { editAvatar } from '../components/profile_page.js';
 import { initUpdateNavbarOnScroll } from '../components/navbar.js';
+import { shareArtwork } from '../components/generate_stories';
+import { Tooltip } from "bootstrap"
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -42,6 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   editAvatar();
   initUpdateNavbarOnScroll();
+  shareArtwork();
 });
-
-import "controllers"

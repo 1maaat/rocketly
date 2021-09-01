@@ -262,9 +262,165 @@ progress {
   padding: 15px;
   padding-left: 50px;
   padding-right: 50px;
+  margin-right: 20px;
   transition: 0.2s;
   box-shadow: 1px 0 90px rgba($color: $rocketbutton_hover, $alpha: 0.1);
   &:hover {
     background-color: $rocketbutton_hover;
   }
+}
+
+#buttonshareartwork {
+  background-color: $rocketbutton;
+  font-size: 30px;
+  border-radius: 50px;
+  border-style: none;
+  color: $rocketwhite;
+  padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  transition: 0.2s;
+  box-shadow: 1px 0 90px rgba($color: $rocketbutton_hover, $alpha: 0.1);
+  &:hover {
+    background-color: $rocketbutton_hover;
+  }
+}
+
+.contrib{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 30px 0;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.contrib .card-index{
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background: $rocketblackalpha;
+  border-radius: 20px;
+  overflow: hidden;
+  border: transparent;
+  transition: 0.85s;
+  margin-bottom: 16px;
+}
+
+.contrib .card-index:hover{
+  transform: scale(1.08);
+}
+
+// .contrib .card:after{
+//   position: absolute;
+//   top: 30%;
+//   left: -20%;
+//   font-size: 12em;
+//   font-weight: 800;
+//   color: #2B2536
+// }
+
+.contrib .card-index .imgBx{
+  width: 100%;
+  height: 220px;
+  transition: 0.7s;
+}
+
+
+.contrib .card-index .imgBx img{
+  width: 100%;
+  max-width: 100%;
+  max-height: 237px;
+  min-height: 237px;
+
+}
+
+.contrib .card-index .contentBx{
+  position: absolute;
+  bottom: 0;
+  height: 210px;
+  text-align: center;
+  // transition: 1s;
+  z-index: 10;
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 25px;
+  opacity: 0.7;
+}
+
+// .contrib .card:hover .contentBx{
+//   height: 210px;
+//   background-color: transparent;
+// }
+
+.contrib .card-index .contentBx h2{
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: white;
+  margin: 0;
+  font-size: 20px;
+  margin-bottom: 2px;
+  opacity: 1;
+  padding: 0px;
+}
+
+.contrib .card-index .contentBx .size, .container .card-index .contentBx .color {
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: white;
+  padding-top: 2px;
+}
+
+// .contrib .card:hover .contentBx .size{
+//   opacity: 1;
+//   visibility: visible;
+//   transition-delay: 0.1s;
+
+// }
+
+
+.contrib .card-index .contentBx .size h3, .container .card-index .contentBx .color h3{
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-right: 10px;
+  margin-top: 5px;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+#showArtwork {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 30px 0;
+  img {
+    height: 55vh;
+  }
+}
+
+.artworks-input {
+  display: none;
+}
+.artworks-input + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 50rem;
+  padding: 0.5rem 0.7rem;
+  background-color: #ECEAFF;
+  color: $rocketdarkblue;
+  border: 1px solid $rocketdarkblue;
+  margin-left: 20%;
+  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.artworks-input:checked + label {
+  background-color: $rocketdarkblue;
+  color: white;
 }
