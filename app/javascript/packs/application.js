@@ -27,7 +27,6 @@ require('packs/social-share-button.js.erb')
 
 // External imports
 import "bootstrap";
-import "../components/sweet-alert-confirm";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,6 +35,7 @@ import { initArtworkform } from '../components/init_artworkform.js';
 import { previewImageOnFileSelect } from '../components/files_preview.js';
 import { editAvatar } from '../components/profile_page.js';
 import { initUpdateNavbarOnScroll } from '../components/navbar.js';
+// import "../components/sweet-alert-confirm";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();

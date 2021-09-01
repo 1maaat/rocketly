@@ -1,7 +1,6 @@
 import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 import Swal from "sweetalert2";
-// [...]
 
 export default class extends Controller {
   static targets = ["form", "finalSlide", "slide"]
@@ -11,7 +10,6 @@ export default class extends Controller {
 
   send(event) {
     event.preventDefault();
-    // alert("You have click on create an artwork");
     showConfirmationDialog()
     fetch(this.formTarget.action, {
       method: 'POST',
@@ -33,17 +31,19 @@ export default class extends Controller {
 
 function showConfirmationDialog() {
   Swal.fire({
+    toast: true,
+    position: 'top-end',
     title: "🎉 Well done, thank's for your contribution !🎉",
     timer: 4000,
-    width: 600,
     showConfirmButton: false,
     padding: '3em',
-    background: '#fff url(/images/trees.png)',
     backdrop: `
-    rgba(0,0,123,0.4)
-    url("/images/nyan-cat.gif")
-    left top
-    no-repeat
-    `
-  });
-};
+      rgba(0,0,123,0.1)
+      url("https://img1.picmix.com/output/stamp/normal/0/0/5/3/1503500_929b1.gif")
+      center
+      no-repeat
+      `
+    });
+  };
+
+  // url("https://sweetalert2.github.io/images/nyan-cat.gif")
