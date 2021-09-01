@@ -1,26 +1,29 @@
 .card-product {
   overflow: hidden;
-  height: 50px;
+  height: 256px;
   background: rgba(10, 6, 25, 0.5);
   backdrop-filter: blur(5px);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  width: 960px;
+  width: 340px;
   margin-top: 18px;
   margin-bottom: 18px;
   transition: 0.2s;
+  border-top-left-radius: 60px;
+  margin: auto;
     &:hover {
     box-shadow: 1px 0 15px rgba($color: $rocketbutton_hover, $alpha: 0.4);
   }
 }
 
 .card-product img {
-  height: 50px;
-  width: 50px;
+  height: 200px;
+  width: 340px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .card-product h2 {
@@ -32,11 +35,11 @@
 
 .card-product p {
   color: $rocketwhite;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.4;
   opacity: .9;
   margin-bottom: 0;
-  margin-top: 2px;
+  margin-top: 8px;
   font-weight: initial;
   text-decoration: none !important;
   &:hover,

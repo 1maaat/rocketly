@@ -1,6 +1,7 @@
 <% @artworks.each do |artwork| %>
-  <%= link_to challenge_artwork_path(artwork.challenge, artwork) do %>
+<%# <div> %>
     <div class="card-product">
+  <%= link_to challenge_artwork_path(artwork.challenge, artwork) do %>
       <div>
         <% if artwork.files.attached? %>
           <%= cl_image_tag artwork.files.first.key %>
@@ -9,6 +10,7 @@
       <div class="card-product-infos">
         <p><%= artwork.title.upcase %></p>
       </div>
-    </div>
   <% end %>
+    </div>
+<%# </div> %>
 <% end %>
