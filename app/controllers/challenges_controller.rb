@@ -37,9 +37,13 @@ class ChallengesController < ApplicationController
 
   def selected
     params["artworks"].each do |artwork_id|
-      Artwork.find(artwork_id.to_i).update(selected: true)
+      if Artwork.find(artwork_id.to_i).selected == false
+        Artwork.find(artwork_id.to_i).update(selected: true)
+      else
+        Artwork.find(artwork_id.to_i).update(selected: false)
+      end
     end
-    redirect_to challenges_path
+    redirect_to challenge_path(@challenge)
   end
 
   private
@@ -53,4 +57,9 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params[:id])
     authorize @challenge
   end
+
+  def generate_story
+
+  end
+
 end
