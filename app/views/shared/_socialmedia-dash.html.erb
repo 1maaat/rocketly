@@ -1,0 +1,27 @@
+<% if current_user.website_url != nil %>
+  <li><a href="<%= current_user.website_url %>"><i class="fas fa-globe"></i></a></li>
+<% end %>
+<% if current_user.facebook_url != nil %>
+  <li><a href="<%= current_user.facebook_url %>"><i class="fab fa-facebook"></i></a></li>
+<% end %>
+<% if current_user.twitter_url != nil %>
+  <li><a href="<%= current_user.twitter_url %>"><i class="fab fa-twitter"></i></a></li>
+<% end %>
+<% if current_user.instagram_url != nil %>
+  <li><a href="<%= current_user.instagram_url %>"><i class="fab fa-instagram"></i></a></li>
+<% end %>
+<% if current_user.spotify_url != nil %>
+  <li><a href="<%= current_user.spotify_url %>"><i class="fab fa-spotify"></i></a></li>
+<% end %>
+<% if current_user.youtube_url != nil %>
+  <li><a href="<%= current_user.youtube_url %>"><i class="fab fa-youtube"></i></a></li>
+<% end %>
+<% if current_user.dribbble_url != nil %>
+  <li><a href="<%= current_user.dribbble_url %>"><i class="fab fa-dribbble"></i></a></li>
+<% end %>
+<% if current_user.artstation_url != nil %>
+  <li><a href="<%= current_user.artstation_url %>"><i class="fab fa-artstation"></i></a></li>
+<% end %>
+<% if current_user.behance_url != nil %>
+  <li><a href="<%= current_user.behance_url %>"><i class="fab fa-behance"></i></a></li>
+<% end %>
