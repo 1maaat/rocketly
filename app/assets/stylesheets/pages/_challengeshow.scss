@@ -370,7 +370,6 @@ progress {
   opacity: 0.7;
 }
 
-
 .contrib .card-index .contentBx h2{
   position: relative;
   font-weight: 500;
@@ -435,4 +434,22 @@ progress {
 }
 .progress-text {
   text-align: center;
+}
+
+.progress-text-end {
+  color:black;
+  text-align: center;
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.div-open-title {
+  display: flex;
+  justify-content: center;
+}
+
+.open-title {
+  font-size: 35px;
 }

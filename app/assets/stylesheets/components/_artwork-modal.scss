@@ -63,6 +63,7 @@
 
   .info-modal img{
     margin-top: 10px;
+    text-align: center;
   }
 }
 
@@ -73,13 +74,17 @@
   border-bottom: 1px solid rgba($color: $rocketwhite, $alpha: 0.1) !important;
 }
 
+.modal-header {
+  justify-content: center;
+}
+
 #artwork-show {
   background-color: rgba($color: #ffffff, $alpha: 0.07);
   box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   width: 600px;
-  height: 600px;
+  height: 630px;
 }
 .step.step-1,
 .step.step-2 {
@@ -124,7 +129,8 @@
   box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
 }
 #artwork_description {
-    height: 362px;
+  max-height: 330px;
+  height: 330px;
 }
 .next-btn,
 .previous-btn {
@@ -199,4 +205,9 @@
   justify-content: space-between;
   align-items: stretch;
   width: 511.19px;
+}
+
+#text-submitted {
+  font-size: 25px;
+  text-align: center;
 }

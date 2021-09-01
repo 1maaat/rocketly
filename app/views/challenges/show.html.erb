@@ -2,8 +2,8 @@
   <div class="wrapper-challenge d-flex justify-content-around">
     <div class="cards-challenge">
       <div class="d-flex justify-content-center">
-      <% if @challenge.user = current_user %>
-        <h1>Edit my challenge</h1>
+      <% if @challenge.user == current_user %>
+        <h1>🖌 Edit my challenge</h1>
       <% else %>
         <h1 class="mb-3">Discover <%= @challenge.user.username.capitalize %>'s challenge </h1>
       <% end %>
@@ -104,9 +104,9 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                      </button>
+                      <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close"> %>
+                      <%# <span aria-hidden="true">&times;</span> %>
+                      <%# </button> %>
                     </div>
                     <h5 class="modal-title" id="artworkDetailsLabel"><%= artwork.title %></h5>
                     <div class="info-modal">
@@ -150,10 +150,10 @@
   <div class="modal-dialog">
     <div class="modal-content" id="artwork-show">
       <div class="modal-header">
-        <h5 class="modal-title" id="addArtworkLabel">Add your Artwork</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="addArtworkLabel">Contribute to the challenge</h5>
+        <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> %>
       </div>
       <div class="container">
         <%= render 'shared/artworkform', artwork: @artwork, challenge: @challenge %>
@@ -162,15 +162,16 @@
   </div>
 </div>
 
+
 <!-- Share Artwork Modal -->
 <div class="modal fade" id="shareArtwork" tabindex="-1" aria-labelledby="shareArtworkLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" id="artwork-share">
       <div class="modal-header">
         <h5 class="modal-title" id="shareArtworkLabel">Share on Instagram</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> %>
       </div>
       <div class="container" id="showArtwork">
       </div>
