@@ -326,7 +326,6 @@ progress {
 .contrib .card-index{
   position: relative;
   width: 320px;
-  height: 500px;
   background: $rocketblackalpha;
   border-radius: 20px;
   overflow: hidden;
@@ -366,7 +365,7 @@ progress {
   // transition: 1s;
   z-index: 10;
   text-align: left;
-  padding: 25px;
+  padding: 25px 25px 0px 25px;
   opacity: 0.7;
 }
 

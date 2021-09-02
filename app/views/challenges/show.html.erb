@@ -87,16 +87,16 @@
                   </div>
                   <h2><%= artwork.title %></h2>
                   <div class="size">
-                    <h3><%= artwork.description.truncate(50) %></h3>
+                    <h3><%= artwork.description.truncate(80) %></h3>
                   </div>
                 </div>
               </div>
-              <div class="card-index-action">
-                <% if @challenge.status == "vote" && @challenge.user_id == current_user.id %>
+              <% if @challenge.status == "vote" && @challenge.user_id == current_user.id %>
+                <div class="card-index-action">
                   <input <%= "checked" if artwork.selected == true %> type="checkbox" name="artworks[]" class="artworks-input" id="artworks_<%= artwork.id %>" value="<%= artwork.id %>" data-artwork-target="input">
                   <%= label_tag "artworks_#{artwork.id}", "Select this Artwork", data: { action: 'click->artwork#select', artwork_id: artwork.id } %>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
 
 
