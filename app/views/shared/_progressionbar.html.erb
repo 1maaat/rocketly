@@ -18,14 +18,14 @@
 
 <progress max="100" value="<%= value %>"> <%= value %> </progress>
 
-  <% if @challenge.end_date < Date.today %>
+  <% if @challenge.start_date < Date.today && @challenge.end_date == Date.today %>
     <p class="progress-text">Submission Closed, let's vote!</p>
     <p class="progress-text-end">100%</p>
   <% else %>
-    <% if time_left.to_i == 0 %>
-      <p class="progress-text"><strong>Last day to submit ⏰</strong></p>
-    <% else %>
+    <%# if time_left.to_i == 0 %>
+      <%# <p class="progress-text"><strong>Last day to submit ⏰</strong></p> %>
+    <%# else %>
       <p class="progress-text"><%= pluralize(time_left.to_i, "day") %> left</p>
-    <% end %>
+    <%# end %>
   <% end %>
 </div>

@@ -21,8 +21,10 @@ class Challenge < ApplicationRecord
   after_create_commit :set_status
 
   def set_status
-    if start_date <= Date.today
+    if start_date <= Date.today && end_date > Date.today
       in_progress!
+    elsif start_date < Date.today && end_date == Date.today
+      vote!
     else
       draft!
     end
