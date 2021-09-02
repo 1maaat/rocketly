@@ -1,6 +1,9 @@
 .share-action-bar {
-  background: white;
-  color: black;
+  background-color: rgba($color: #ffffff, $alpha: 0.07);
+  box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: $rocketwhite;
+  font-size: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,5 +17,8 @@
   transition: transform 0.3 ease-in-out;
   &.active {
     transform: translateY(0%);
+  }
+  p {
+    margin: 0;
   }
 }
