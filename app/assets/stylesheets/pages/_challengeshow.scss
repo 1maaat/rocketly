@@ -336,7 +336,7 @@ progress {
 
 .card-index-selected{
   background: $rocketpurplelight !important;
-
+  box-shadow: 1px 0 60px rgba($color: $rocketbutton_hover, $alpha: 0.7);
 }
 
 .contrib .card-index:hover{
