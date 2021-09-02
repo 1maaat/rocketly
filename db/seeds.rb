@@ -282,7 +282,7 @@ mat_artwork_5 = Artwork.create!(
   user_id: fan_3.id,
   challenge_id: mat_challenge.id
 )
-toy_5 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572791/rocketly_seed/4_z8dyzx.gif', unloaded_urls)
+toy_5 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572790/rocketly_seed/3_cpm7d7.gif', unloaded_urls)
 mat_artwork_5.files.attach(io: toy_5, filename: 'toy_5', content_type: 'image/gif')
 
 mat_artwork_6 = Artwork.create!(
