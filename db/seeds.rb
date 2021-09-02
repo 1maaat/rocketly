@@ -5,7 +5,7 @@
 # #
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
-# require "faker"
+require "faker"
 
 puts "Cleaning database..."
 
@@ -228,7 +228,7 @@ mat_challenge = Challenge.create!(
   description: "I'd like to have a fresh and 3D (mandatory) figurine of myself. Know that I love video games and I have a very high acceptance when it comes to laugh after myself. So please by crazy when it comes to design a toy that I would recreate in 3D if you guys are interested and happy with the final result 🔥",
   reward: "150$",
   start_date: Faker::Date.between(from: 3.days.ago, to: 5.days.ago),
-  end_date: Faker::Date.today,
+  end_date: Date.today,
   status: 2,
   user: mat
 )
