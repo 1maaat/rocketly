@@ -227,9 +227,9 @@ mat_challenge = Challenge.create!(
   name: "🧸🎨🚀 - Create a funny 3D version of myself",
   description: "I'd like to have a fresh and 3D (mandatory) figurine of myself. Know that I love video games and I have a very high acceptance when it comes to laugh after myself. So please by crazy when it comes to design a toy that I would recreate in 3D if you guys are interested and happy with the final result 🔥",
   reward: "150$",
-  start_date: Faker::Date.between(from: 3.days.ago, to: Date.today),
-  end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
-  status: 1,
+  start_date: Faker::Date.between(from: 3.days.ago, to: 5.days.ago),
+  end_date: Faker::Date.today,
+  status: 2,
   user: mat
 )
 photo_challenge_mat = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630573134/rocketly_seed/challenge_toy_lq3boq.png", unloaded_urls)
