@@ -80,7 +80,7 @@ fan_1.photo.attach(io: photo_fan_1, filename: 'profile_9', content_type: 'image/
 
 artwork_1 = Artwork.create!(
   title: "Sneaker pour JUL",
-  description: "pour mettre en Y sur la mbk",
+  description: "put en Y sur la mbk",
   selected: false,
   user_id: fan_1.id,
   challenge_id: jul_challenge.id
@@ -126,7 +126,7 @@ fan_2.photo.attach(io: photo_fan_2, filename: 'profile_3', content_type: 'image/
 
 artwork_3 = Artwork.create!(
   title: "Sneakers for my man",
-  description: "on l'appelle l'OVNI",
+  description: "call him l'OVNI",
   selected: false,
   user_id: fan_2.id,
   challenge_id: jul_challenge.id
@@ -306,47 +306,6 @@ toy_7 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572801
 mat_artwork_7.files.attach(io: toy_7, filename: 'toy_6', content_type: 'image/gif')
 
 puts "Created!"
-
-# puts "Creating 10 random users"
-
-# PHOTOS = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_10_zwkn6k.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_5_sliazq.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400036/rocketly_content/profile_4_lynilg.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_8_medpdd.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327801/rocketly_content/profile_7_ixxlfx.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327800/rocketly_content/profile_4_vzgesx.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327800/rocketly_content/profile_6_uhkkpb.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_9_qeqanu.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630399950/rocketly_content/profile_2_ephr8i.jpg',
-# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630399949/rocketly_content/profile_3_yqgbvy.jpg']
-
-# 10.times do |index|
-#   user = User.new(
-#     email: Faker::Internet.unique.email,
-#     username: Faker::Name.unique.first_name,
-#     password: "password",
-#     description: Faker::TvShows::HowIMetYourMother.quote,
-#     country: Faker::Address.country,
-#     website_url: Faker::Internet.domain_name
-#   )
-#   photo = safe_open(PHOTOS[index], unloaded_urls)
-#   user.photo.attach(io: photo, filename: user.username, content_type: 'image/jpg')
-#   user.save!
-# end
-
-# puts "10 Users created!"
-
-# Activity::ACTIVITY.each do |activity|
-#   Activity.create!(name: activity)
-# end
-
-# 50.times do
-#   user_activity = UserActivity.new(
-#     user_id: User.all.sample.id,
-#     activity_id: Activity.all.sample.id
-#   )
-#   user_activity.save!
-# end
 
 puts "Creating 6 random Challenges"
 

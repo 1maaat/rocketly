@@ -1,7 +1,7 @@
 <% total = @challenge.end_date - @challenge.start_date %>
 <% progression = Date.today - @challenge.start_date %>
 <% time_left = @challenge.end_date - Date.today %>
-<% if @challenge.end_date < Date.today %>
+<% if @challenge.end_date <= Date.today %>
   <% value = 100 %>
 <% else %>
   <% value = ((progression/total)*100).round %>
