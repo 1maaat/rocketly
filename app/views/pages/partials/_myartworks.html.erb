@@ -1,7 +1,7 @@
 <% @artworks.each do |artwork| %>
 
   <div class="card-product">
-    <%= link_to challenge_path(artwork.challenge) do %>
+    <%= link_to(challenge_path(artwork.challenge, anchor: "anchor-artwork")) do %>
       <div class="artwork-contribution">
         <% if artwork.files.attached? %>
           <%= cl_image_tag artwork.files.first.key %>
