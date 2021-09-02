@@ -307,34 +307,34 @@ mat_artwork_7.files.attach(io: toy_7, filename: 'toy_6', content_type: 'image/gi
 
 puts "Created!"
 
-puts "Creating 10 random users"
+# puts "Creating 10 random users"
 
-PHOTOS = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_10_zwkn6k.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_5_sliazq.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400036/rocketly_content/profile_4_lynilg.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_8_medpdd.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327801/rocketly_content/profile_7_ixxlfx.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327800/rocketly_content/profile_4_vzgesx.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327800/rocketly_content/profile_6_uhkkpb.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_9_qeqanu.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630399950/rocketly_content/profile_2_ephr8i.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630399949/rocketly_content/profile_3_yqgbvy.jpg']
+# PHOTOS = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_10_zwkn6k.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327803/rocketly_content/profile_5_sliazq.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400036/rocketly_content/profile_4_lynilg.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_8_medpdd.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327801/rocketly_content/profile_7_ixxlfx.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327800/rocketly_content/profile_4_vzgesx.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327800/rocketly_content/profile_6_uhkkpb.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630327802/rocketly_content/profile_9_qeqanu.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630399950/rocketly_content/profile_2_ephr8i.jpg',
+# 'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630399949/rocketly_content/profile_3_yqgbvy.jpg']
 
-10.times do |index|
-  user = User.new(
-    email: Faker::Internet.unique.email,
-    username: Faker::Name.unique.first_name,
-    password: "password",
-    description: Faker::TvShows::HowIMetYourMother.quote,
-    country: Faker::Address.country,
-    website_url: Faker::Internet.domain_name
-  )
-  photo = safe_open(PHOTOS[index], unloaded_urls)
-  user.photo.attach(io: photo, filename: user.username, content_type: 'image/jpg')
-  user.save!
-end
+# 10.times do |index|
+#   user = User.new(
+#     email: Faker::Internet.unique.email,
+#     username: Faker::Name.unique.first_name,
+#     password: "password",
+#     description: Faker::TvShows::HowIMetYourMother.quote,
+#     country: Faker::Address.country,
+#     website_url: Faker::Internet.domain_name
+#   )
+#   photo = safe_open(PHOTOS[index], unloaded_urls)
+#   user.photo.attach(io: photo, filename: user.username, content_type: 'image/jpg')
+#   user.save!
+# end
 
-puts "10 Users created!"
+# puts "10 Users created!"
 
 # Activity::ACTIVITY.each do |activity|
 #   Activity.create!(name: activity)
@@ -351,12 +351,12 @@ puts "10 Users created!"
 puts "Creating 6 random Challenges"
 
 CHALLENGES_NAME = [" 🧩⚡️👽 - Create a fake boardgame", " 🍿🎞🖥 - Create my new Youtube cover", "👾👑🏆 - Create my new Twitch emotes", "🖼⚜️💟 - Redesign my streaming setup", "💿〽️🎧 - Design my next album cover", "🕹🦸‍♂️💎 - Create my Fortnite skin"]
-PHOTOS_CHALLENGES = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400643/rocketly_content/355x310-gamebox_bb58kg.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630400914/rocketly_content/Capture_d_e%CC%81cran_2021-08-31_a%CC%80_11.05.27_qsbmwk.png',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630403083/rocketly_content/Capture_d_e%CC%81cran_2021-08-31_a%CC%80_11.43.13_jhjpiz.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630403406/rocketly_content/E6QFy5GXoAALR5Z_ktihsv.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630404705/rocketly_content/cd-disc-mixtape-album-cover-art-template-design-c4b0541e40b0cfc080268933bcadb67a_screen_un3sfa.jpg',
-'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630404704/rocketly_content/skin-fortnite_stqzjg.jpg']
+PHOTOS_CHALLENGES = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572972/rocketly_seed/challenge_boardgame_ewltsb.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630573024/rocketly_seed/challenge_youtube_cqfxop.png',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572923/rocketly_seed/challenge_twitch_asbf4c.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630574742/rocketly_seed/challenge_setup_weoknl.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572931/rocketly_seed/challenge_album_kqkbz7.jpg',
+'https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572961/rocketly_seed/challenge_skin_fortinite_ntyx5p.jpg']
 
 6.times do |index|
   challenge = Challenge.create!(
