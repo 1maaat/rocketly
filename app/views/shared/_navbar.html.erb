@@ -21,9 +21,11 @@
           <li class="nav-item active">
             <% if params[:controller] == "challenges" && params[:action] == "show"%>
               <div class="d-flex">
-                <button id="new-button-create" type="button" data-toggle="modal" data-target="#addArtwork">
-                  Contribute
-                </button>
+                <% if @challenge.status == "in_progress" %>
+                  <button id="new-button-create" type="button" data-toggle="modal" data-target="#addArtwork">
+                    Contribute
+                  </button>
+                <% end %>
                 <%= link_to  "My Dashboard", dashboard_path, class: "nav-link", id:"disable-challenge"%>
               </div>
             <% elsif params[:action] == "home" && user_signed_in? %>

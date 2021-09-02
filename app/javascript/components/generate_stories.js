@@ -2,6 +2,7 @@ const shareArtwork = () => {
   const shareButton = document.querySelector("#buttonshareartwork")
   if (shareButton) {
     shareButton.addEventListener("click", () => {
+      console.log("Hello")
       const data = {
         "template": "V4WN6JDxBENZ3Gqjkv",
         "modifications": [
@@ -41,6 +42,7 @@ const shareArtwork = () => {
         "metadata": null
       }
       const artworks = document.querySelectorAll(".card-index");
+      console.log("Hello!")
       artworks.forEach((artwork) => {
         if (artwork.dataset.selected === "true") {
           data.modifications[1].image_url = artwork.querySelector(".imgBx img").attributes.src.value;

@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = [`card`, "input", "actionBar"]
+  static targets = [`card`, "input", "actionBar", "check"]
 
   connect() {
     this.toggleActionBar();
@@ -16,14 +16,17 @@ export default class extends Controller {
 
     const response = await fetch(`/artworks/${evt.target.dataset.artworkId}/update_status`, options)
     const data = await response.json();
-
+    const title = element.parentElement.parentElement.firstElementChild.getElementsByTagName('h2')[0];
     if (data.status === 'selected') {
       document.getElementById(element.getAttribute("for")).checked = true;
       element.parentElement.parentElement.classList.add("card-index-selected")
+      title.innerHTML += ` <i class="fas fa-check-circle" data-artwork-target='check' data-id=${element.dataset.artworkId}></i>`
     }
     if (data.status === 'unselected') {
       document.getElementById(element.getAttribute("for")).checked = false;
       element.parentElement.parentElement.classList.remove("card-index-selected")
+      const icon = this.checkTargets.find(icon => icon.dataset.id === element.dataset.artworkId)
+      icon.remove()
     }
 
     this.toggleActionBar();
