@@ -7,10 +7,10 @@ export default class extends Controller {
   static targets = ["form", "finalSlide", "slide"]
   connect() {
     console.log(this.finalSlideTarget);
+    showConfirmationConfettiDialog()
   }
 
   send(event) {
-    showConfirmationConfettiDialog()
     event.preventDefault();
     fetch(this.formTarget.action, {
       method: 'POST',
@@ -34,7 +34,7 @@ function showConfirmationConfettiDialog() {
   confettiAnimation()
   Swal.fire({
     toast: true,
-    position: 'top-end',
+    position: 'top',
     title: "🎉 Well done, thank's for your contribution !🎉",
     timer: 4000,
     showConfirmButton: false,
@@ -47,47 +47,47 @@ function showConfirmationConfettiDialog() {
   });
 };
 function confettiAnimation() {
-  var duration = 15 * 1000;
-  var animationEnd = Date.now() + duration;
-  var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+  // var duration = 3 * 1000;
+  // var animationEnd = Date.now() + duration;
+  // var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: -100 };
 
-  function randomInRange(min, max) {
-    return Math.random() * (max - min) + min;
-  }
+  // function randomInRange(min, max) {
+  //   return Math.random() * (max - min) + min;
+  // }
 
-  var interval = setInterval(function () {
-    var timeLeft = animationEnd - Date.now();
+  // var interval = setInterval(function () {
+  //   var timeLeft = animationEnd - Date.now();
 
-    if (timeLeft <= 0) {
-      return clearInterval(interval);
-    }
+  //   if (timeLeft <= 0) {
+  //     return clearInterval(interval);
+  //   }
 
-    var particleCount = 250 * (timeLeft / duration);
-    // since particles fall down, start a bit higher than random
-    confetti(Object.assign({}, defaults, { particleCount, zIndex: 0, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-    confetti(Object.assign({}, defaults, { particleCount, zIndex: 0, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-  }, 250);
+  //   var particleCount = 25 * (timeLeft / duration);
+  //   // since particles fall down, start a bit higher than random
+  //   confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+  //   confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+  // }, 250);
 
 
-  var end = Date.now() + (100 * 1000);
+  var end = Date.now() + (1 * 100);
 
   // go Buckeyes!
   var colors = ['#562877', '#533CF0'];
 
   (function frame() {
     confetti({
-      particleCount: 2,
+      particleCount: 15,
       angle: 60,
-      spread: 55,
-      origin: { x: 0 },
+      spread: 100,
+      origin: { x: 0, y: 1},
       colors: colors,
       zIndex: 100000000000
     });
     confetti({
-      particleCount: 2,
+      particleCount: 15,
       angle: 120,
-      spread: 55,
-      origin: { x: 1 },
+      spread: 100,
+      origin: { x: 1, y: 1},
       colors: colors,
       zIndex: 100000000000
     });
@@ -103,16 +103,16 @@ function confettiAnimation() {
 
   confetti({
     angle: randomInRange(105, 125),
-    spread: randomInRange(50, 70),
-    particleCount: randomInRange(250, 250),
+    spread: randomInRange(5000, 7000),
+    particleCount: randomInRange(60, 90),
     origin: { y: 0.6 },
     zIndex: 100000000000
   });
 
   confetti({
     angle: randomInRange(55, 75),
-    spread: randomInRange(50, 70),
-    particleCount: randomInRange(250, 250),
+    spread: randomInRange(5000, 7000),
+    particleCount: randomInRange(60, 90),
     origin: { x: 0.5 },
     zIndex: 100000000000
   });
