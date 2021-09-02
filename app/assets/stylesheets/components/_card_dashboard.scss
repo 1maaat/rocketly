@@ -1,5 +1,6 @@
 .card-product {
   overflow: hidden;
+  position: relative;
   height: 256px;
   background: rgba(10, 6, 25, 0.5);
   backdrop-filter: blur(5px);
@@ -23,6 +24,7 @@
   width: 340px;
   object-fit: cover;
   border-radius: 10px;
+  z-index: 1;
 }
 
 .card-product h2 {
@@ -51,4 +53,45 @@
 .card-product .card-product-infos {
   flex-grow: 1;
   text-align: center;
+}
+
+#name-challenge {
+  position: absolute;
+  top: 50%;
+  opacity: 0;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  &:hover + #empty-opacity {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+  }
+}
+
+#date-challenge {
+  font-size: 13px;
+}
+
+
+#empty-opacity {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 0;
+  &:hover {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+  }
+}
+
+.artwork-contribution {
+  position: relative;
+  z-index: 0;
+  &:hover #name-challenge {
+    opacity: 1;
+  }
 }

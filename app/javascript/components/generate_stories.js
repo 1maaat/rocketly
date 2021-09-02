@@ -2,6 +2,7 @@ const shareArtwork = () => {
   const shareButton = document.querySelector("#buttonshareartwork")
   if (shareButton) {
     shareButton.addEventListener("click", () => {
+      console.log("Hello")
       const data = {
         "template": "V4WN6JDxBENZ3Gqjkv",
         "modifications": [
@@ -41,12 +42,11 @@ const shareArtwork = () => {
         "metadata": null
       }
       const artworks = document.querySelectorAll(".card-index");
+      console.log("Hello!")
       artworks.forEach((artwork) => {
-        let count = 0
-        if (artwork.dataset.selected === "true" && count === 0) {
+        if (artwork.dataset.selected === "true") {
           data.modifications[1].image_url = artwork.querySelector(".imgBx img").attributes.src.value;
           data.modifications[3].text = artwork.querySelector(".info-challenge p").innerText;
-          console.log("Hello")
           fetch('https://sync.api.bannerbear.com/v2/images', {
             method: 'POST',
             body: JSON.stringify(data),
@@ -60,7 +60,6 @@ const shareArtwork = () => {
               story.setAttribute("src", data.image_url_png);
               document.getElementById("showArtwork").appendChild(story);
             });
-          count += 1
         }
       });
     });

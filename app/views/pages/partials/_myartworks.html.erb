@@ -1,14 +1,19 @@
 <% @artworks.each do |artwork| %>
-    <div class="card-product">
-  <%= link_to challenge_path(artwork.challenge) do %>
+
+  <div class="card-product">
+    <%= link_to challenge_path(artwork.challenge) do %>
       <div>
         <% if artwork.files.attached? %>
           <%= cl_image_tag artwork.files.first.key %>
         <% end %>
+        <div id="name-challenge">
+        <p><%= artwork.challenge.name %></p>
+        <p id="date-challenge">Submitted on:  <%= artwork.challenge.updated_at.strftime("%d/%m/%Y") %></p></div>
+        <div id="empty-opacity"></div>
       </div>
       <div class="card-product-infos">
         <p><%= artwork.title.upcase %></p>
       </div>
-  <% end %>
-    </div>
+    <% end %>
+   </div>
 <% end %>

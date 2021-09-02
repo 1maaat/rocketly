@@ -123,7 +123,7 @@
   font-size: 20px;
   margin-bottom: 2px;
   opacity: 1;
-  padding: 0px;
+  padding-top: 18px;
 }
 
 .big .card-index .contentBx .size, .container .card-index .contentBx .color {
@@ -162,4 +162,8 @@
   justify-content: left;
   margin-bottom: 40px;
   padding-left: 30px;
+}
+
+.card-index-action {
+  margin-bottom: 12px;
 }
