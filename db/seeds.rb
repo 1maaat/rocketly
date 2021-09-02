@@ -323,8 +323,7 @@ PHOTOS_CHALLENGES = ['https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572
     description: Faker::Movies::BackToTheFuture.quote,
     reward: "#{rand(100..10_000)}$",
     start_date: Faker::Date.between(from: 3.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 1.day.ago, to: 5.days.from_now),
-    status: [0, 1, 2, 3].sample,
+    end_date: Faker::Date.between(from: 2.days.from_now, to: 5.days.from_now),
     user_id: User.all.sample.id
   )
   photo_ch = safe_open(PHOTOS_CHALLENGES[index], unloaded_urls)
