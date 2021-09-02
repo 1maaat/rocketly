@@ -1,5 +1,4 @@
 <% @artworks.each do |artwork| %>
-<%# <div> %>
     <div class="card-product">
   <%= link_to challenge_artwork_path(artwork.challenge, artwork) do %>
       <div>
@@ -12,5 +11,4 @@
       </div>
   <% end %>
     </div>
-<%# </div> %>
 <% end %>

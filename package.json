@@ -12,6 +12,7 @@
     "coffeescript": "1.12.7",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
+    "promise": "^8.1.0",
     "rails-erb-loader": "^5.5.2",
     "stimulus": "^2.0.0",
     "sweetalert2": "^9.10.11",
