@@ -123,9 +123,9 @@
   padding: 10px 20px;
   margin-right: 15px;
   margin-left: 15px;
-  opacity: 0.75;
+  opacity: 1;
   &:hover{
-    opacity: 1;
+    opacity: 0.65;
   }
 }
 
@@ -134,9 +134,9 @@
   border: 1px solid white;
   border-radius: 20px;
   padding: 10px 20px;
-  opacity: 0.75;
+  opacity: 1;
   &:hover{
-    opacity: 1;
+    opacity: 0.65;
   }
 }
 
