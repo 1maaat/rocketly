@@ -148,9 +148,6 @@
     <div class="modal-content" id="artwork-show">
       <div class="modal-header">
         <h5 class="modal-title" id="addArtworkLabel">Contribute to the challenge</h5>
-        <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> %>
       </div>
       <div class="container">
         <%= render 'shared/artworkform', artwork: @artwork, challenge: @challenge %>
@@ -163,15 +160,13 @@
 <!-- Share Artwork Modal -->
 <div class="modal fade" id="shareArtwork" tabindex="-1" aria-labelledby="shareArtworkLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" id="artwork-share">
+    <div class="modal-content" id="artwork-share" data-controller="download">
       <div class="modal-header">
         <h5 class="modal-title" id="shareArtworkLabel">Share on Instagram</h5>
-        <%# <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> %>
       </div>
       <div class="container" id="showArtwork">
       </div>
+      <p class="d-flex justify-content-center">Click on image to Download</p>
     </div>
   </div>
 </div>

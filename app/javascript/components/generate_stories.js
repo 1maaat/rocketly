@@ -1,14 +1,56 @@
+const createDownloadLink = (link) => {
+  var image = new Image();
+  image.crossOrigin = "anonymous";
+  image.src = link;
+  // get file name - you might need to modify this if your image url doesn't contain a file extension otherwise you can set the file name manually
+  var fileName = "story";
+  image.onload = function () {
+    var canvas = document.createElement('canvas');
+    canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
+    canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
+    canvas.getContext('2d').drawImage(this, 0, 0);
+    var blob;
+    // ... get as Data URI
+    if (image.src.indexOf(".jpg") > -1) {
+      blob = canvas.toDataURL("image/jpeg");
+    } else if (image.src.indexOf(".png") > -1) {
+      blob = canvas.toDataURL("image/png");
+    } else if (image.src.indexOf(".gif") > -1) {
+      blob = canvas.toDataURL("image/gif");
+    } else {
+      blob = canvas.toDataURL("image/png");
+    }
+    const anchor = document.createElement("a");
+    const story = document.createElement("img");
+    anchor.setAttribute("href", blob);
+    anchor.setAttribute("download", fileName);
+    story.setAttribute("src", blob);
+    document.getElementById("showArtwork").appendChild(anchor).appendChild(story);
+  };
+}
+
+
+
 const shareArtwork = () => {
   const shareButton = document.querySelector("#buttonshareartwork")
   if (shareButton) {
     shareButton.addEventListener("click", () => {
-      console.log("Hello")
       const data = {
-        "template": "V4WN6JDxBENZ3Gqjkv",
+        "template": "PowdyxbdE81ZlYBAgQ",
         "modifications": [
           {
-            "name": "powered by",
-            "text": "powered by Rocketly",
+            "name": "instapoll_bg",
+            "color": null
+          },
+          {
+            "name": "instapoll_placeholder",
+            "text": "InstaPoll Placeholder",
+            "color": null,
+            "background": null
+          },
+          {
+            "name": "powered_by",
+            "text": "powered by Rocketly.cool",
             "color": null,
             "background": null
           },
@@ -21,18 +63,8 @@ const shareArtwork = () => {
             "color": null
           },
           {
-            "name": "artist_name-top",
+            "name": "artist_name_top",
             "text": "You can change this text",
-            "color": null,
-            "background": null
-          },
-          {
-            "name": "poll_placeholder",
-            "color": null
-          },
-          {
-            "name": "text_container_8",
-            "text": "Insta Poll Placeholder",
             "color": null,
             "background": null
           }
@@ -42,23 +74,20 @@ const shareArtwork = () => {
         "metadata": null
       }
       const artworks = document.querySelectorAll(".card-index");
-      console.log("Hello!")
       artworks.forEach((artwork) => {
         if (artwork.dataset.selected === "true") {
-          data.modifications[1].image_url = artwork.querySelector(".imgBx img").attributes.src.value;
-          data.modifications[3].text = artwork.querySelector(".info-challenge p").innerText;
+          data.modifications[3].image_url = artwork.querySelector(".imgBx img").attributes.src.value;
+          data.modifications[5].text = artwork.querySelector(".info-challenge p").innerText;
           fetch('https://sync.api.bannerbear.com/v2/images', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer Z8gCSusJGDcxaUnxnGlyiwtt`
+              'Authorization': `Bearer X4PzwFZxOvKmNWRxKMNu2gtt`
             }
           }).then(response => response.json())
             .then((data) => {
-              const story = document.createElement("img");
-              story.setAttribute("src", data.image_url_png);
-              document.getElementById("showArtwork").appendChild(story);
+              createDownloadLink(data.image_url_png)
             });
         }
       });

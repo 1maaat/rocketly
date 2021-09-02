@@ -401,16 +401,6 @@ progress {
   opacity: 0.7;
 }
 
-#showArtwork {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-  padding: 30px 0;
-  img {
-    height: 55vh;
-  }
-}
-
 .artworks-input {
   display: none;
 }
