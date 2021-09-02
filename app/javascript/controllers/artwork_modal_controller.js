@@ -10,8 +10,8 @@ export default class extends Controller {
   }
 
   send(event) {
-    showConfirmationConfettiDialog()
     event.preventDefault();
+    showConfirmationConfettiDialog()
     fetch(this.formTarget.action, {
       method: 'POST',
       headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken() },
@@ -35,7 +35,7 @@ function showConfirmationConfettiDialog() {
     toast: true,
     position: 'top',
     title: "🎉 Well done, thank's for your contribution !🎉",
-    timer: 4000,
+    timer: 2000,
     showConfirmButton: false,
     padding: '3em',
     backdrop: `
@@ -75,18 +75,18 @@ function confettiAnimation() {
 
   (function frame() {
     confetti({
-      particleCount: 15,
+      particleCount: 70,
       angle: 60,
-      spread: 100,
-      origin: { x: 0, y: 1},
+      spread: 200,
+      origin: { x: 0 },
       colors: colors,
       zIndex: 100000000000
     });
     confetti({
-      particleCount: 15,
+      particleCount: 70,
       angle: 120,
-      spread: 100,
-      origin: { x: 1, y: 1},
+      spread: 200,
+      origin: { x: 1 },
       colors: colors,
       zIndex: 100000000000
     });
