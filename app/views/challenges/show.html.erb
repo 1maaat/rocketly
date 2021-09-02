@@ -63,8 +63,8 @@
       <%= form_tag selected_challenge_path(@challenge), class: "contrib", method: :post do %>
         <% @artworks.each do |artwork| %>
           <div>
-            <div class="card-index <%= "card-index-selected" if artwork.selected == true %>" data-artwork-target="card">
-              <div class="card-index-content" data-toggle="modal" data-target="#artworkDetails<%= artwork.id %>" data-selected="<%= artwork.selected %>">
+            <div class="card-index <%= "card-index-selected" if artwork.selected == true %>" data-artwork-target="card" data-selected="<%= artwork.selected %>">
+              <div class="card-index-content" data-toggle="modal" data-target="#artworkDetails<%= artwork.id %>">
                 <div class="imgBx" >
                   <% if artwork.files.attached? %>
                     <%= cl_image_tag artwork.files.first.key %>

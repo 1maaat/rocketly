@@ -36,7 +36,6 @@ import { previewImageOnFileSelect } from '../components/files_preview.js';
 import { editAvatar } from '../components/profile_page.js';
 import { initUpdateNavbarOnScroll } from '../components/navbar.js';
 import { shareArtwork } from '../components/generate_stories';
-import { selectArtwork } from '../components/select_artwork';
 import { Tooltip } from "bootstrap"
 // import "../components/sweet-alert-confirm";
 
@@ -48,5 +47,4 @@ document.addEventListener('turbolinks:load', () => {
   editAvatar();
   initUpdateNavbarOnScroll();
   shareArtwork();
-  selectArtwork();
 });

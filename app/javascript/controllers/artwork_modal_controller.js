@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 export default class extends Controller {
   static targets = ["form", "finalSlide", "slide"]
   connect() {
-    console.log(this.finalSlideTarget);
   }
 
   send(event) {
@@ -22,7 +21,6 @@ export default class extends Controller {
         slide.classList.remove("stepactive")
       });
       this.finalSlideTarget.classList.add("stepactive");
-      console.log()
       this.finalSlideTarget.innerHTML = data.sharehtml;
     });
 
