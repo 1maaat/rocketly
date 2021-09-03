@@ -1,3 +1,5 @@
+const uploadFilesBtn = document.querySelector(".upload-files");
+
 const previewImageOnFileSelect = () => {
   // we select the photo input
   const input = document.getElementById('files-input');
@@ -6,6 +8,7 @@ const previewImageOnFileSelect = () => {
     input.addEventListener('change', () => {
       // we call the displayPreview function (who retrieve the image url and display it)
       displayPreview(input);
+      uploadFilesBtn.style.display = "none"
     })
   }
 }
