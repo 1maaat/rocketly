@@ -38,7 +38,7 @@ User.create!(
 )
 
 # Start Jul challenge creation + profile + fans' profiles + artworks
-puts "Creating Jul's profile, his sneaker challenge + 3 fans + 6 artworks"
+puts "Creating Jul's profile, his sneaker challenge + 3 fans + 7 artworks"
 
 jul = User.create!(
   email: "jul@jul.fr",
@@ -203,9 +203,59 @@ artwork_6 = Artwork.create!(
 sneaker_6 = safe_open('https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572834/rocketly_seed/sneaker6_uxvqtj.gif', unloaded_urls)
 artwork_6.files.attach(io: sneaker_6, filename: 'sneaker_6', content_type: 'image/gif')
 
+artwork_7 = Artwork.create!(
+  title: "Jul shoes to the moon",
+  description: "You gonna love it as much as you love your motorbike",
+  selected: false,
+  user_id: fan_3_b.id,
+  challenge_id: jul_challenge.id
+)
+sneaker_7 = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630658937/rocketly_seed/sneaker_8_ysagre.gif", unloaded_urls)
+artwork_7.files.attach(io: sneaker_7, filename: 'sneaker_7', content_type: 'image/gif')
+
 puts "Created!"
 
 # End Jul challenge creation + profile + fans' profiles + artworks
+# Start 10 random profiles who whill contributes with 40 fake artworks  (no images) the Jul's challenge
+
+50.times do
+  user_random = User.create!(
+    email: Faker::Internet.email,
+    username: Faker::Name.first_name,
+    password: "password",
+    description: Faker::TvShows::HowIMetYourMother.quote,
+    country: Faker::Address.country,
+    website_url: Faker::Internet.url,
+    twitter_url: Faker::Internet.url,
+    instagram_url: Faker::Internet.url,
+    youtube_url: Faker::Internet.url,
+    artstation_url: Faker::Internet.url
+  )
+  photo_random = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630659780/rocketly_seed/anonymous_wvijau.jpg", unloaded_urls)
+  user_random.photo.attach(io: photo_random, filename: 'photo_random', content_type: 'image/jpg')
+  user_random.save!
+end
+
+puts "50 random profiles created"
+
+puts "Create 40 fake contributions to JUL challenge"
+
+40.times do
+  artwork = Artwork.new(
+    title: Faker::JapaneseMedia::Naruto.demon,
+    description: Faker::JapaneseMedia::OnePiece.quote,
+    selected: false,
+    user_id: User.all.sample.id,
+    challenge_id: jul_challenge.id,
+  )
+  photo_random_sneaker = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630660143/rocketly_seed/sneaker_random_gzftmz.gif", unloaded_urls)
+  artwork.files.attach(io: photo_random_sneaker, filename: 'photo_random_sneaker', content_type: 'image/gif')
+  artwork.save!
+end
+
+puts "40 Artworks created!"
+
+# End the fake contributions to Jul's challenge
 # Start Mat challenge creation + profile + fans' profiles + artworks
 
 puts "Creating Mat's profile, his toy challenge + 7 artworks"

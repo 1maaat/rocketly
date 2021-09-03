@@ -13,8 +13,9 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    @artworks = @challenge.artworks
-    @users = @artworks.select(:user_id).distinct
+    @artworks = @challenge.artworks.sort{|a, b| a.id <=> b.id}
+    @users = @artworks.map(&:user_id).uniq
+    @selected = @artworks.select{|art| art.selected}
     @artwork = Artwork.new
   end
 
