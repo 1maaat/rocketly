@@ -35,16 +35,39 @@ const shareArtwork = () => {
   const shareButton = document.querySelector("#buttonshareartwork")
   if (shareButton) {
     shareButton.addEventListener("click", () => {
+      const div = document.createElement("div")
+      div.className = "d-flex justify-content-center";
+      const spinner = document.createElement("div")
+      spinner.className = "sk-plane";
+      spinner.setAttribute("id", "spinner")
+      div.appendChild(spinner)
+      document.getElementById("showArtwork").appendChild(div)
       const data = {
-        "template": "PowdyxbdE81ZlYBAgQ",
+        "template": "RGlOVA5Rvjj5nPgXwE",
         "modifications": [
           {
-            "name": "instapoll_bg",
+            "name": "rectangle_9",
             "color": null
           },
           {
-            "name": "instapoll_placeholder",
-            "text": "InstaPoll Placeholder",
+            "name": "overlay",
+            "color": null
+          },
+          {
+            "name": "rectangle_7",
+            "color": null
+          },
+          {
+            "name": "artwork_top",
+            "image_url": "https://cdn.bannerbear.com/sample_images/welcome_bear_photo.jpg"
+          },
+          {
+            "name": "rectangle_6",
+            "color": null
+          },
+          {
+            "name": "artist_name_top",
+            "text": "You can change this text",
             "color": null,
             "background": null
           },
@@ -55,16 +78,12 @@ const shareArtwork = () => {
             "background": null
           },
           {
-            "name": "artwork_top",
-            "image_url": "https://cdn.bannerbear.com/sample_images/welcome_bear_photo.jpg"
-          },
-          {
-            "name": "artist_bg_top",
+            "name": "rectangle_8",
             "color": null
           },
           {
-            "name": "artist_name_top",
-            "text": "You can change this text",
+            "name": "text_container_9",
+            "text": "InstaPoll Placeholder",
             "color": null,
             "background": null
           }
@@ -83,11 +102,15 @@ const shareArtwork = () => {
             body: JSON.stringify(data),
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer X4PzwFZxOvKmNWRxKMNu2gtt`
+              'Authorization': `Bearer HV7r6THeKuqTCQbWVRl5aAtt`
             }
           }).then(response => response.json())
             .then((data) => {
-              createDownloadLink(data.image_url_png)
+              const spinnerElement = document.getElementById("spinner")
+              if (typeof(spinnerElement) != 'undefined' && spinnerElement != null) {
+                document.getElementById("spinner").remove()
+              }
+              createDownloadLink(data.image_url_png);
             });
         }
       });
