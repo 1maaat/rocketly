@@ -172,7 +172,7 @@ fan_3.photo.attach(io: photo_fan_3, filename: 'profile_2', content_type: 'image/
 
 artwork_5 = Artwork.create!(
   title: "JUL sneakers Genesis",
-  description: "Check this out bro",
+  description: "tes feet en Y cousin",
   selected: false,
   user_id: fan_3.id,
   challenge_id: jul_challenge.id
