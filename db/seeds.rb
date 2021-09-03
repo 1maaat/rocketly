@@ -216,9 +216,9 @@ mat = User.create!(
   password: "password",
   description: "Hi there 👋, I'm small creator mainly operating on Youtube and Twitch. Here to enhance my fans creativity. Feel free to suggest artworks to the current challenges. Happy to have a chat, just reach out 🍻",
   country: "France 🇫🇷",
-  website_url: "mat.pizza",
+  website_url: "https://y.at/%F0%9F%91%BD%F0%9F%92%AF%F0%9F%91%BD%F0%9F%92%AF%E2%9D%97",
   twitter_url: "https://twitter.com/1maaaat",
-  youtube_url: "randomurl"
+  youtube_url: "https://www.youtube.com/watch?v=Gcg__eDktgY"
 )
 photo_mat = safe_open("https://res.cloudinary.com/dnh5m7rqh/image/upload/v1630572991/rocketly_seed/mat_profile_2_tvvzpv.jpg", unloaded_urls)
 mat.photo.attach(io: photo_mat, filename: 'profile_mat', content_type: 'image/jpg')
