@@ -98,6 +98,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
+  height: 549px;
   h1 {
     text-align: center;
   }
@@ -107,6 +108,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
+  height: 549px;
   h1 {
     text-align: center;
   }
@@ -114,11 +116,16 @@
 #div_photo {
   margin: auto;
   text-align: center;
+  height: 563px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 #photo-preview {
-  height: 350px;
   img {
     border-radius: 15px;
+    margin-bottom: 56px;
+    flex-grow: 1;
   }
 }
 #artwork_title,
@@ -128,10 +135,14 @@
   backdrop-filter: blur(15px);
   background-color: rgba($color: #ffffff, $alpha: 0.07);
   box-shadow: 1px 0 13px rgba(255, 255, 255, 0.1);
+  &::placeholder {
+    color: #bdc7d1;
+    font-style: italic;
+  }
 }
 #artwork_description {
-  max-height: 330px;
-  height: 330px;
+  max-height: 361px;
+  height: 361px;
 }
 .next-btn,
 .previous-btn {
@@ -211,4 +222,25 @@
 #text-submitted {
   font-size: 25px;
   text-align: center;
+  font-weight: 200;
+}
+
+#height-modal {
+  flex-grow: 1;
+}
+
+.form-group.artwork_description {
+  flex-grow: 1;
+}
+
+.form-group.artwork_files {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.upload-files {
+  margin-bottom: 0;
 }
