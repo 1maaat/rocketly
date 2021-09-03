@@ -6,7 +6,6 @@ import confetti from 'canvas-confetti';
 export default class extends Controller {
   static targets = ["form", "finalSlide", "slide"]
   connect() {
-    console.log(this.finalSlideTarget);
   }
 
   send(event) {
